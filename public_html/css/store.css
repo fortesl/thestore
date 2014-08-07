@@ -1,0 +1,26 @@
+.xymargin{
+    margin-top: 1.8em;
+    margin-bottom: 1em;
+}
+.ng-invalid.ng-dirty {
+    border-color: #FA787E;
+}
+.ng-valid.ng-dirty {
+    border-color: #78FA89;
+}
+.slide {
+    height:250px;
+    background-size: 100% 100%;
+    background-image: none;
+    background-color:#cccccc;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.odd {
+    background-color:#f8f8f8    
+}
+
+.center {
+    float: none;
+}

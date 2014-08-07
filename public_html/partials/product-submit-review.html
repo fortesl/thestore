@@ -1,0 +1,41 @@
+
+                            <p>Submit a Review</p>
+                            <form name="reviewForm" ng-submit="reviewForm.$valid && reviewCtrl.addReview(productCtrl.product)" novalidate>
+                                <blockquote ng-show="reviewCtrl.review.stars">
+                                    <strong>{{reviewCtrl.review.stars}} Stars</strong>
+                                    {{reviewCtrl.review.body}}
+                                    <cite class="clearfix">-{{reviewCtrl.review.author}} on {{review.createdOn | date}}</cite>
+                                </blockquote>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3">
+                                        <fieldset class="form-group">
+                                            <select ng-model="reviewCtrl.review.stars" class="form-control" ng-options="stars for stars in reviewCtrl.starSystem" title="Stars" required>
+                                                <option value="">Rate the Product</option>  
+                                            </select>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <fieldset class="form-group">
+                                            <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review" title="review" required></textarea>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <fieldset class="form-group">
+                                            <input type="email" ng-model="reviewCtrl.review.author" class="form-control" placeholder="Author email address" title="author" required>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-2">
+                                        <fieldset class="form-group">
+                                            <input ng-show="reviewForm.$valid" class="btn btn-primary pull-right" type="submit" value="Submit Review"/>
+                                            <input ng-show="!reviewForm.$valid" class="btn btn-primary pull-right" type="submit" value="Submit Review" disabled />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- end reviewForm -->

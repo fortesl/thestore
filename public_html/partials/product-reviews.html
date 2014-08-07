@@ -1,0 +1,16 @@
+                            <div class="panel-heading">
+                                <h4>Reviews</h4>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li ng-repeat="review in productCtrl.product.reviews">
+                                        <blockquote>
+                                            <strong>{{review.stars}} Stars</strong>
+                                            {{review.body}}
+                                            <cite class="clearfix">—{{review.author}} on {{review.createdOn | date}}</cite>
+                                        </blockquote>
+                                    </li>
+                                </ul>
+                            </div>
+                            <product-submit-review></product-submit-review>
+                                

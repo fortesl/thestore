@@ -1,0 +1,13 @@
+                    <section class="xymargin">
+                        <ul class="nav nav-pills">
+                            <li ng-class="{active:panel.isSelected(1)}"> <a href ng-click="panel.selectTab(1)">Description</a></li>
+                            <li ng-class="{active:panel.isSelected(2)}"> <a href ng-click="panel.selectTab(2)">Specifications</a></li>
+                            <li ng-class="{active:panel.isSelected(3)}"> <a href ng-click="panel.selectTab(3)">Reviews</a></li>
+                        </ul>
+                        <div class="panel" ng-show="panel.isSelected(1)" product-description>
+                        </div>
+                        <div class="panel" ng-show="panel.isSelected(2)" product-specs>
+                        </div>
+                        <div class="panel" ng-show="panel.isSelected(3)" product-reviews>
+                        </div>
+                    </section>

@@ -1,0 +1,17 @@
+{
+        "id": "Zircon",
+        "name":"Zircon",
+        "description":"Zircon is our most coveted and sought after gem. You will pay much to be the proud owner of this gorgeous and high shine gem.",
+        "shine":70,
+        "price":1100,
+        "rarity":2,
+        "color":"#000",
+        "faces":6,
+        "images":["images/Penguins.jpg","images/Tulips.jpg","images/horse.jpg"],
+        "reviews":
+            [
+                {"stars":1,"body":"This gem is WAY too expensive for its rarity value.","author":"turtleguyy@example.org","createdOn":1397490980837},
+                {"stars":1,"body":"BBW: High Shine != High Quality.","author":"LouisW407@example.org","createdOn":1397490980837},
+                {"stars":1,"body":"Don't waste your rubles!","author":"nat@example.org","createdOn":1397490980837}
+            ]
+}

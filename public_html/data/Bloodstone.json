@@ -1,0 +1,16 @@
+{
+        "id": "Bloodstone",
+        "name":"Bloodstone",
+        "description":"Origin of the Bloodstone is unknown, hence its low value. It has a very high shine and 12 sides, however.",
+        "shine":9,
+        "price":22.9,
+        "rarity":6,
+        "color":"#EEE",
+        "faces":12,
+        "images":["images/Jellyfish.jpg","images/Koala.jpg","images/Lighthouse.jpg"],
+        "reviews":
+            [
+                {"stars":3,"body":"I think this gem was just OK, could honestly use more shine, IMO.","author":"JimmyDean@example.org","createdOn":1397490980837},
+                {"stars":4,"body":"Any gem with 12 faces is for me!","author":"gemsRock@example.org","createdOn":1397490980837}
+            ]
+}
