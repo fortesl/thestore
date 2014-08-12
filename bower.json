@@ -1,0 +1,25 @@
+{
+  "name": "Angular Store",
+  "version": "0.0.0",
+  "description": "An angular jewlery store",
+  "main": "?",
+  "authors": [
+    "Luis Fortes"
+  ],
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public_html/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.2.0",
+    "angular": "~1.2.21",
+    "angular-route": "~1.2.21"
+  }
+}
