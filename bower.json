@@ -1,5 +1,5 @@
 {
-  "name": "Angular Store",
+  "name": "TheStore",
   "version": "0.0.0",
   "description": "An angular jewlery store",
   "main": "?",
@@ -12,7 +12,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "public_html/vendor",
+    "src/vendor",
     "test",
     "tests"
   ],

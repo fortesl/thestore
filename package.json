@@ -1,5 +1,5 @@
 {
-  "name": "TheStore",
+  "name": "thestore",
   "version": "0.0.0",
   "description": "An online store built on Angular and Bootstrap technologies",
   "main": "index.js",
@@ -10,7 +10,8 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "public_html/vendor",
+    "src/vendor",
+    "build/vendor",
     "test",
     "tests"
   ],
