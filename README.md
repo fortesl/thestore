@@ -1,4 +1,4 @@
-AngularStore
+TheStore
 ============
 
-Bootstrap and Angular store
+An online store built on Bootstrap and Angular technologies
