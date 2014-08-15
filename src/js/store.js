@@ -1,6 +1,6 @@
-"use strict";
-
 (function() {
+    "use strict";
+
     var app = angular.module('store', ['store-products']);
     
     app.controller('StoreController', ['$http', function($http) {

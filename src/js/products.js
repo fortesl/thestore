@@ -1,6 +1,6 @@
-"use strict";
-
 (function() {
+    "use strict";
+
     var app = angular.module('store-products', []);
     
     app.directive('productSubmitReview', function() {
