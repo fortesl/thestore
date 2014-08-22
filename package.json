@@ -39,7 +39,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fortesl/AngularStore.git"
+    "url": "https://github.com/fortesl/thestore.git"
   },
   "keywords": [
     "Luis",
@@ -55,7 +55,7 @@
   "author": "Luis Fortes",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fortesl/AngularStore/issues"
+    "url": "https://github.com/fortesl/thestore/issues"
   },
-  "homepage": "https://github.com/fortesl/AngularStore"
+  "homepage": "https://github.com/fortesl/thestore"
 }
