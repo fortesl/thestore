@@ -1,5 +1,6 @@
 var fs = require('fs');
 module.exports = function(grunt) {
+    "use strict";
     //load npmtask
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -7,47 +8,53 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    
+    grunt.loadNpmTasks('grunt-jsonmin');
+    grunt.loadNpmTasks('grunt-contrib-concat-sourcemaps');
+    grunt.loadNpmTasks('grunt-processhtml');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+
     //configure task
     grunt.initConfig({
-       uglify: {
-           options: {
-               mangle: true,
-               preserveComments: false,
-               compress: {drop_console: true}
-           },
-           target1: {
-               files: [
-                   {
-                       expand: true,
-                       cwd: 'src/js',
-                       src: ['**/*.js'], 
-                       dest: 'build/js/'
-                   }
-               ]
+       concat: {
+           build: {
+               dest: 'src/js/thestore.js',
+               src: ['src/js/app.js', 'src/js/store.js', 'src/js/products.js']
+           }
+       },
+       processhtml: {
+           build: {
+               files: {'build/tmp/index.html': ['src/index.html']}
+           }
+       },
+       jsonmin: {
+           data: {
+               files: [ {expand: true, cwd: 'src/data', src: ['**/*.json'], dest: 'build/data/'} ]
            }
        },
        cssmin: {
-           target1: {
-               files: [
-                   {src: 'src/css/*.css', dest: 'build/css/thestore.css'}
-               ]
+           thestore: {
+               files: {
+                   'build/css/thestore.min.css': ['src/css/*.css']
+               }
            }
        },
        htmlmin: {
-           target1: {
-               options: {
-                   removeComments: true,
-                   collapseWhitespace: true
-               },
+           options: {
+                removeComments: true,
+                collapseWhitespace: true
+           },
+           allhtml: {
                 expand: true,
                 cwd: 'src/',
                 src: ['**/*.html'],
                 dest: 'build/'
+           },
+           index: {
+               files: {'build/index.html': ['build/tmp/index.html']}
            }
        },
        imagemin: {
-           target1: {
+           images: {
                files: [
                    {
                     expand: true,
@@ -64,36 +71,66 @@ module.exports = function(grunt) {
                    {
                     expand:true, 
                     cwd: 'src/vendor',
-                    src: ['**/*.min.*', '**/dist/fonts/*'], 
+                    src: ['**/*.{js,css,map}', '**/dist/fonts/*'], 
                     dest: 'build/vendor/'
-                   }
-               ]
-           },
-           data: {
-               files: [
-                   {
-                    expand:true, 
-                    cwd: 'src/data',
-                    src: ['**/*'], 
-                    dest: 'build/data/'
                    }
                ]
            }
        },
+       jshint: {
+            options: {
+                  curly: true,
+                  eqeqeq: true,
+                  eqnull: true,
+                  browser: true,
+                  undef: true,
+                  unused: true,
+                  strict: true,
+                  globals: {
+                    jQuery: true,
+                    angular: true,
+                    require: true,
+                    module: true
+                  }
+            },
+            all: ['gruntfile.js', 'src/js/**/*.js']
+       },
+       uglify: {
+           options: {
+               mangle: true,
+               preserveComments: false,
+               compress: {drop_console: true}
+           },
+           js: {
+               files: {'build/js/thestore.min.js': ['src/js/thestore.js']}
+           }
+       },
        clean: {
-           build: ["build"]
+           build: ["build"],
+           tmp: ['build/tmp', 'src/js/thestore.js']
        }
     });
     
     //register store tasks
     grunt.registerTask('log-deploy', function() {
+        this.requires('clean:build');
+        this.requires('concat');
+        this.requires('processhtml');
+        this.requires('jsonmin');
+        this.requires('cssmin');
+        this.requires('htmlmin');
+        this.requires('imagemin');
+        this.requires('copy');
+        this.requires('jshint');
         this.requires('uglify');
+        this.requires('clean:tmp');
         var message = 'Deployment on ' + new Date();
         fs.appendFileSync('deploy.log', message + '\n');
         grunt.log.writeln(message);
     });
 
     
-    grunt.registerTask('build', ['clean', 'uglify', 'cssmin', 'htmlmin', 'imagemin', 'copy', 'log-deploy'])
+    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'imagemin', 'copy', 'jshint', 'uglify', 'clean:tmp', 'log-deploy']);
+    grunt.registerTask('default', 'build');
     
 };

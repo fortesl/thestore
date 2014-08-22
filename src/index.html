@@ -1,20 +1,43 @@
 <html ng-app="storeApp">
     <head>
+        <script>
+            function loadCSSFile(href) {
+                document.write(unescape("%3Clink rel='stylesheet' href='" + href + "' %3E%3C/link%3E"));
+            }
+
+            function loadScriptFile(src) {
+                document.write(unescape("%3Cscript src='" + src + "' %3E%3C/script%3E"));
+            }
+        </script>
+
         <title>Store</title>
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
+        <!-- jQuery && bootstrap css -->
+        <script>
+            loadScriptFile("//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js");
+            if (window.jQuery) {
+                loadCSSFile('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css');
+            }
+            else {
+                loadScriptFile('vendor/jquery/dist/jquery.min.js');
+                loadCSSFile('vendor/bootstrap/dist/css/bootstrap.min.css');                
+            }
+        </script>
+
+        <!-- build:css css/thestore.min.css -->
         <link rel="stylesheet" href="css/thestore.css" />
+        <!-- /build -->
         
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
     <body>
         <site-header></site-header>
@@ -25,14 +48,26 @@
         
         <site-footer></site-footer>
         
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="vendor/jquery/dist/jquery.min.js"></script>
-        <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="vendor/angular/angular.min.js"></script>
-        <script src ="vendor/angular-route/angular-route.min.js"></script>
+        <!-- bootstrap  && angular js-->
+        <script>
+            if (window.jQuery) {
+                loadScriptFile("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js");
+                loadScriptFile("//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js");
+                loadScriptFile("//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular-route.min.js");
+            }
+            else {
+                loadScriptFile('vendor/bootstrap/dist/js/bootstrap.min.js');                
+                loadScriptFile('vendor/angular/angular.min.js');
+                loadScriptFile('vendor/angular-route/angular-route.min.js');
+            }
+        </script>
+        
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-       <script src="js/app.js"></script>
+        <!-- build:js js/thestore.min.js -->
+        <script src="js/app.js"></script>
         <script src="js/store.js"></script>
         <script src="js/products.js"></script>
+        <!-- /build -->
+        
     </body>
 </html>
