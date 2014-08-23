@@ -75,6 +75,12 @@ module.exports = function(grunt) {
                     dest: 'build/vendor/'
                    }
                ]
+           },
+           deploy: {
+               expand:true,
+               cwd: 'build',
+               dest: 'deploy/store/',
+               src: ['**/*']
            }
        },
        jshint: {
@@ -108,7 +114,7 @@ module.exports = function(grunt) {
         this.requires('cssmin');
         this.requires('htmlmin');
         this.requires('imagemin');
-        this.requires('copy');
+        this.requires('copy:vendor');
         this.requires('lintjs');
         this.requires('uglify');
         this.requires('clean:tmp');
@@ -128,7 +134,8 @@ module.exports = function(grunt) {
     });
 
     
-    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'imagemin', 'copy', 'lintjs', 'uglify', 'clean:tmp', 'log-deploy']);
+    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'imagemin', 'copy:vendor', 'lintjs', 'uglify', 'clean:tmp', 'log-deploy']);
     grunt.registerTask('default', 'build');
+    grunt.registerTask('deploy', ['copy:deploy'])
     
 };

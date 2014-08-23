@@ -1,9 +1,19 @@
-<div class="container" style="margin-top: 4em;" ng-controller="FooterController as footerCtrl">
-    <footer>
-        <p class="pull-right">
-            <span style="margin-right: 2em">{{footerCtrl.metadata.description}}</span><span style="margin-right: 2em">version: {{footerCtrl.metadata.version}}</span>&copy; {{footerCtrl.metadata.author}}</p>
-    </footer>
-</div>
-<script>
-    
-</script>
+<nav class="navbar navbar-default navbar-fixed-bottom" style="margin-top: 2.5em">
+    <div class="container-fluid">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myFooterNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand text-muted" href="#">Crafted Gems</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myFooterNavbar">
+          <ul class="nav navbar-nav navbar-right" ng-controller="FooterController as footerCtrl">
+              <li class="navbar-text text-muted">{{footerCtrl.metadata.description}}</li>
+              <li class="navbar-text text-muted">version: {{footerCtrl.metadata.version}}</li>
+              <li class="navbar-text text-muted">&copy; {{footerCtrl.metadata.author}}</li>
+          </ul>
+      </div>
+    </div>
+</nav>
