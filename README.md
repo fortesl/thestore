@@ -3,7 +3,7 @@ TheStore
 
 An online store built on Bootstrap and Angular technologies. 
 
-<b>What I have planed features for next release 0.0.1.1:</b><br>
+<b>Features I am planning for next release 0.0.1.1:</b><br>
 1. Move search box to navigation bar<br>
 2. implement a non-scrollable footer for the site<br>
 3. implement SignUp and Login links<br>
