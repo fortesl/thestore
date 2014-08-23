@@ -30,7 +30,7 @@
             var self = this;
             self.metadata = {};
             
-            $http.get('data/store.json').success(function(data) {
+            $http.get('data/metadata.json').success(function(data) {
                 self.metadata = data;
             });
         }

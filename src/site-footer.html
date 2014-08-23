@@ -1,15 +1,20 @@
-<nav class="navbar navbar-default navbar-fixed-bottom" style="margin-top: 2.5em">
-    <div class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-bottom" style="margin-top: 3em">
+    <div class="container-fluid" ng-controller="FooterController as footerCtrl">
       <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myFooterNavbar">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand text-muted" href="#">Crafted Gems</a>
+          <a href="https://twitter.com/the_onlinestore" class="navbar-brand">
+              <img src="" title="Follow Us" class="twittericon">
+          </a>
+          <a ng-href="mailto:{{footerCtrl.metadata.email}}" class="navbar-brand">
+              <img src="" title="Contact Us" class="emailicon">
+          </a>
       </div>
       <div class="collapse navbar-collapse" id="myFooterNavbar">
-          <ul class="nav navbar-nav navbar-right" ng-controller="FooterController as footerCtrl">
+          <ul class="nav navbar-nav navbar-right">
               <li class="navbar-text text-muted">{{footerCtrl.metadata.description}}</li>
               <li class="navbar-text text-muted">version: {{footerCtrl.metadata.version}}</li>
               <li class="navbar-text text-muted">&copy; {{footerCtrl.metadata.author}}</li>
