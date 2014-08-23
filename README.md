@@ -4,7 +4,7 @@ TheStore
 An online store built on Bootstrap and Angular technologies. 
 
 <b>Features I am planning for next release 0.0.1.1:</b><br>
-1. Move search box to navigation bar<br>
+1. <a href="https://github.com/fortesl/thestore/issues/1">Move search box to navigation bar</a><br>
 2. implement a non-scrollable footer for the site<br>
 3. implement SignUp and Login links<br>
 4. Create functional shopping cart page<br>
