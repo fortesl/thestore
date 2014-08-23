@@ -24,6 +24,17 @@
             });
         }
     ]);
+    
+    app.controller('FooterController', ['$http', 
+        function($http) {
+            var self = this;
+            self.metadata = {};
+            
+            $http.get('data/store.json').success(function(data) {
+                self.metadata = data;
+            });
+        }
+    ]);
 
     app.directive('siteHeader', function() {
         return {

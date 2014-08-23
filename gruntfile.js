@@ -79,21 +79,9 @@ module.exports = function(grunt) {
        },
        jshint: {
             options: {
-                  curly: true,
-                  eqeqeq: true,
-                  eqnull: true,
-                  browser: true,
-                  undef: true,
-                  unused: true,
-                  strict: true,
-                  globals: {
-                    jQuery: true,
-                    angular: true,
-                    require: true,
-                    module: true
-                  }
+                jshintrc: '.jshintrc'
             },
-            all: ['gruntfile.js', 'src/js/**/*.js']
+            all: ['src/js/**/*.js']
        },
        uglify: {
            options: {
@@ -121,16 +109,26 @@ module.exports = function(grunt) {
         this.requires('htmlmin');
         this.requires('imagemin');
         this.requires('copy');
-        this.requires('jshint');
+        this.requires('lintjs');
         this.requires('uglify');
         this.requires('clean:tmp');
         var message = 'Deployment on ' + new Date();
         fs.appendFileSync('deploy.log', message + '\n');
         grunt.log.writeln(message);
     });
+    
+    // makes jshint optional
+    grunt.registerTask('lintjs', function() {
+        if (grunt.file.exists('.jshintrc')) {
+            grunt.task.run('jshint');
+        }
+        else {
+            grunt.log.writeln("Warning: .jshintrc file not found. Javascript not linted!");
+        }
+    });
 
     
-    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'imagemin', 'copy', 'jshint', 'uglify', 'clean:tmp', 'log-deploy']);
+    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'imagemin', 'copy', 'lintjs', 'uglify', 'clean:tmp', 'log-deploy']);
     grunt.registerTask('default', 'build');
     
 };
