@@ -3,7 +3,7 @@ TheStore
 
 An online store built on Bootstrap and Angular technologies. 
 
-<b>Features I am planning for next release 0.0.1.1:</b><br>
+<b>Some features I am planning for next release, 0.0.1.1:</b><br>
 1. <a href="https://github.com/fortesl/thestore/issues/1">Move search box to navigation bar</a><br>
 2. <a href="https://github.com/fortesl/thestore/issues/2">implement a non-scrollable footer for the site</a><br>
 3. <a href="https://github.com/fortesl/thestore/issues/3">implement SignUp and Login links</a><br>
@@ -13,4 +13,4 @@ An online store built on Bootstrap and Angular technologies.
 7. <a href="https://github.com/fortesl/thestore/issues/7">Redesign home page & product details page to incorporate product categories and shopping cart buttons</a><br>
  
 
-<b>Calling all devs</b>, please fork and contribute to this project. Implement the features listed above or <a href="https://github.com/fortesl/thestore/issues">add</a> other features you want to work on.
+<b>Calling all devs</b>! Please fork and contribute to this project by implementing the features listed above or <a href="https://github.com/fortesl/thestore/issues">by adding</a> other features you want to work on.
