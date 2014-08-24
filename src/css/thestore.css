@@ -22,14 +22,7 @@
     background-color:#f8f8f8    
 }
 
-img.email-icon {
-    width: 40px;
-    height: 40px;
-    background: url(fatwem.png) 0 0;
-}
-
-img.twitter-icon {
-    width: 40px;
-    height: 40px;
-    background: url(fatwem.png) -46px 0;
+.share-icon {
+    width:40px;
+    margin-right: 2em;
 }
