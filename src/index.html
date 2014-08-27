@@ -1,33 +1,13 @@
 <html ng-app="storeApp">
     <head>
-        <script>
-            function loadCSSFile(href) {
-                document.write(unescape("%3Clink rel='stylesheet' href='" + href + "' %3E%3C/link%3E"));
-            }
-
-            function loadScriptFile(src) {
-                document.write(unescape("%3Cscript src='" + src + "' %3E%3C/script%3E"));
-            }
-        </script>
         <link rel="shortcut icon" href="favicon.ico">
         <title>TheStore</title>
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- jQuery && bootstrap css -->
-        <script>
-            loadScriptFile("//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js");
-            if (window.jQuery) {
-                loadCSSFile('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css');
-            }
-            else {
-                loadScriptFile('vendor/jquery/dist/jquery.min.js');
-                loadCSSFile('vendor/bootstrap/dist/css/bootstrap.min.css');                
-            }
-        </script>
-
+        
+        <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />                
         <!-- build:css css/thestore.min.css -->
         <link rel="stylesheet" href="css/thestore.css" />
         <!-- /build -->
@@ -48,18 +28,23 @@
         
         <site-footer></site-footer>
         
-        <!-- bootstrap  && angular js-->
+        <!-- jQuery, bootstrap  && angular js-->
         <script>
+            function loadScriptFile(src) {
+                document.write(unescape("%3Cscript src='" + src + "' %3E%3C/script%3E"));
+            }
+            loadScriptFile("//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js");
             if (window.jQuery) {
                 loadScriptFile("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js");
                 loadScriptFile("//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js");
                 loadScriptFile("//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular-route.min.js");
             }
             else {
+                loadScriptFile('vendor/jquery/dist/jquery.min.js');
                 loadScriptFile('vendor/bootstrap/dist/js/bootstrap.min.js');                
                 loadScriptFile('vendor/angular/angular.min.js');
                 loadScriptFile('vendor/angular-route/angular-route.min.js');
-            }
+            }                
         </script>
         
         <!-- Include all compiled plugins (below), or include individual files as needed -->

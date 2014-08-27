@@ -7,10 +7,18 @@
         function($http) {
             var self = this;
             self.products = [];
+            self.selectedProduct = 0;
 
+            self.selectRandomProduct = function() {
+                self.selectedProduct = Math.floor((Math.random() * self.products.length));
+                return self.selectedProduct;
+            };
+            
             $http.get('data/products.json').success(function(data) {
                 self.products = data;
+                self.selectRandomProduct();
             });
+            
         }
     ]);
 

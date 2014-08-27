@@ -12,18 +12,19 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat-sourcemaps');
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-aws');
 
     //configure task
     grunt.initConfig({
        concat: {
            build: {
-               dest: 'src/js/thestore.js',
+               dest: 'build/js/thestore.min.js',
                src: ['src/js/app.js', 'src/js/store.js', 'src/js/products.js']
            }
        },
        processhtml: {
            build: {
-               files: {'build/tmp/index.html': ['src/index.html']}
+               files: {'build/index.html': ['src/index.html']}
            }
        },
        jsonmin: {
@@ -41,16 +42,20 @@ module.exports = function(grunt) {
        htmlmin: {
            options: {
                 removeComments: true,
-                collapseWhitespace: true
+                collapseWhitespace: true,
+                collapseBooleanAttributes: true,
+                removeAttributeQuotes: true,
+                removeRedundantAttributes: true,
+                removeOptionalTags: true
            },
            allhtml: {
                 expand: true,
                 cwd: 'src/',
-                src: ['**/*.html'],
+                src: ['**/*.html', '!index.html'],
                 dest: 'build/'
            },
            index: {
-               files: {'build/index.html': ['build/tmp/index.html']}
+               files: {'build/index.html': 'build/index.html'}
            }
        },
        imagemin: {
@@ -76,10 +81,20 @@ module.exports = function(grunt) {
                    }
                ]
            },
-           deploy: {
+           favicon: {
+               dest: 'build/favicon.ico',
+               src: 'src/favicon.ico'
+           },
+           openshift: {
                expand:true,
                cwd: 'build',
                dest: 'deploy/store/',
+               src: ['**/*']
+           },
+           heroku: {
+               expand:true,
+               cwd: 'build',
+               dest: 'heroku/fstore/',
                src: ['**/*']
            }
        },
@@ -96,17 +111,27 @@ module.exports = function(grunt) {
                compress: {drop_console: true}
            },
            js: {
-               files: {'build/js/thestore.min.js': ['src/js/thestore.js']}
+               files: {'<%= concat.build.dest %>': ['<%= concat.build.dest %>']}
            }
        },
        clean: {
-           build: ["build"],
-           tmp: ['build/tmp', 'src/js/thestore.js']
+           build: ["build"]
+       },
+       aws: grunt.file.readJSON('../aws.json'),
+       s3: {
+           options: {
+               accessKeyId: '<%= aws.accessKeyId %>',
+               secretAccessKey: '<%= aws.secretAccessKey %>',
+               bucket: 'gostore'
+           },
+           build: {
+               cwd: 'build/',
+               src: '**'
+           }
        }
     });
     
-    //register store tasks
-    grunt.registerTask('log-deploy', function() {
+    grunt.registerTask('log-build', function() {
         this.requires('clean:build');
         this.requires('concat');
         this.requires('processhtml');
@@ -115,11 +140,11 @@ module.exports = function(grunt) {
         this.requires('htmlmin');
         this.requires('imagemin');
         this.requires('copy:vendor');
+        this.requires('copy:favicon');
         this.requires('lintjs');
         this.requires('uglify');
-        this.requires('clean:tmp');
-        var message = 'Deployment on ' + new Date();
-        fs.appendFileSync('deploy.log', message + '\n');
+        var message = 'Built on ' + new Date();
+        fs.appendFileSync('build.log', message + '\n');
         grunt.log.writeln(message);
     });
     
@@ -133,9 +158,14 @@ module.exports = function(grunt) {
         }
     });
 
+    grunt.registerTask('log-deployAWS', function() {
+        var message = 'Deployed on ' + new Date();
+        fs.appendFileSync('deployAWS.log', message + '\n');
+        grunt.log.writeln(message);
+    });
     
-    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'imagemin', 'copy:vendor', 'lintjs', 'uglify', 'clean:tmp', 'log-deploy']);
+    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'imagemin', 'copy:vendor', 'copy:favicon', 'lintjs', 'uglify', 'log-build']);
     grunt.registerTask('default', 'build');
-    grunt.registerTask('deploy', ['copy:deploy'])
+    grunt.registerTask('deployAWS', ['s3', 'log-deployAWS']);
     
 };
