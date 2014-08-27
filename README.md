@@ -6,13 +6,13 @@ An online store built on Bootstrap and Angular technologies.
 Install
 ========
 
-After cloning, from the 'thestore' folder run the following from the command line:
+After cloning/downloading, in the 'thestore' folder run the following command from the command line:
 
 <b>bower install</b>        //installs library dependencies (jquery, bootstrap, angular)
 
-Now all website files can be found in the 'thestore/src' folder.
+Now all files can be found in the 'thestore/src' folder.
 
-To create a 'build' folder ready to publish with optimized resources, run the following commands from the 'thestore' folder:
+To create a 'build' folder with optimized resources ready to publish, run the following commands in the 'thestore' folder:
 
 1. <b>npm install</b>
 2. <b>grunt</b>
