@@ -7,3 +7,4 @@ build
 nbproject
 deploy
 heroku
+npm-debug.log

@@ -117,7 +117,7 @@ module.exports = function(grunt) {
        clean: {
            build: ["build"]
        },
-       aws: grunt.file.readJSON('../aws.json'),
+       aws: (grunt.file.exists('../aws.json')) ? grunt.file.readJSON('../aws.json') : null,
        s3: {
            options: {
                accessKeyId: '<%= aws.accessKeyId %>',
