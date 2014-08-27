@@ -1,8 +1,9 @@
-src/vendor/
+.gitignore
+.npmignore
+src/vendor
 node_modules
 test
 build
 nbproject
-package.json
 deploy
 heroku
