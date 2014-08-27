@@ -3,7 +3,21 @@ TheStore
 
 An online store built on Bootstrap and Angular technologies. 
 
-<b>Some features I am planning for next release, 0.0.1.1:</b><br>
+Install
+========
+
+After cloning, from the 'thestore' folder run the following from the command line:
+
+<b>bower install</b>        //installs library dependencies (jquery, bootstrap, angular)
+
+Now all website files can be found in the 'thestore/src' folder.
+
+To create a 'build' folder ready to publish with optimized resources, run the following commands from the 'thestore' folder:
+
+1. <b>npm install</b>
+2. <b>grunt</b>
+
+<b>Features I am planning for next release, 0.0.1.1:</b><br>
 1. <a href="https://github.com/fortesl/thestore/issues/1">Move search box to navigation bar</a><br>
 2. <a href="https://github.com/fortesl/thestore/issues/2">implement a non-scrollable footer for the site</a><br>
 3. <a href="https://github.com/fortesl/thestore/issues/3">implement SignUp and Login links</a><br>
