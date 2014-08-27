@@ -10,7 +10,7 @@ After cloning/downloading, in the 'thestore' folder run the following command fr
 
 <b>bower install</b>        //installs library dependencies (jquery, bootstrap, angular)
 
-Now all files can be found in the 'thestore/src' folder.
+Now all public site files can be found in the 'thestore/src' folder.
 
 To create a 'build' folder with optimized resources ready to publish, run the following commands in the 'thestore' folder:
 
