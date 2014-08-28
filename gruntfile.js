@@ -63,9 +63,9 @@ module.exports = function(grunt) {
                files: [
                    {
                     expand: true,
-                    cwd: 'src/images',
+                    cwd: 'src',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'build/images/'
+                    dest: 'build/'
                    }
                ]
            }
@@ -138,7 +138,6 @@ module.exports = function(grunt) {
         this.requires('jsonmin');
         this.requires('cssmin');
         this.requires('htmlmin');
-        this.requires('imagemin');
         this.requires('copy:vendor');
         this.requires('copy:favicon');
         this.requires('lintjs');
@@ -164,7 +163,7 @@ module.exports = function(grunt) {
         grunt.log.writeln(message);
     });
     
-    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'imagemin', 'copy:vendor', 'copy:favicon', 'lintjs', 'uglify', 'log-build']);
+    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'copy:vendor', 'copy:favicon', 'lintjs', 'uglify', 'log-build']);
     grunt.registerTask('default', 'build');
     grunt.registerTask('deployAWS', ['s3', 'log-deployAWS']);
     
