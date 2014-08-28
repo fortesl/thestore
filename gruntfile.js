@@ -81,21 +81,19 @@ module.exports = function(grunt) {
                    }
                ]
            },
+           images: {
+               files: [
+                   {
+                       expand:true,
+                       cwd: 'src/images',
+                       src: ['**/*'],
+                       dest: 'build/images/'
+                   }
+               ]
+           },
            favicon: {
                dest: 'build/favicon.ico',
                src: 'src/favicon.ico'
-           },
-           openshift: {
-               expand:true,
-               cwd: 'build',
-               dest: 'deploy/store/',
-               src: ['**/*']
-           },
-           heroku: {
-               expand:true,
-               cwd: 'build',
-               dest: 'heroku/fstore/',
-               src: ['**/*']
            }
        },
        jshint: {
@@ -138,8 +136,7 @@ module.exports = function(grunt) {
         this.requires('jsonmin');
         this.requires('cssmin');
         this.requires('htmlmin');
-        this.requires('copy:vendor');
-        this.requires('copy:favicon');
+        this.requires('copy');
         this.requires('lintjs');
         this.requires('uglify');
         var message = 'Built on ' + new Date();
@@ -163,7 +160,7 @@ module.exports = function(grunt) {
         grunt.log.writeln(message);
     });
     
-    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'copy:vendor', 'copy:favicon', 'lintjs', 'uglify', 'log-build']);
+    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'copy', 'lintjs', 'uglify', 'log-build']);
     grunt.registerTask('default', 'build');
     grunt.registerTask('deployAWS', ['s3', 'log-deployAWS']);
     
