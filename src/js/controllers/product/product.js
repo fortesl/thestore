@@ -8,6 +8,13 @@
             var self = this;
             self.products = [];
             self.selectedProduct = 0;
+            self.sortOrder = '';
+            self.productSort = [
+                {value:"name", label:"Product Name (A to Z)"},
+                {value:"-name", label:"Product Name (Z to A)"},
+                {value:"price", label:"Price (Low to High)"},
+                {value:"-price", label:"Price (High to Low)"}
+            ];
 
             self.selectRandomProduct = function() {
                 self.selectedProduct = Math.floor((Math.random() * self.products.length));

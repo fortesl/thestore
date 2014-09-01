@@ -5,7 +5,7 @@
 (function() {
     'use strict';
 
-    var app = angular.module('product-detail', []);
+    var app = angular.module('productDetail', []);
 
     app.controller('ProductDetailController', ['$routeParams', 'ProductDetailService',
         function($routeParams, ProductDetailService) {

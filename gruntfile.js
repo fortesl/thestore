@@ -100,7 +100,8 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: '.jshintrc'
             },
-            all: ['src/js/**/*.js']
+            src: ['src/js/**/*.js'],
+            tests: ['tests/**/*.js']
        },
        uglify: {
            options: {
@@ -147,7 +148,7 @@ module.exports = function(grunt) {
     // makes jshint optional
     grunt.registerTask('lintjs', function() {
         if (grunt.file.exists('.jshintrc')) {
-            grunt.task.run('jshint');
+            grunt.task.run('jshint:src');
         }
         else {
             grunt.log.writeln("Warning: .jshintrc file not found. Javascript not linted!");

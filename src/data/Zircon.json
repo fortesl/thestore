@@ -7,7 +7,12 @@
         "rarity":2,
         "color":"#000",
         "faces":6,
-        "images":["images/Penguins.jpg","images/Tulips.jpg","images/horse.jpg"],
+        "images":
+            [
+                "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTtAMTNJYRAI92W78iyv_5ZNM7uV6AgnJIAtJe_kUMnrM4MX3YbXg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_p5LJiiup2R-zIXku_hK3HrXOXUA6xH8i_z__V2gN2gLToHGjSQ",
+                "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSy24Dx0EIdLX9mjPaeMtJZT4c7KB6nqPbvBu_gn0hOvgo5sHod"
+            ],
         "reviews":
             [
                 {"stars":1,"body":"This gem is WAY too expensive for its rarity value.","author":"turtleguyy@example.org","createdOn":1397490980837},

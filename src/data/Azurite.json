@@ -8,7 +8,12 @@
     "rarity":7,
     "color":"#CCC",
     "faces":14,
-    "images":["images/Chrysanthemum.jpg","images/Desert.jpg","images/Hydrangeas.jpg"],
+    "images":
+        [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIyqOHgxgPGX-GzKw_ZDcGHw59rybtq-OQ6T4NDfl0PaUtxi4M",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_AJJzvfa-KWan1VLt1iu-KKXMJwTlK2wtZuncjpKcXH-JFym12A",
+            "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ6861uQTacL9bA0zzBL6jrNyRnKUhriOmlwXz_n6Yj1JhP91f91g"
+        ],
     "reviews":
         [
             {"stars":5,"body":"I love this gem!","author":"joe@example.org","createdOn":1397490980837},

@@ -20,8 +20,8 @@ To create a 'build' folder with optimized resources ready to publish, run the fo
 Features I am planning for next release
 =======================================
 
-1. <a href="https://github.com/fortesl/thestore/issues/1">Move search box to navigation bar</a><br>
-2. <a href="https://github.com/fortesl/thestore/issues/2">implement a non-scrollable footer for the site</a><br>
+1. <a href="https://github.com/fortesl/thestore/issues/1"><strike>Move search box to navigation bar</strike></a><br>
+2. <a href="https://github.com/fortesl/thestore/issues/2"><strike>implement a non-scrollable footer for the site</strike></a><br>
 3. <a href="https://github.com/fortesl/thestore/issues/3">implement SignUp and Login links</a><br>
 4. <a href="https://github.com/fortesl/thestore/issues/4">Create functional shopping cart page</a><br>
 5. <a href="https://github.com/fortesl/thestore/issues/5">Create admin mode, for admin users to add & remove products</a><br>

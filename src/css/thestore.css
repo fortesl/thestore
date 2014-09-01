@@ -78,6 +78,15 @@ body {
     }
 }
 
+.tmargin1 {
+    margin-top:1em;
+}
+.rmargin3 {
+    margin-right: 3em;
+}
+.tmargin07 {
+    margin-top: 0.7em;
+}
 .tbmargin{
     margin-top: 1.8em;
     margin-bottom: 1em;
