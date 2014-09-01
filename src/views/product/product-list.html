@@ -1,10 +1,10 @@
 <!-- Product list-group -->  
 <div class="container list-group">
-  <div class="list-group-item" ng-repeat="product in storeCtrl.products | filter:query | orderBy:name" ng-hide="product.soldOut" ng-class="{odd: $odd}">
+  <div class="list-group-item" ng-repeat="product in productCtrl.products | filter:query | orderBy:name" ng-hide="product.soldOut" ng-class="{odd: $odd}">
       <h3> <a href="#/products/{{product.id}}"><dfn>{{product.name}}</dfn></a> <em class="pull-right">{{product.price | currency}}</em></h3>
       <em>{{product.description}}</em>
   </div>
-<h5 ng-hide="storeCtrl.products.length===0">Search: <input ng-model="query"></h5>
+<h5 ng-hide="productCtrl.products.length===0">Search: <input ng-model="query"></h5>
 </div>
 <!-- end listgroup -->
           

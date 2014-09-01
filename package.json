@@ -18,7 +18,10 @@
     "grunt-contrib-concat-sourcemaps": "^0.6.0",
     "grunt-processhtml": "^0.3.3",
     "grunt-contrib-jshint": "^0.10.0",
-    "grunt-aws": "^0.3.0"
+    "grunt-aws": "^0.3.0",
+    "karma": "^0.12.23",
+    "karma-jasmine": "^0.1.5",
+    "karma-chrome-launcher": "^0.1.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -44,8 +47,8 @@
     "url": "https://github.com/fortesl/thestore/issues"
   },
   "homepage": "http://gostore.s3-website-us-east-1.amazonaws.com",
-  "dependencies": {
-    "jquery": "^2.1.1",
-    "bootstrap": "^3.2.0"
+  "dependencies": {},
+  "engines": {
+    "node": ">=0.10.0"
   }
 }

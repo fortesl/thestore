@@ -1,6 +1,6 @@
 
                             <p>Submit a Review</p>
-                            <form name="reviewForm" ng-submit="reviewForm.$valid && reviewCtrl.addReview(productCtrl.product)" novalidate>
+                            <form name="reviewForm" ng-submit="reviewForm.$valid && reviewCtrl.addReview(productDetailCtrl.product)" novalidate>
                                 <blockquote ng-show="reviewCtrl.review.stars">
                                     <strong>{{reviewCtrl.review.stars}} Stars</strong>
                                     {{reviewCtrl.review.body}}
@@ -30,10 +30,9 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-2 col-md-2">
+                                    <div class="col-lg-3 col-md-3">
                                         <fieldset class="form-group">
-                                            <input ng-show="reviewForm.$valid" class="btn btn-primary pull-right" type="submit" value="Submit Review"/>
-                                            <input ng-show="!reviewForm.$valid" class="btn btn-primary pull-right" type="submit" value="Submit Review" disabled />
+                                            <input ng-disabled="reviewForm.$invalid" class="btn btn-primary pull-right" type="submit" value="Submit Review"/>
                                         </fieldset>
                                     </div>
                                 </div>

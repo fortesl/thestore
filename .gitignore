@@ -1,8 +1,7 @@
 src/vendor
 node_modules
-test
-tests
 build
 nbproject
 .idea
 npm-debug.log
+data

@@ -19,7 +19,7 @@ module.exports = function(grunt) {
        concat: {
            build: {
                dest: 'build/js/thestore.min.js',
-               src: ['src/js/app.js', 'src/js/store.js', 'src/js/products.js']
+               src: ['src/js/**/*.js']
            }
        },
        processhtml: {

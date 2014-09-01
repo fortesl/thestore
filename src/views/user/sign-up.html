@@ -1,0 +1,56 @@
+<!-- signup form -->
+<div class="container tbmargin">
+    <h1>Sign Up</h1>
+    <form name="signupForm" ng-submit="signupForm.$valid && userCtrl.addUser()" novalidate>
+        <div class="row tbmargin">
+            <div class="col-md-6 col-lg-6">
+                <fieldset class="form-group" id="inputFirstNameFormGroup">
+                    <label for="inputFirstName">First Name</label>
+                    <input type="text" class="form-control" id="inputFirstName" placeholder="Enter your first name" ng-model="userCtrl.user.firstName" required>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row tbmargin">
+            <div class="col-md-6 col-lg-6">
+                <fieldset class="form-group" id="inputLastNameFormGroup">
+                    <label for="inputLastName">Name</label>
+                    <input type="text" class="form-control" id="inputLastName" placeholder="Enter your last name" ng-model="userCtrl.user.lastName" required>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row tbmargin">
+            <div class="col-md-4 col-lg-4">
+                <fieldset class="form-group" id="inputEmailFormGroup">
+                    <label for="inputEmail">Email address</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email address" ng-model="userCtrl.user.emailAddress" required>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row tbmargin">
+            <div class="col-md-3 col-lg-3">
+                <fieldset class="form-group" id="inputPasswordFormGroup">
+                    <label for="inputPassword">Password</label>
+                    <input name="password" type="password" class="form-control" id="inputPassword" ng-model="userCtrl.user.password" ng-minlength="8" required>
+                    <span ng-show="signupForm.password.$error.minlength">minimum length is 8</span>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row tbmargin">
+            <div class="col-md-3 col-lg-3">
+                <fieldset class="form-group" id="inputRepeatPasswordFormGroup">
+                    <label for="inputRepeatPassword">Repeat Password</label>
+                    <input type="password" class="form-control" id="inputRepeatPassword" ng-model="userCtrl.user.repeatPassword" ng-minlength="8" required>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row tbmargin">
+            <div class="col-md-3 col-lg-3">
+                <fieldset class="form-group" id="buttonsGroup">
+                    <input ng-disabled="signupForm.$invalid" class="btn btn-primary" type="submit" value="Submit"/>
+                </fieldset>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- End signup form -->
+
