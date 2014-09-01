@@ -18,7 +18,6 @@
                 self.products = data;
                 self.selectRandomProduct();
             });
-            
         }
     ]);
 

@@ -9,6 +9,7 @@ describe('ProductController', function() {
 
     var productCtrl, mockService;
 
+
     //mock ProductListService
     beforeEach(module(function($provide) {
         mockService = {
@@ -36,6 +37,7 @@ describe('ProductController', function() {
 
     }));
 
+
     //Inject the ProductController
     beforeEach(inject(function($controller) {
         productCtrl = $controller('ProductController');
@@ -45,13 +47,14 @@ describe('ProductController', function() {
     it('ProductController exists', function() {
         expect(productCtrl).toBeDefined();
         expect(productCtrl.products).toBeDefined();
+        expect(productCtrl.selectedProduct).toEqual(0);
     })
 
 
      it('ProductController Should have products', function() {
          expect(productCtrl.products.length).toBeGreaterThan(0);
     });
-
+    /*
     it('products should have valid properties', function() {
         expect(productCtrl.products[0].id).toBeTruthy();
         expect(productCtrl.products[0].name).toBeTruthy();
@@ -59,4 +62,6 @@ describe('ProductController', function() {
         expect(productCtrl.products[0].description).toBeTruthy();
         expect(productCtrl.products[0].images.length).toBeTruthy();
     });
+    */
+
 });
