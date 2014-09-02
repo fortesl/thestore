@@ -1,6 +1,5 @@
 var fs = require('fs');
 module.exports = function(grunt) {
-    "use strict";
     //load npmtask
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -13,13 +12,19 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-aws');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     //configure task
     grunt.initConfig({
+       srcjsFiles: ['src/js/**/*.js'],
+       testjsFiles: ['tests/**/*.js'],
+       srchtmlFiles: ['src/**/*.html'],
+       srccssFiles: ['src/css/**/*.css'],
        concat: {
            build: {
                dest: 'build/js/thestore.min.js',
-               src: ['src/js/**/*.js']
+               src: '<%= srcjsFiles %>'
            }
        },
        processhtml: {
@@ -35,7 +40,7 @@ module.exports = function(grunt) {
        cssmin: {
            thestore: {
                files: {
-                   'build/css/thestore.min.css': ['src/css/*.css']
+                   'build/css/thestore.min.css': ['<%= srccssFiles %>']
                }
            }
        },
@@ -46,7 +51,9 @@ module.exports = function(grunt) {
                 collapseBooleanAttributes: true,
                 removeAttributeQuotes: true,
                 removeRedundantAttributes: true,
-                removeOptionalTags: true
+                removeOptionalTags: true,
+                minifyJS: true,
+                minifyCSS: true
            },
            allhtml: {
                 expand: true,
@@ -100,8 +107,8 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: '.jshintrc'
             },
-            src: ['src/js/**/*.js'],
-            tests: ['tests/**/*.js']
+            src: ['<%= srcjsFiles %>'],
+            tests: ['<%= testjsFiles %>']
        },
        uglify: {
            options: {
@@ -126,6 +133,49 @@ module.exports = function(grunt) {
            build: {
                cwd: 'build/',
                src: '**'
+           }
+       },
+        // The actual grunt server settings
+        connect: {
+            options: {
+                port: 9000,
+                // Change this to '0.0.0.0' to access the server from outside.
+                hostname: 'localhost',
+                livereload: 35729
+            },
+            livereload: {
+                options: {
+                    open: true,
+                    base: 'src'
+                }
+            },
+            build: {
+                options: {
+                    open: true,
+                    base: 'build'
+                }
+            },
+            src: {
+                options: {
+                    open: true,
+                    base: 'src'
+                }
+            }
+        },
+       watch: {
+           srcjs: {
+               files: '<%= srcjsFiles %>',
+               tasks: ["jshint:src"]
+           },
+           livereload: {
+               options: {
+                   livereload: '<%= connect.options.livereload %>'
+               },
+               files: [
+                   '<%= srcjsFiles %>',
+                   '<%= srchtmlFiles %>',
+                   '<%= srccssFiles %>'
+               ]
            }
        }
     });
@@ -160,7 +210,19 @@ module.exports = function(grunt) {
         fs.appendFileSync('deployAWS.log', message + '\n');
         grunt.log.writeln(message);
     });
-    
+
+    grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
+        if (target === 'build') {
+            return grunt.task.run(['build', 'connect:build:keepalive']);
+        }
+
+        grunt.task.run([
+            'connect:livereload',
+            'watch'
+        ]);
+    });
+
+
     grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'copy', 'lintjs', 'uglify', 'log-build']);
     grunt.registerTask('default', 'build');
     grunt.registerTask('deployAWS', ['s3', 'log-deployAWS']);
