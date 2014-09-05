@@ -34,6 +34,6 @@ Contributing
 Fork and contribute to this project by implementing the features listed above or <a href="https://github.com/fortesl/thestore/issues">by adding</a> other features you want to work on.
 Please follow the development guidelines established for this project.
 
-More info
-=========
-read the <a href="https://github.com/fortesl/thestore/wiki">wiki</a>
+License
+=======
+ISC

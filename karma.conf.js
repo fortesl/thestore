@@ -19,7 +19,8 @@ module.exports = function(config) {
       'src/vendor/angular/angular.min.js',
       'src/vendor/angular-mocks/angular-mocks.js',
       'src/js/**/*.js',
-      'tests/**/*Spec.js'
+      'tests/unit/**/*mock.js',
+      'tests/unit/**/*test.js'
     ],
 
 

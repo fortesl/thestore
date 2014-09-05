@@ -1,19 +1,19 @@
 (function() {
     'use strict';
 
-    var app = angular.module('product', []);
+    var app = angular.module('product');
 
-    app.controller('ProductController', ['ProductListService',
-        function(ProductListService) {
+    app.controller('ProductController', ['ProductService',
+        function(ProductService) {
             var self = this;
             self.products = [];
             self.selectedProduct = 0;
             self.sortOrder = '';
             self.productSort = [
-                {value:"name", label:"Product Name (A to Z)"},
-                {value:"-name", label:"Product Name (Z to A)"},
-                {value:"price", label:"Price (Low to High)"},
-                {value:"-price", label:"Price (High to Low)"}
+                {value:'name', label:'Product Name (A to Z)'},
+                {value:'-name', label:'Product Name (Z to A)'},
+                {value:'price', label:'Price (Low to High)'},
+                {value:'-price', label:'Price (High to Low)'}
             ];
 
             self.selectRandomProduct = function() {
@@ -21,18 +21,15 @@
                 return self.selectedProduct;
             };
 
-            ProductListService.get().success(function(data) {
-                self.products = data;
+            ProductService.getList().then(function(response) {
+                self.products = response.data;
                 self.selectRandomProduct();
+            }, function(errResponse) {
+                ProductService.errorMessage = errResponse.data.msg;
+                self.errorMessage = errResponse.data.msg;
             });
         }
     ]);
-
-    app.factory('ProductListService', ['$http', function($http) {
-        return {
-            get: function() { return $http.get('data/products.json'); }
-        };
-    }]);
 
     app.directive('productList', function() {
         return {

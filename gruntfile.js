@@ -1,5 +1,7 @@
 var fs = require('fs');
+
 module.exports = function(grunt) {
+    'use strict';
     //load npmtask
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -107,21 +109,21 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: '.jshintrc'
             },
-            src: ['<%= srcjsFiles %>'],
-            tests: ['<%= testjsFiles %>']
+            src: ['Gruntfile.js','<%= srcjsFiles %>'],
+            tests:  ['<%= testjsFiles %>']
        },
        uglify: {
            options: {
                mangle: true,
                preserveComments: false,
-               compress: {drop_console: true}
+               compress: true
            },
            js: {
                files: {'<%= concat.build.dest %>': ['<%= concat.build.dest %>']}
            }
        },
        clean: {
-           build: ["build"]
+           build: ['build']
        },
        aws: (grunt.file.exists('../aws.json')) ? grunt.file.readJSON('../aws.json') : null,
        s3: {
@@ -138,34 +140,30 @@ module.exports = function(grunt) {
         // The actual grunt server settings
         connect: {
             options: {
-                port: 9000,
                 // Change this to '0.0.0.0' to access the server from outside.
                 hostname: 'localhost',
                 livereload: 35729
             },
             livereload: {
                 options: {
+                    port: 9000,
                     open: true,
                     base: 'src'
                 }
             },
             build: {
                 options: {
+                    livereload: true,
+                    port: 9001,
                     open: true,
                     base: 'build'
-                }
-            },
-            src: {
-                options: {
-                    open: true,
-                    base: 'src'
                 }
             }
         },
        watch: {
-           srcjs: {
-               files: '<%= srcjsFiles %>',
-               tasks: ["jshint:src"]
+           js: {
+               files: ['Gruntfile.js', '<%= srcjsFiles %>', '<%= testjsFiles %>'],
+               tasks: ['lintjs']
            },
            livereload: {
                options: {
@@ -198,10 +196,10 @@ module.exports = function(grunt) {
     // makes jshint optional
     grunt.registerTask('lintjs', function() {
         if (grunt.file.exists('.jshintrc')) {
-            grunt.task.run('jshint:src');
+            grunt.task.run('jshint');
         }
         else {
-            grunt.log.writeln("Warning: .jshintrc file not found. Javascript not linted!");
+            grunt.log.writeln('Warning: .jshintrc file not found. Javascript not linted!');
         }
     });
 
@@ -211,7 +209,7 @@ module.exports = function(grunt) {
         grunt.log.writeln(message);
     });
 
-    grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
+    grunt.registerTask('serve', 'start a connect web server', function (target) {
         if (target === 'build') {
             return grunt.task.run(['build', 'connect:build:keepalive']);
         }

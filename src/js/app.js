@@ -1,7 +1,8 @@
 (function() {
-    "use strict";
+    'use strict';
 
-    var storeApp = angular.module('storeApp', ['ngRoute', 'product', 'productDetail', 'user']);
+    var storeApp = angular.module('storeApp', ['ngRoute', 'product', 'user']);
+    angular.module('product', []);
 
     storeApp.config(['$routeProvider',
         function($routeProvider) {

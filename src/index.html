@@ -1,4 +1,4 @@
-<html ng-app="storeApp">
+<html>
     <head>
         <link rel="shortcut icon" href="favicon.ico">
         <title>TheStore</title>
@@ -19,7 +19,7 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body>
+    <body ng-app="storeApp">
         <site-header></site-header>
           
         <div>
@@ -50,9 +50,10 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <!-- build:js js/thestore.min.js -->
         <script src="js/app.js"></script>
-        <script src="js/controllers/product/product.js"></script>
-        <script src="js/controllers/product-detail.js"></script>
-        <script src="js/controllers/user/user.js"></script>
+        <script src="js/product/product-controller.js"></script>
+        <script src="js/product/product-detail-controller.js"></script>
+        <script src="js/product/product-service.js"></script>
+        <script src="js/user/user-controller.js"></script>
         <!-- /build -->
         
     </body>

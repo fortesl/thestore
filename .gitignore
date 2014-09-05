@@ -5,3 +5,4 @@ nbproject
 .idea
 npm-debug.log
 data
+tests/**/*Not.js
