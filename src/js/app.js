@@ -11,6 +11,10 @@
                 templateUrl: 'views/product/products.html',
                 controller: 'ProductController as productCtrl'
             }).
+            when('/products', {
+                templateUrl: 'views/product/products.html',
+                controller: 'ProductController as productCtrl'
+            }).
             when('/products/:productId', {
                 templateUrl: 'views/product/product-details.html',
                 controller: 'ProductDetailController as productDetailCtrl'
