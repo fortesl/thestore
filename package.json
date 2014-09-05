@@ -41,11 +41,11 @@
     "Cart",
     "ShoppingCart"
   ],
-  "author": "Luis Fortes lmlf100@gmail.com (https://www.linkedin.com/in/luisfortes)"
+  "author": "Luis Fortes lmlf100@gmail.com (https://www.linkedin.com/in/luisfortes)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/fortesl/thestore/issues",
     "email": "lmlf100@gmail.com"
   },
-  "homepage": "http://gostore.s3-website-us-east-1.amazonaws.com",
+  "homepage": "http://gostore.s3-website-us-east-1.amazonaws.com"
 }
