@@ -16,6 +16,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-aws');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-angular-templates');
 
     //configure task
     grunt.initConfig({
@@ -55,7 +56,8 @@ module.exports = function(grunt) {
                 removeRedundantAttributes: true,
                 removeOptionalTags: true,
                 minifyJS: true,
-                minifyCSS: true
+                minifyCSS: true,
+                minifyURLs: true
            },
            allhtml: {
                 expand: true,
@@ -154,6 +156,7 @@ module.exports = function(grunt) {
             build: {
                 options: {
                     livereload: true,
+                    keepalive: true,
                     port: 9001,
                     open: true,
                     base: 'build'
@@ -209,11 +212,7 @@ module.exports = function(grunt) {
         grunt.log.writeln(message);
     });
 
-    grunt.registerTask('serve', 'start a connect web server', function (target) {
-        if (target === 'build') {
-            return grunt.task.run(['build', 'connect:build:keepalive']);
-        }
-
+    grunt.registerTask('serve', 'start a connect web server', function () {
         grunt.task.run([
             'connect:livereload',
             'watch'
@@ -221,7 +220,7 @@ module.exports = function(grunt) {
     });
 
 
-    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'copy', 'lintjs', 'uglify', 'log-build']);
+    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'copy', 'lintjs', 'uglify', 'log-build', 'connect:build']);
     grunt.registerTask('default', 'build');
     grunt.registerTask('deployAWS', ['s3', 'log-deployAWS']);
     
