@@ -2,11 +2,15 @@
         "id": "Bloodstone",
         "name":"Bloodstone",
         "description":"Origin of the Bloodstone is unknown, hence its low value. It has a very high shine and 12 sides, however.",
-        "shine":9,
+        "specs":
+            [
+                {"name": "shine", "value": 7, "type": "number"},
+                {"name": "price", "value": 90.3, "type": "currency"},
+                {"name": "rarity", "value": 6, "type": "number"},
+                {"name": "color", "value": "#CCC", "type": "color"},
+                {"name": "faces", "value": "13", "type": "number"}
+            ],
         "price":22.9,
-        "rarity":6,
-        "color":"#EEE",
-        "faces":12,
         "images":
             [
                 "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcThOMbEA3jCMpbo-KI6PoMxPH7k05Glkps6eCUFz7M91bXsses7LA",

@@ -21,12 +21,14 @@
                 return self.selectedProduct;
             };
 
-            ProductService.getList().then(function(response) {
-                self.products = response.data;
-                self.selectRandomProduct();
-            }, function(errResponse) {
-                ProductService.errorMessage = errResponse.data.msg;
-                self.errorMessage = errResponse.data.msg;
+            ProductService.getList().then(
+                function(response) {
+                    self.products = response.data;
+                    self.selectRandomProduct();
+            },
+                function(errResponse) {
+                    ProductService.errorMessage = errResponse.data.msg;
+                    self.errorMessage = errResponse.data.msg;
             });
         }
     ]);

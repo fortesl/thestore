@@ -2,11 +2,15 @@
         "id": "Zircon",
         "name":"Zircon",
         "description":"Zircon is our most coveted and sought after gem. You will pay much to be the proud owner of this gorgeous and high shine gem.",
-        "shine":70,
         "price":50,
-        "rarity":2,
-        "color":"#000",
-        "faces":6,
+        "specs":
+            [
+                {"name": "shine", "value": 10, "type": "number"},
+                {"name": "price", "value": 50, "type": "currency"},
+                {"name": "rarity", "value": 2, "type": "number"},
+                {"name": "color", "value": "#EEE", "type": "color"},
+                {"name": "faces", "value": "4", "type": "number"}
+            ],
         "images":
             [
                 "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTtAMTNJYRAI92W78iyv_5ZNM7uV6AgnJIAtJe_kUMnrM4MX3YbXg",

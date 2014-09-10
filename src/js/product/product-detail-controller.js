@@ -12,9 +12,15 @@
             this.productId = $routeParams.productId;
             var self = this;
 
-            ProductService.getDetail(self.productId).success(function(data) {
-                self.product = data;
+            ProductService.getDetail(self.productId).then(
+                function(response) {
+                    self.product = response.data;
+            },
+                function(errResponse) {
+                    self.errorMessage = errResponse.data.msg;
+                    ProductService.errorMessage = errResponse.data.msg;
             });
+
         }
     ]);
 

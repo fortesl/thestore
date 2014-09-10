@@ -1,15 +1,4 @@
-                            <h4>Specs</h4>
-                            <ul class="list-unstyled">
-                              <li>
-                                <strong>Shine</strong>
-                                : {{productDetailCtrl.product.shine}}</li>
-                              <li>
-                                <strong>Faces</strong>
-                                : {{productDetailCtrl.product.faces}}</li>
-                              <li>
-                                <strong>Rarity</strong>
-                                : {{productDetailCtrl.product.rarity}}</li>
-                              <li>
-                                <strong>Color</strong>
-                                : {{productDetailCtrl.product.color}}</li>
-                            </ul>
+<h4>Specs</h4>
+<ul class="list-unstyled lmargin2" ng-repeat="spec in productDetailCtrl.product.specs">
+  <li><strong>{{ spec.name }}</strong>: {{ spec.value}}</li>
+</ul>

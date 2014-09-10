@@ -1,13 +1,28 @@
 {
     "id": "Azurite",
-    "soldOut": false, 
+    "onHand": 4,
     "name":"Azurite",
     "description":"Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
-    "shine":8,
-    "price":110.5,
-    "rarity":7,
-    "color":"#CCC",
-    "faces":14,
+    "categories": {"c1": "Diamond"},
+    "used": false,
+    "priceRange": 5,
+    "price": 110.5,
+    "specs":
+        [
+            {"name": "shine", "value": 8, "type": "number"},
+            {"name": "price", "value": 110.5, "type": "currency"},
+            {"name": "rarity", "value": 7, "type": "number"},
+            {"name": "color", "value": "#CCC", "type": "color"},
+            {"name": "faces", "value": "14", "type": "number"}
+        ],
+    "manufacturer": {
+        "name": "DeBeers",
+        "location": {"city": "Hamburg"},
+        "date": 1986,
+        "model": {"name": "Azurite", "make": "super", "color": "purple"},
+        "weight": "135 lbs",
+        "weightRange": 5
+    },
     "images":
         [
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIyqOHgxgPGX-GzKw_ZDcGHw59rybtq-OQ6T4NDfl0PaUtxi4M",
