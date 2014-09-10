@@ -1,13 +1,14 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <link rel="shortcut icon" href="favicon.ico">
-        <title>TheStore</title>
-        
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />                
+
+        <link rel="shortcut icon" href="favicon.ico">
+        <title>TheStore</title>
+
+        <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
         <!-- build:css css/thestore.min.css -->
         <link rel="stylesheet" href="css/thestore.css" />
         <!-- /build -->
@@ -31,7 +32,7 @@
         <!-- jQuery, bootstrap  && angular js-->
         <script>
             function loadScriptFile(src) {
-                document.write(unescape("%3Cscript src='" + src + "' %3E%3C/script%3E"));
+                document.write(decodeURI("%3Cscript src='" + src + "' %3E%3C/script%3E"));
             }
             loadScriptFile("//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js");
             if (window.jQuery) {
