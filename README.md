@@ -36,4 +36,4 @@ Please follow the development guidelines established for this project.
 
 License
 =======
-ISC
+<a href="https://github.com/fortesl/thestore/blob/master/LICENSE">ISC</a>
