@@ -24,7 +24,7 @@ Or with <a href="https://www.npmjs.org/package/thestore">npm</a> -
 The source code can be found in the 'thestore/src' folder. Start a web server in development mode with the command:
 <b>grunt serve</b>
 
-Any changes made to source code will immediately reload on the web browser. JavaScript changes are automatically validated by jshint.
+Any changes made to source code will immediately reload on the web browser. JavaScript changes are automatically validated with jshint.
 
 To create a 'build' folder and run the app with optimized resources ready for publishing, run the following command from the 'thestore' folder:
 <b>grunt</b>
@@ -53,8 +53,8 @@ Create unit tests for all your Javascript code in the folder 'thestore/tests/uni
 If you add new UI or modify the existing UI, create e2e tests in the folder 'thestore/tests/e2e'. From the 'thestore' folder, use the following commands to run your e2e tests:
 <ol>
     <li><b>webdriver-manager start</b> (starts Selenium locally)</li>
-    <li><b>grunt serve</b> (to start the webserver for source code, if not already running)</li>
-    <li><b>protractor</b> (to run the tests)</li>
+    <li><b>grunt serve</b> (starts the webserver for source code, if not already running)</li>
+    <li><b>protractor</b> (runs the tests)</li>
 </ol>
 
 Make sure your code builds by running the command: <b>grunt</b>
