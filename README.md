@@ -1,19 +1,26 @@
 TheStore
 ========
-An online store built on Bootstrap and Angular technologies. 
+An online store built on Bootstrap and Angular technologies. Created by <a href="https://twitter.com/fortesl">@fortesl</a>
+
 
 Install
 =======
-After cloning/downloading, run the following from the 'thestore' folder:
+Either with <a href="https://github.com/fortesl/thestore">github</a> -
+1. Fork and clone the project to a "thestore" local folder
+2. From the "thestore" folder, install build task dependencies with the command: npm install
+3. From the "thestore" folder, install dependencies with the command: bower install
 
-<b>bower install</b>
+Or with <a href="https://www.npmjs.org/package/thestore">npm</a> -
+1. get the project to your local machine with the command: npm install thestore
+2. From the "thestore" folder, install dependencies with the command: <b>bower install</b>
 
-To install all dependencies. your fully functional app can be found in the 'thestore/src' folder.
 
-To create a 'build' folder with optimized resources ready for publishing, run the following from the 'thestore' folder:
+The source code can be found in the 'thestore/src' folder. Start a web server in development mode with the command:
+<b>grunt serve</b>
+Any changes made to source code will immediately reload on the web browser. JavaScript changes are automatically validated by jshint.
 
-1. <b>npm install</b>
-2. <b>grunt</b>
+To create a 'build' folder and run the app with optimized resources ready for publishing, run the following command from the 'thestore' folder:
+<b>grunt</b>
 
 
 Next
