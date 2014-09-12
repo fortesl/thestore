@@ -1,18 +1,24 @@
 TheStore
 ========
-An online store built on Bootstrap and Angular technologies. Created by <a href="https://twitter.com/fortesl">@fortesl</a>
+An online store built on Bootstrap and Angular technologies. 
+
+Follow <a href="https://twitter.com/the_onlinestore">@the_onlinestore</a> on twitter to stay informed on all commits and other changes.
 
 
 Install
 =======
 Either with <a href="https://github.com/fortesl/thestore">github</a> -
-1. Fork and clone the project to a "thestore" local folder
-2. From the "thestore" folder, install build task dependencies with the command: npm install
-3. From the "thestore" folder, install dependencies with the command: bower install
+<ol>
+    <li>Fork and clone the project to a "thestore" local folder</li>
+    <li>From the "thestore" folder, install build task dependencies with the command: <b>npm install</b></li>
+    <li>From the "thestore" folder, install dependencies with the command: <b>bower install</b></li>
+</ol>
 
 Or with <a href="https://www.npmjs.org/package/thestore">npm</a> -
-1. get the project to your local machine with the command: npm install thestore
-2. From the "thestore" folder, install dependencies with the command: <b>bower install</b>
+<ol>
+    <li>Get the project to your local machine with the command: <b>npm install thestore</b></li>
+    <li>From the "thestore" folder, install dependencies with the command: <b>bower install</b></li>
+</ol>
 
 
 The source code can be found in the 'thestore/src' folder. Start a web server in development mode with the command:
@@ -38,8 +44,19 @@ features in the dev queue for future releases
 
 Contributing
 ============
-Fork and contribute to this project by implementing the features listed above or <a href="https://github.com/fortesl/thestore/issues">by adding</a> other features you want to work on.
+Contribute to this project by implementing the features listed above or <a href="https://github.com/fortesl/thestore/issues">by adding</a> other features you want to work on.
 Please follow the development guidelines established for this project.
+
+Create unit tests for all your Javascript code in the folder 'thestore/tests/unit'. From the 'thestore' folder run your unit tests with the command <b>karma start</b>
+
+If you add new UI or modify the existing UI, create e2e tests in the folder 'thestore/tests/e2e'. From the 'thestore' folder, use the following commands to run your e2e tests:
+<ol>
+    <li><b>webdriver-manager start</b> (starts Selenium locally)</li>
+    <li><b>grunt serve</b> (to start the webserver for source code, if not already running)</li>
+    <li><b>protractor</b> (to run the tests)</li>
+</ol>
+
+Make sure your code builds by running the command: <b>grunt</b>
 
 License
 =======
