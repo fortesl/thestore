@@ -11,7 +11,7 @@ Either with <a href="https://github.com/fortesl/thestore">github</a> -
 <ol>
     <li>Fork and clone the project to a "thestore" local folder</li>
     <li>From the "thestore" folder, install build task dependencies with the command: <b>npm install</b></li>
-    <li>From the "thestore" folder, install dependencies with the command: <b>bower install</b></li>
+    <li>From the "thestore" folder, install other dependencies with the command: <b>bower install</b></li>
 </ol>
 
 Or with <a href="https://www.npmjs.org/package/thestore">npm</a> -
@@ -23,6 +23,7 @@ Or with <a href="https://www.npmjs.org/package/thestore">npm</a> -
 
 The source code can be found in the 'thestore/src' folder. Start a web server in development mode with the command:
 <b>grunt serve</b>
+
 Any changes made to source code will immediately reload on the web browser. JavaScript changes are automatically validated by jshint.
 
 To create a 'build' folder and run the app with optimized resources ready for publishing, run the following command from the 'thestore' folder:
