@@ -1,10 +1,10 @@
 <!-- Product list-group -->  
 <div class="container list-group tmargin1">
     <select ng-model="productCtrl.sortOrder" ng-options="so.value as so.label for so in productCtrl.productSort">
-        <option value="">Sort Order</option>
+        <option value="" translate="SORT_ORDER"></option>
     </select>
   <div class="list-group-item" ng-repeat="product in productCtrl.products | filter:search | orderBy:productCtrl.sortOrder" ng-hide="product.soldOut" ng-class="{odd: $odd}">
-      <h3> <a href="#/products/{{product.id}}"><dfn>{{product.name}}</dfn></a> <em class="pull-right">{{product.price | currency}}</em></h3>
+      <h3> <a href="#/products/{{product.id}}"><dfn>{{product.name}}</dfn></a> <em class="pull-right">{{product.price | currency:"USD$"}}</em></h3>
       <em>{{product.description}}</em>
   </div>
 </div>

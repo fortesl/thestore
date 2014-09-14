@@ -20,7 +20,7 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body ng-app="storeApp">
+    <body ng-app="storeApp" ng-controller="StoreController as storeCtrl">
         <site-header></site-header>
           
         <div>
@@ -45,7 +45,9 @@
                 loadScriptFile('vendor/bootstrap/dist/js/bootstrap.min.js');                
                 loadScriptFile('vendor/angular/angular.min.js');
                 loadScriptFile('vendor/angular-route/angular-route.min.js');
-            }                
+            }
+            loadScriptFile('vendor/angular-translate/angular-translate.min.js');
+            loadScriptFile('vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js');
         </script>
         
         <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -3,17 +3,18 @@
 
     var app = angular.module('product');
 
-    app.controller('ProductController', ['ProductService',
-        function(ProductService) {
+    app.controller('ProductController', ['ProductService', '$filter',
+        function(ProductService, $filter) {
+
             var self = this;
             self.products = [];
             self.selectedProduct = 0;
             self.sortOrder = '';
             self.productSort = [
-                {value:'name', label:'Product Name (A to Z)'},
-                {value:'-name', label:'Product Name (Z to A)'},
-                {value:'price', label:'Price (Low to High)'},
-                {value:'-price', label:'Price (High to Low)'}
+                {value:'name', label:$filter('translate')('SORT_BY_PRODUCT_NAME_ASC')},
+                {value:'-name', label:$filter('translate')('SORT_BY_PRODUCT_NAME_DESC')},
+                {value:'price', label:$filter('translate')('SORT_BY_PRODUCT_PRICE_ASC')},
+                {value:'-price', label:$filter('translate')('SORT_BY_PRODUCT_PRICE_DESC')}
             ];
 
             self.selectRandomProduct = function() {
@@ -25,11 +26,12 @@
                 function(response) {
                     self.products = response.data;
                     self.selectRandomProduct();
-            },
+                },
                 function(errResponse) {
                     ProductService.errorMessage = errResponse.data.msg;
                     self.errorMessage = errResponse.data.msg;
-            });
+                }
+            );
         }
     ]);
 

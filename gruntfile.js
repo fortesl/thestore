@@ -38,6 +38,9 @@ module.exports = function(grunt) {
        jsonmin: {
            data: {
                files: [ {expand: true, cwd: 'src/data', src: ['**/*.json'], dest: 'build/data/'} ]
+           },
+           i18n: {
+               files: [ {expand: true, cwd: 'src/i18n', src: ['**/*.json'], dest: 'build/i18n/'} ]
            }
        },
        cssmin: {
@@ -218,7 +221,6 @@ module.exports = function(grunt) {
             'watch'
         ]);
     });
-
 
     grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'copy', 'lintjs', 'uglify', 'log-build', 'connect:build']);
     grunt.registerTask('default', 'build');

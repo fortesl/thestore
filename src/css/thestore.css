@@ -82,3 +82,7 @@ body {
 .lfloat {
     float: left;
 }
+
+.rfloat {
+    float: right;
+}
