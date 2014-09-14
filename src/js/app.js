@@ -3,6 +3,7 @@
 
     var storeApp = angular.module('storeApp', ['ngRoute', 'product', 'user', 'pascalprecht.translate']);
     angular.module('product', []);
+    angular.module('user', []);
 
 
     //config routing and localization

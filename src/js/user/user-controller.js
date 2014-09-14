@@ -4,7 +4,7 @@
 
 (function () {
     'use strict';
-    var app = angular.module('user', []);
+    var app = angular.module('user');
 
     app.controller('UserController', [function() {
         var self = this;
