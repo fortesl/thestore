@@ -1,6 +1,6 @@
 {
   "name": "thestore",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "An online store built on Angular and Bootstrap technologies.",
   "main": "index.js",
   "directories": {
