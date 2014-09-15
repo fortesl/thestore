@@ -34,7 +34,7 @@
 
             //localization
             $translateProvider.useStaticFilesLoader({
-                prefix: '/i18n/messages_',
+                prefix: 'i18n/messages_',
                 suffix: '.json'
             });
             $translateProvider.preferredLanguage('en');
