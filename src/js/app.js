@@ -32,13 +32,13 @@
                 redirectTo: '/'
             });
 
-            //locallization
+            //localization
             $translateProvider.useStaticFilesLoader({
                 prefix: '/i18n/messages_',
                 suffix: '.json'
             });
-
             $translateProvider.preferredLanguage('en');
+
         }
     ]);
 
@@ -57,9 +57,26 @@
 
 
     //controller
-    storeApp.controller('StoreController', ['$translate', 'SupportedLanguagesService', function($translate, SupportedLanguagesService) {
+    storeApp.controller('StoreController', ['$rootScope', '$translate', 'SupportedLanguagesService', 'MetadataService', function($rootScope, $translate, SupportedLanguagesService, MetadataService) {
 
         var self = this;
+
+        MetadataService.get().success(function(data) {
+            $rootScope.storeMetadata = data;
+            $rootScope.storeTitle = data.name;
+        });
+
+        var setCurrentLanguage = function() {
+            self.currentLanguage = self.supportedLanguages[0].code;
+            var numberOfLanguages = self.supportedLanguages.length;
+            var defaultLanguage = $translate.use();
+            for (var i = 0; i < numberOfLanguages; i++) {
+                if (self.supportedLanguages[i].code === defaultLanguage) {
+                    self.currentLanguage = self.supportedLanguages[i].code;
+                    break;
+                }
+            }
+        };
 
         //language setup
         self.supportedLanguages = [];
@@ -67,14 +84,7 @@
             function(response) {
                 self.supportedLanguages = response.data;
                 if(self.supportedLanguages.length) {
-                    self.currentLanguage = self.supportedLanguages[0].code;
-                    var defaultLanguage = $translate.use();
-                    for (var i = 0; i < this.supportedLanguages.length; i++) {
-                        if (self.supportedLanguages[i].code === defaultLanguage) {
-                            self.currentLanguage = self.supportedLanguages[i].code;
-                            break;
-                        }
-                    }
+                    setCurrentLanguage();
                 }
                 else {
                     self.errorMessage = 'Store Error: supportedLanguages not found';
@@ -103,14 +113,7 @@
     storeApp.directive('siteFooter', function() {
         return {
             restrict: 'E',
-            templateUrl: 'site-footer.html',
-            controller: ['MetadataService', function(MetadataService) {
-                var self = this;
-                MetadataService.get().success(function(data){
-                    self.metadata = data;
-                });
-            }],
-            controllerAs: 'footerCtrl'
+            templateUrl: 'site-footer.html'
         };
     });
 

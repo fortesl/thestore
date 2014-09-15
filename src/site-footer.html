@@ -22,13 +22,13 @@
                     <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/tweet_button.1409790579.html#_=1410438000837&amp;count=horizontal&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Fgetbootstrap.com%2Fcomponents%2F&amp;related=mdo%3ACreator%20of%20the_onlinestore&amp;size=m&amp;via=the_onlinestore" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 108px; height: 20px;"></iframe>
                 </li>
                 <li>
-                    <a href="mailto:lmlf100@gmail.com?subject=TheStore"><span class="glyphicon glyphicon-envelope" translate="CONTACTUS"></span></a>
+                    <a href="mailto:{{ storeMetadata.author.email }}?subject={{ storeMetadata.name }}"><span class="glyphicon glyphicon-envelope" translate="CONTACTUS"></span></a>
                 </li>
             </ul>
         </div>
         <div class="bs-docs-footer-links">
             <a  class="rmargin2" href="https://github.com/fortesl/thestore/blob/master/README.md" translate="ABOUT"></a>
-            <span class="rmargin2">{{ 'VERSION_TEXT' | translate }} {{ footerCtrl.metadata.version }}</span>
+            <span class="rmargin2">{{ 'VERSION_TEXT' | translate }} {{ storeMetadata.version.full }}</span>
             <a  class="rmargin2" href="https://github.com/fortesl/thestore/blob/master/LICENSE" translate="LICENSE"></a>
             <a  class="rmargin2"href="https://github.com/fortesl/thestore/issues">{{ "ISSUES" | translate }}</a>
         </div>

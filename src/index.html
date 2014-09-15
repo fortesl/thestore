@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="storeApp">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" href="favicon.ico">
-        <title>TheStore</title>
+        <title ng-bind="storeTitle">TheStore</title>
 
         <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
         <!-- build:css css/thestore.min.css -->
@@ -20,7 +20,7 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body ng-app="storeApp" ng-controller="StoreController as storeCtrl">
+    <body ng-controller="StoreController as storeCtrl">
         <site-header></site-header>
           
         <div>

@@ -1,9 +1,18 @@
 {
   "name": "TheStore",
-  "version": "0.0.1.0",
+  "version": {
+      "full": "0.0.10",
+      "major": 0,
+      "minor": 0,
+      "dot": 10,
+      "codeName": "new-frontier"
+  },
   "description": "An online store built on cool technologies.",
-  "author": "fortesl and collaborators",
-  "email": "lmlf100@gmail.com",
+  "author": {
+      "name": "Luis M Fortes",
+      "email": "lmlf100@gmail.com",
+      "twitter": "@fortesl"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/fortesl/thestore.git"
