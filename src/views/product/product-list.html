@@ -1,5 +1,5 @@
 <!-- Product list-group -->  
-<div class="container list-group tmargin1">
+<div class="container list-group tmargin1" ng-show="productCtrl.products | filter:search">
     <select ng-model="productCtrl.sortOrder" ng-options="so.value as so.label for so in productCtrl.productSort">
         <option value="" translate="SORT_ORDER"></option>
     </select>
@@ -9,3 +9,7 @@
   </div>
 </div>
 <!-- end listgroup -->
+
+<div class="container text-center  text-danger bg-warning text-capitalize tmargin4" ng-hide="productCtrl.products | filter:search">
+    <span>{{ 'INVALID_SEARCH_TERM' | translate }}</span>
+</div>

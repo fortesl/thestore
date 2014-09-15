@@ -35,5 +35,6 @@
 "SUBMIT": "Envia",
 "ENTER_YOUR_EMAIL_ADDRESS": "Direçäo email",
 "ENTER_YOUR_FIRST_NAME": "Escreva o primeiro nome",
-"ENTER_YOUR_LAST_NAME": "Escreva o apelido"
+"ENTER_YOUR_LAST_NAME": "Escreva o apelido",
+"INVALID_SEARCH_TERM": "Nada foi encontrado! Por favor tenta outra vez"
 }
