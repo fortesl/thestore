@@ -11,9 +11,9 @@
         return {
             errorMessage: '',
 
-            getList: function() { return $http.get('data/products.json'); },
+            getList: function() { return $http.get('data/products.json', {cache: true} ); },
 
-            getDetail: function(productId) { return $http.get('data/' + productId + '.json'); }
+            getDetail: function(productId) { return $http.get('data/' + productId + '.json', {cache:true} ); }
         };
     }]);
 
