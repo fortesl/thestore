@@ -1,6 +1,9 @@
 <!DOCTYPE html>
+
 <html ng-app="storeApp">
+
     <head>
+
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,19 +11,17 @@
         <link rel="shortcut icon" href="favicon.ico">
         <title ng-bind="storeTitle">TheStore</title>
 
-        <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
+        <!-- load bootstrap CSS from cdn -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+
         <!-- build:css css/thestore.min.css -->
         <link rel="stylesheet" href="css/thestore.css" />
         <!-- /build -->
-        
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+
     </head>
+
     <body ng-controller="StoreController as storeCtrl">
+
         <site-header></site-header>
           
         <div>
@@ -28,36 +29,24 @@
         </div>
         
         <site-footer></site-footer>
-        
-        <!-- jQuery, bootstrap  && angular js-->
-        <script>
-            function loadScriptFile(src) {
-                document.write(decodeURI("%3Cscript src='" + src + "' %3E%3C/script%3E"));
-            }
-            loadScriptFile("//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js");
-            if (window.jQuery) {
-                loadScriptFile("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js");
-                loadScriptFile("//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js");
-                loadScriptFile("//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-route.min.js");
-            }
-            else {
-                loadScriptFile('vendor/jquery/dist/jquery.min.js');
-                loadScriptFile('vendor/bootstrap/dist/js/bootstrap.min.js');                
-                loadScriptFile('vendor/angular/angular.min.js');
-                loadScriptFile('vendor/angular-route/angular-route.min.js');
-            }
-            loadScriptFile('vendor/angular-translate/angular-translate.min.js');
-            loadScriptFile('vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js');
-        </script>
-        
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+        <!-- load vendor JS from cdn -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" defer></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" defer></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-route.min.js"></script>
+
+        <!-- load local JS -->
+        <script src="vendor/angular-translate/angular-translate.min.js" defer></script>
+        <script src="vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js" defer></script>
         <!-- build:js js/thestore.min.js -->
-        <script src="js/app.js"></script>
-        <script src="js/product/product-controller.js"></script>
-        <script src="js/product/product-detail-controller.js"></script>
-        <script src="js/product/product-service.js"></script>
-        <script src="js/user/user-controller.js"></script>
+            <script src="js/app.js" defer></script>
+            <script src="js/product/product-service.js" defer></script>
+            <script src="js/product/product-controller.js" defer></script>
+            <script src="js/product/product-detail-controller.js" defer></script>
+            <script src="js/user/user-controller.js" defer></script>
         <!-- /build -->
-        
+
     </body>
+
 </html>

@@ -8,13 +8,13 @@
         browser.get('/');
     };
 
-    HomePage.prototype.isSearchIconVisible =  function() {
-        return element(by.css('.glyphicon-search')).isDisplayed();
+    HomePage.prototype.isHeaderNavVisible =  function() {
+        return element(by.css('.navbar-fixed-top')).isDisplayed();
     };
 
 
-    HomePage.prototype.isFooterNavigationBarVisible = function() {
-        return element(by.css('.navbar-fixed-bottom')).isDisplayed();
+    HomePage.prototype.isFooterLinksVisible = function() {
+        return element(by.css('.bs-docs-footer-links')).isDisplayed();
     };
 
     module.exports = HomePage;

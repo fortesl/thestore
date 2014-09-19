@@ -16,7 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'karma.conf.js',
-      'src/vendor/angular/angular.min.js',
+      'src/vendor/angular/angular.js',
       'src/vendor/angular-mocks/angular-mocks.js',
       'src/js/**/*.js',
       'tests/unit/**/*mock.js',

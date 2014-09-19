@@ -13,11 +13,11 @@
         });
 
         it('should have a search icon', function() {
-            expect(homePage.isSearchIconVisible()).toEqual(true);
+            expect(homePage.isHeaderNavVisible()).toEqual(true);
         });
 
         it('should have a footer navigation bar', function() {
-            expect(homePage.isFooterNavigationBarVisible()).toEqual(true);
+            expect(homePage.isFooterLinksVisible()).toEqual(true);
         });
 
     });
@@ -52,7 +52,7 @@
 
         it('should show expected detail for productid=Azurite', function () {
             expect(productDetailPage.getProductName()).toBeTruthy();
-            expect(productDetailPage.getProductPrice()).toEqual('$110.50');
+            expect(productDetailPage.getProductPrice()).toContain('110.5');
         });
 
     });
