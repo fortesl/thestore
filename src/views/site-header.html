@@ -21,7 +21,7 @@
                   </ng-form>
               </li>
               <li><a ng-href="#/signup"><span class="glyphicon glyphicon-user"></span> {{ 'SIGN_UP' | translate }}</a></li>
-              <li class="rmargin2"><a ng-href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> {{ 'LOGIN' | translate }}</a></li>
+              <li class="rmargin2"><a ng-href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> {{ 'SIGN_IN' | translate }}</a></li>
               <li>
                   <select class="tmargin1 rmargin2" ng-model="storeCtrl.currentLanguage"  ng-change="storeCtrl.switchLanguage(storeCtrl.currentLanguage)"
                           ng-options="lang.code as lang.name for lang in storeCtrl.supportedLanguages">
