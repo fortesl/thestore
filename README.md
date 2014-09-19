@@ -41,7 +41,7 @@ features in the dev queue for future releases
 3. <a href="https://github.com/fortesl/thestore/issues/3">implement SignUp and Login links</a><br>
 4. <a href="https://github.com/fortesl/thestore/issues/4">Create functional shopping cart page</a><br>
 5. <a href="https://github.com/fortesl/thestore/issues/5">Create admin mode, for admin users to add & remove products</a><br>
-6. <a href="https://github.com/fortesl/thestore/issues/6">add additional properties like categories to products</a><br>
+6. <a href="https://github.com/fortesl/thestore/issues/6"><strike>add additional properties like categories to products</strike></a><br>
 7. <a href="https://github.com/fortesl/thestore/issues/7">Redesign home page & product details page to incorporate product categories and shopping cart buttons</a><br>
 9. <a href="https://github.com/fortesl/thestore/issues/9">Enable i18n and l10 - internationalization and localization - with the angular-translate module</a><br>
 
