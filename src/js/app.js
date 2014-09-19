@@ -7,9 +7,9 @@
 
 
     //config routing and localization
-    storeApp.config(['$routeProvider','$translateProvider',
+    storeApp.config(['$routeProvider', '$httpProvider', '$translateProvider',
 
-        function($routeProvider, $translateProvider) {
+        function($routeProvider, $httpProvider, $translateProvider) {
 
             $routeProvider.
             when('/', {
@@ -31,6 +31,9 @@
             otherwise({
                 redirectTo: '/'
             });
+
+            // enable http caching
+            $httpProvider.defaults.cache = true;
 
             //localization
             $translateProvider.useStaticFilesLoader({
@@ -106,14 +109,14 @@
     storeApp.directive('siteHeader', function() {
         return {
             restrict: 'E',
-            templateUrl: 'site-header.html'
+            templateUrl: 'views/site-header.html'
         };
     });
 
     storeApp.directive('siteFooter', function() {
         return {
             restrict: 'E',
-            templateUrl: 'site-footer.html'
+            templateUrl: 'views/site-footer.html'
         };
     });
 

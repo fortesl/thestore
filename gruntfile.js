@@ -20,21 +20,25 @@ module.exports = function(grunt) {
 
     //configure task
     grunt.initConfig({
+
        srcjsFiles: ['src/js/**/*.js'],
        testjsFiles: ['tests/**/*.js'],
        srchtmlFiles: ['src/**/*.html'],
        srccssFiles: ['src/css/**/*.css'],
+
        concat: {
-           build: {
+           thestore: {
                dest: 'build/js/thestore.min.js',
                src: '<%= srcjsFiles %>'
            }
        },
+
        processhtml: {
            build: {
                files: {'build/index.html': ['src/index.html']}
            }
        },
+
        jsonmin: {
            data: {
                files: [ {expand: true, cwd: 'src/data', src: ['**/*.json'], dest: 'build/data/'} ]
@@ -43,6 +47,7 @@ module.exports = function(grunt) {
                files: [ {expand: true, cwd: 'src/i18n', src: ['**/*.json'], dest: 'build/i18n/'} ]
            }
        },
+
        cssmin: {
            thestore: {
                files: {
@@ -50,6 +55,7 @@ module.exports = function(grunt) {
                }
            }
        },
+
        htmlmin: {
            options: {
                 removeComments: true,
@@ -58,20 +64,18 @@ module.exports = function(grunt) {
                 removeAttributeQuotes: true,
                 removeRedundantAttributes: true,
                 removeOptionalTags: true,
+                removeScriptTypeAttributes:     true,
+                removeStyleLinkTypeAttributes:  true,
+                removeEmptyAttributes:          true,
                 minifyJS: true,
                 minifyCSS: true,
                 minifyURLs: true
-           },
-           allhtml: {
-                expand: true,
-                cwd: 'src/',
-                src: ['**/*.html', '!index.html'],
-                dest: 'build/'
            },
            index: {
                files: {'build/index.html': 'build/index.html'}
            }
        },
+
        imagemin: {
            images: {
                files: [
@@ -84,24 +88,15 @@ module.exports = function(grunt) {
                ]
            }
        },
+
        copy: {
            vendor: {
                files: [
                    {
                     expand:true, 
                     cwd: 'src/vendor',
-                    src: ['**/*.{js,css,map}', '**/dist/fonts/*'], 
+                    src: ['**/*.{min.js,map,css}', '**/dist/fonts/*'],
                     dest: 'build/vendor/'
-                   }
-               ]
-           },
-           images: {
-               files: [
-                   {
-                       expand:true,
-                       cwd: 'src/images',
-                       src: ['**/*'],
-                       dest: 'build/images/'
                    }
                ]
            },
@@ -110,6 +105,7 @@ module.exports = function(grunt) {
                src: 'src/favicon.ico'
            }
        },
+
        jshint: {
             options: {
                 jshintrc: '.jshintrc'
@@ -117,6 +113,7 @@ module.exports = function(grunt) {
             src: ['Gruntfile.js','<%= srcjsFiles %>'],
             tests:  ['<%= testjsFiles %>']
        },
+
        uglify: {
            options: {
                mangle: true,
@@ -124,12 +121,15 @@ module.exports = function(grunt) {
                compress: true
            },
            js: {
-               files: {'<%= concat.build.dest %>': ['<%= concat.build.dest %>']}
+               files: {'<%= concat.thestore.dest %>': ['<%= concat.thestore.dest %>']}
            }
        },
+
        clean: {
-           build: ['build']
+           build: ['build'],
+           postbuild: ['<%= ngtemplates.storeApp.dest %>']
        },
+
        aws: (grunt.file.exists('../aws.json')) ? grunt.file.readJSON('../aws.json') : null,
        s3: {
            options: {
@@ -142,6 +142,7 @@ module.exports = function(grunt) {
                src: '**'
            }
        },
+
         // The actual grunt server settings
         connect: {
             options: {
@@ -166,6 +167,7 @@ module.exports = function(grunt) {
                 }
             }
         },
+
        watch: {
            js: {
                files: ['Gruntfile.js', '<%= srcjsFiles %>', '<%= testjsFiles %>'],
@@ -181,10 +183,32 @@ module.exports = function(grunt) {
                    '<%= srccssFiles %>'
                ]
            }
-       }
+       },
+
+        ngtemplates:  {
+            storeApp:        {
+                cwd: 'src',
+                src:      'views/**/*.html',
+                dest:     'src/js/templates.js',
+                options: {
+                    htmlmin: {
+                        removeComments: true,
+                        collapseWhitespace: true,
+                        collapseBooleanAttributes: true,
+                        removeAttributeQuotes: true,
+                        removeRedundantAttributes: true,
+                        removeOptionalTags: true,
+                        removeScriptTypeAttributes: true,
+                        removeStyleLinkTypeAttributes: true,
+                        removeEmptyAttributes: true
+                    }
+                }
+            }
+        }
     });
     
     grunt.registerTask('log-build', function() {
+        this.requires('ngtemplates');
         this.requires('clean:build');
         this.requires('concat');
         this.requires('processhtml');
@@ -194,6 +218,7 @@ module.exports = function(grunt) {
         this.requires('copy');
         this.requires('lintjs');
         this.requires('uglify');
+        grunt.task.run('clean:postbuild');
         var message = 'Built on ' + new Date();
         fs.appendFileSync('build.log', message + '\n');
         grunt.log.writeln(message);
@@ -222,7 +247,7 @@ module.exports = function(grunt) {
         ]);
     });
 
-    grunt.registerTask('build', ['clean', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'copy', 'lintjs', 'uglify', 'log-build', 'connect:build']);
+    grunt.registerTask('build', ['ngtemplates', 'clean:build', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'copy', 'lintjs', 'uglify', 'log-build', 'connect:build']);
     grunt.registerTask('default', 'build');
     grunt.registerTask('deployAWS', ['s3', 'log-deployAWS']);
     
