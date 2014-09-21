@@ -103,6 +103,12 @@ module.exports = function(grunt) {
            favicon: {
                dest: 'build/favicon.ico',
                src: 'src/favicon.ico'
+           },
+           ghpages: {
+               expand:true,
+               cwd: 'build',
+               dest: 'gh-pages/thestore/',
+               src: ['**/*']
            }
        },
 
@@ -250,5 +256,5 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['ngtemplates', 'clean:build', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'copy', 'lintjs', 'uglify', 'log-build', 'connect:build']);
     grunt.registerTask('default', 'build');
     grunt.registerTask('deployAWS', ['s3', 'log-deployAWS']);
-    
+
 };
