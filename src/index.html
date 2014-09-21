@@ -12,7 +12,9 @@
         <title ng-bind="storeTitle">TheStore</title>
 
         <!-- load bootstrap CSS from cdn -->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <!-- build:[href] //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
+        <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
+        <!-- /build -->
 
         <!-- build:css css/thestore.min.css -->
         <link rel="stylesheet" href="css/thestore.css" />
@@ -31,14 +33,24 @@
         <site-footer></site-footer>
 
         <!-- load vendor JS from cdn -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" defer></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" defer></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-route.min.js"></script>
+        <!-- build:[src] //ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js -->
+        <script src="vendor/jquery/dist/jquery.min.js" defer></script>
+        <!-- /build -->
+        <!-- build:[src] //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js -->
+        <script src="vendor/bootstrap/dist/js/bootstrap.min.js" defer></script>
+        <!-- /build -->
+        <!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js -->
+        <script src="vendor/angular/angular.min.js"></script>
+        <!-- /build -->
+        <!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js -->
+            <script src="vendor/angular-route/angular-route.min.js"></script>
+        <!-- /build -->
 
         <!-- load local JS -->
-        <script src="vendor/angular-translate/angular-translate.min.js" defer></script>
-        <script src="vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js" defer></script>
+        <!-- build:js js/vendors.js -->
+            <script src="vendor/angular-translate/angular-translate.min.js" defer></script>
+            <script src="vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js" defer></script>
+        <!-- /build -->
         <!-- build:js js/thestore.min.js -->
             <script src="js/app.js" defer></script>
             <script src="js/product/product-service.js" defer></script>

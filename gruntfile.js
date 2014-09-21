@@ -30,6 +30,10 @@ module.exports = function(grunt) {
            thestore: {
                dest: 'build/js/thestore.min.js',
                src: '<%= srcjsFiles %>'
+           },
+           vendor: {
+               dest: 'build/js/vendors.js',
+               src: ['src/vendor/angular-translate/angular-translate.min.js', 'src/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js']
            }
        },
 
@@ -90,16 +94,6 @@ module.exports = function(grunt) {
        },
 
        copy: {
-           vendor: {
-               files: [
-                   {
-                    expand:true, 
-                    cwd: 'src/vendor',
-                    src: ['**/*.{min.js,map,css}', '**/dist/fonts/*'],
-                    dest: 'build/vendor/'
-                   }
-               ]
-           },
            favicon: {
                dest: 'build/favicon.ico',
                src: 'src/favicon.ico'
