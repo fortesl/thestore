@@ -9,7 +9,7 @@ View the <a href="http://fortesl.github.io/thestore/#/">Website</a>
 
 Install
 =======
-Either with <a href="https://github.com/fortesl/thestore">github</a> -
+Either with <a href="https://github.com/fortesl/thestore">github</a> 
 <ol>
     <li>Fork and clone the project to a "thestore" local folder</li>
     <li>From the "thestore" folder, install build task dependencies with the command: <b>npm install</b></li>
@@ -19,6 +19,7 @@ Either with <a href="https://github.com/fortesl/thestore">github</a> -
 Or with <a href="https://www.npmjs.org/package/thestore">npm</a> -
 <ol>
     <li>Get the project to your local machine with the command: <b>npm install thestore</b></li>
+    <li>From the "thestore" folder, install build task dependencies with the command: <b>npm install</b></li>
     <li>From the "thestore" folder, install dependencies with the command: <b>bower install</b></li>
 </ol>
 
