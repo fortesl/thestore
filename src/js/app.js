@@ -2,7 +2,7 @@
     'use strict';
 
     var storeApp = angular.module('storeApp', ['ngRoute', 'product', 'user', 'pascalprecht.translate']);
-    angular.module('product', []);
+    angular.module('product', ['pascalprecht.translate']);
     angular.module('user', []);
 
 
@@ -35,13 +35,13 @@
             // enable http caching
             $httpProvider.defaults.cache = true;
 
-            //localization
+            //language - localization
             $translateProvider.useStaticFilesLoader({
                 prefix: 'i18n/messages_',
                 suffix: '.json'
             });
-            $translateProvider.preferredLanguage('en');
-
+            var language = getCookie('language') || 'en';
+            $translateProvider.preferredLanguage(language);
         }
     ]);
 
@@ -64,11 +64,13 @@
 
         var self = this;
 
+        //metadata
         MetadataService.get().success(function(data) {
             $rootScope.storeMetadata = data;
             $rootScope.storeTitle = data.name;
         });
 
+        //language translations
         var setCurrentLanguage = function() {
             self.currentLanguage = self.supportedLanguages[0].code;
             var numberOfLanguages = self.supportedLanguages.length;
@@ -100,8 +102,14 @@
 
         self.switchLanguage = function (languageKey) {
             $translate.use(languageKey);
+            //set-cookie
+            setCookie('language', languageKey, 365);
         };
 
+        self.setLanguageFromCookie = function() {
+            var language = getCookie('language') || 'en';
+            $translate.use(language);
+        };
 
     }]);
 
@@ -119,6 +127,28 @@
             templateUrl: 'views/site-footer.html'
         };
     });
+
+
+    //utils
+    var setCookie = function (name, value, expirationDays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (expirationDays*24*60*60*1000));
+        var expires = 'expires='+d.toUTCString();
+        document.cookie = name + "=" + value + "; " + expires;
+    };
+
+    var getCookie = function (name) {
+        var cookieName = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)===' ') { c = c.substring(1); }
+            if (c.indexOf(cookieName) !== -1) {
+                return c.substring(cookieName.length,c.length);
+            }
+        }
+        return '';
+    };
 
 })();
    

@@ -3,19 +3,34 @@
 
     var app = angular.module('product');
 
-    app.controller('ProductController', ['ProductService', '$filter',
-        function(ProductService, $filter) {
+    app.controller('ProductController', ['ProductService', '$rootScope', '$translate',
+        function(ProductService, $rootScope, $translate) {
 
             var self = this;
             self.products = [];
             self.selectedProduct = 0;
             self.sortOrder = '';
+
             self.productSort = [
                 {value:'name', label:'Product Name (A to Z)'},
                 {value:'-name', label:'Product Name (Z to A)'},
                 {value:'price', label:'Price (Low to High)'},
                 {value:'-price', label:'Price (High to Low)'}
             ];
+
+            $rootScope.$on('$translateChangeSuccess', function() {
+                self.setProductSortItems();
+            });
+
+            self.setProductSortItems = function() {
+                self.productSort.length = 0;
+                self.productSort.push({value:'name', label:$translate.instant('SORT_BY_PRODUCT_NAME_ASC')});
+                self.productSort.push({value:'-name', label:$translate.instant('SORT_BY_PRODUCT_NAME_DESC')});
+                self.productSort.push({value:'price', label:$translate.instant('SORT_BY_PRODUCT_PRICE_ASC')});
+                self.productSort.push({value:'-price', label:$translate.instant('SORT_BY_PRODUCT_PRICE_DESC')});
+            };
+
+
 
             self.selectRandomProduct = function() {
                 self.selectedProduct = Math.floor((Math.random() * self.products.length));

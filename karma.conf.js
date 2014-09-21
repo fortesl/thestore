@@ -18,6 +18,8 @@ module.exports = function(config) {
       'karma.conf.js',
       'src/vendor/angular/angular.js',
       'src/vendor/angular-mocks/angular-mocks.js',
+      'src/vendor/angular-translate/angular-translate.js',
+      'src/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
       'src/js/**/*.js',
       'tests/unit/**/*mock.js',
       'tests/unit/**/*test.js'
