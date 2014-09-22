@@ -6,7 +6,7 @@ The focus of this project is on developing modular, testable, maintainable, and 
 
 Follow <a href="https://twitter.com/the_onlinestore">@the_onlinestore</a> on twitter to stay informed on all commits and other changes.
 
-View the <a href="http://fortesl.github.io/thestore/#/">Website</a>
+View the <a href="http://fortesl.github.io/thestore/#/">demo website</a>
 
 
 Install
