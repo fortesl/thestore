@@ -1,6 +1,8 @@
 {
 "LANGUAGE": "English",
 "APP_TITLE": "TheStore",
+"PRODUCT_LIST_TITLE": "TheStore - Products",
+"PRODUCT_DETAILS_TITLE": "TheStore - Product Details",
 "ABOUT": "About",
 "LICENSE": "License",
 "ISSUES": "Issues",

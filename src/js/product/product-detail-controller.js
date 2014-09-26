@@ -7,8 +7,11 @@
 
     var app = angular.module('product');
 
-    app.controller('ProductDetailController', ['$routeParams', 'ProductService',
-        function($routeParams, ProductService) {
+    app.controller('ProductDetailController', ['$routeParams', 'ProductService', '$rootScope', '$translate',
+        function($routeParams, ProductService, $rootScope, $translate) {
+
+            $rootScope.storeTitle = $translate.instant('PRODUCT_DETAILS_TITLE') + ' - ' + $routeParams.productId;
+
             this.productId = $routeParams.productId;
             var self = this;
 

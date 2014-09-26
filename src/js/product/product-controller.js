@@ -6,6 +6,8 @@
     app.controller('ProductController', ['ProductService', '$rootScope', '$translate',
         function(ProductService, $rootScope, $translate) {
 
+            $rootScope.storeTitle = $translate.instant('PRODUCT_LIST_TITLE');
+
             var self = this;
             self.products = [];
             self.selectedProduct = 0;

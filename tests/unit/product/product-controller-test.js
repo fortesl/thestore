@@ -27,7 +27,7 @@
 
         beforeEach(inject(function($controller, $httpBackend) {
             httpBackend = $httpBackend;
-            httpBackend.expectGET('data/products.json')
+            httpBackend.expectGET('storeData/products.json')
                 .respond(404, {msg: 'Not Found'});
             testCtrl = $controller('ProductController');
         }));

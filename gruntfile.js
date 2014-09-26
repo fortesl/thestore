@@ -45,7 +45,7 @@ module.exports = function(grunt) {
 
        jsonmin: {
            data: {
-               files: [ {expand: true, cwd: 'src/data', src: ['**/*.json'], dest: 'build/data/'} ]
+               files: [ {expand: true, cwd: 'src/storeData', src: ['**/*.json'], dest: 'build/storeData/'} ]
            },
            i18n: {
                files: [ {expand: true, cwd: 'src/i18n', src: ['**/*.json'], dest: 'build/i18n/'} ]

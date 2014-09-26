@@ -48,7 +48,7 @@
     //services
     storeApp.factory('MetadataService', ['$http', function($http) {
         return {
-            get: function() { return $http.get('data/metadata.json'); }
+            get: function() { return $http.get('storeData/metadata.json'); }
         };
     }]);
 
