@@ -10,10 +10,9 @@
 
         var self = this;
         var userLoggedInEventListener = null;
+        var changeLanguageEventListener = null;
 
-        self.init = function() {
-
-            self.labels = UserLabels;
+        var setUserDropDownItems = function() {
 
             self.userDropdownItems = [
                 {name: self.labels.logout(), link: 'logoutUser'},
@@ -21,11 +20,19 @@
                 {name: self.labels.sellItems(), link: 'nada'}
             ];
 
+        };
+
+       self.init = function() {
+
+            self.labels = UserLabels;
+
             self.status = {
                 isOpen: false
             };
+           self.userDropdownItems = [];
 
             if (UserService.isLoggedIn()) {
+                setUserDropDownItems();
                 var user = UserService.user();
                 self.userName = user.firstName + ' ' + user.lastName;
             }
@@ -36,13 +43,20 @@
             if (!userLoggedInEventListener) {
                 userLoggedInEventListener = $rootScope.$on('USER_LOGGED_IN_EVENT', function () {
                     $rootScope.$apply(function() {
+                        setUserDropDownItems();
                         var user = UserService.user();
                         self.userName = user.firstName + ' ' + user.lastName;
                     });
                 });
             }
 
-        };
+           if (!changeLanguageEventListener) {
+               changeLanguageEventListener = $rootScope.$on('$translateChangeSuccess', function() {
+                   setUserDropDownItems();
+               });
+           }
+
+       };
 
         self.toggleDropdown = function($event) {
             $event.preventDefault();

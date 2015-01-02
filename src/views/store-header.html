@@ -34,7 +34,7 @@
                   </span>
               </li>
 
-              <li ng-show="!userDropdownCtrl.userName"><a ng-href="#/signin" ng-bind="userDropdownCtrl.labels.signIn()"></a></li>
+              <li ng-hide="userDropdownCtrl.userName"><a ng-href="#/signin" ng-bind="userDropdownCtrl.labels.signIn()"></a></li>
               <li class="tmargin1 lmargin1 rmargin1">
                   <span class="dropdown" dropdown>
                       <a href class="dropdown-toggle" dropdown-toggle>
