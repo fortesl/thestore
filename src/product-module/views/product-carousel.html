@@ -1,0 +1,30 @@
+<!-- Carousel -->
+<div class="container bmargin2">
+    <div id="myCarousel" class="carousel slide tmargin1" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" ng-repeat="product in productCtrl.products" ng-hide="product.soldout" data-slide-to="{{$index}}" ng-class="{active: $index===productCtrl.selectedProduct}"></li>
+        </ol>
+        <div class="carousel-inner xymargin">
+            <div class="item"  ng-repeat="product in productCtrl.products" ng-hide="product.soldout" ng-class="{active: $index===productCtrl.selectedProduct}">
+                <div class="carousel-image-slide" style="background: url('{{product.images[0]}}')"></div>
+                <a ng-href="#/products/{{product.id}}">
+                    <div class="carousel-caption">
+                        <h1 style="color:red">{{product.name}}</h1>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- BUGGY CONTROLLERS
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+         -->
+        
+    </div>
+</div>
+<!-- End Carousel -->
+

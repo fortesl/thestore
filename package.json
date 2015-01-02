@@ -1,52 +1,79 @@
 {
-  "name": "thestore",
-  "version": "0.0.13",
-  "description": "An online store built on Angular and Bootstrap technologies.",
+  "name": "thestoreplus",
+  "version": "0.0.0",
+  "description": "An online store built on Angular, Bootstrap, and Firebase technologies.",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-contrib-uglify": "~0.5.1",
+    "grunt-angular-templates": "^0.5.7",
+    "grunt-aws": "^0.3.0",
     "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat-sourcemaps": "^0.6.0",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-cssmin": "^0.10.0",
     "grunt-contrib-htmlmin": "^0.3.0",
     "grunt-contrib-imagemin": "^0.8.0",
-    "grunt-contrib-copy": "^0.5.0",
-    "grunt-jsonmin": "^0.2.4",
-    "grunt-contrib-concat-sourcemaps": "^0.6.0",
-    "grunt-processhtml": "^0.3.3",
     "grunt-contrib-jshint": "^0.10.0",
-    "grunt-aws": "^0.3.0",
-    "karma": "^0.12.23",
-    "karma-jasmine": "^0.1.5",
-    "karma-chrome-launcher": "^0.1.4",
+    "grunt-contrib-uglify": "~0.5.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-html-angular-validate": "^0.4.0",
-    "grunt-contrib-connect": "^0.8.0",
-    "grunt-angular-templates": "^0.5.7"
+    "grunt-jsonmin": "^0.2.4",
+    "grunt-karma": "^0.9.0",
+    "grunt-processhtml": "^0.3.3",
+    "grunt-protractor-runner": "^1.1.4",
+    "karma": "^0.12.23",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-coverage": "^0.2.7",
+    "karma-jasmine": "^0.1.5",
+    "protractor": "^1.5.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fortesl/thestore.git"
+    "url": "https://github.com/fortesl/thestoreplus.git"
   },
   "keywords": [
     "Angular",
     "Bootstrap",
+    "Firebase",
     "Store",
     "Shopping",
     "Cart",
     "ShoppingCart"
   ],
-  "author": "Luis Fortes lmlf100@gmail.com (https://www.linkedin.com/in/luisfortes)",
+  "author": {
+    "name": "Luis Fortes lmlf100@gmail.com",
+    "url": "https://www.linkedin.com/in/luisfortes"
+  },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fortesl/thestore/issues",
+    "url": "https://github.com/fortesl/thestoreplus/issues",
     "email": "lmlf100@gmail.com"
   },
-  "homepage": "http://gostore.s3-website-us-east-1.amazonaws.com"
+  "homepage": "http://gostore.s3-website-us-east-1.amazonaws.com",
+  "_id": "thestoreplus@0.0.0",
+  "dist": {
+    "shasum": "25c71fbf1fea8c97f93d6fc4eea83330caa6c52f",
+    "tarball": "http://registry.npmjs.org/thestoreplus/-/thestoreplus-0.0.0.tgz"
+  },
+  "_from": "thestoreplus@",
+  "_npmVersion": "1.4.3",
+  "_npmUser": {
+    "name": "fortesl",
+    "email": "fortesl@yahoo.com"
+  },
+  "maintainers": [
+    {
+      "name": "fortesl",
+      "email": "fortesl@yahoo.com"
+    }
+  ],
+  "_shasum": "25c71fbf1fea8c97f93d6fc4eea83330caa6c52f",
+  "_resolved": "https://registry.npmjs.org/thestoreplus/-/thestoreplus-0.0.0.tgz"
 }

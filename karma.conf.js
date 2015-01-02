@@ -15,12 +15,23 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'karma.conf.js',
       'src/vendor/angular/angular.js',
+      'src/vendor/angular-route/angular-route.js',
       'src/vendor/angular-mocks/angular-mocks.js',
+      'src/vendor/angular-input-match/dist/angular-input-match.js',
       'src/vendor/angular-translate/angular-translate.js',
       'src/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
-      'src/js/**/*.js',
+      'src/vendor/firebase/firebase.js',
+      'src/vendor/angular-bootstrap/ui-bootstrap-tpls.js',
+      'src/vendor/spin.js/spin.js',
+      'src/vendor/angular-spinner/angular-spinner.js',
+        'src/LFModules/**/*.js',
+        'src/store-app.js',
+      'src/scripts/**/*.js',
+        'src/product-module/product-app.js',
+        'src/product-module/scripts/**/*.js',
+        'src/user-module/user-app.js',
+        'src/user-module/scripts/**/*.js',
       'tests/unit/**/*mock.js',
       'tests/unit/**/*test.js'
     ],
@@ -34,13 +45,25 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'src/store-app.js' : ['coverage'],
+      'src/scripts/**/*.js' : ['coverage'],
+      'src/product-module/product-app.js' : ['coverage'],
+      'src/product-module/scripts/**/*.js' : ['coverage'],
+      'src/user-module/user-app.js' : ['coverage'],
+      'src/user-module/scripts/**/*.js' : ['coverage']
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+
+    // optionally, configure the reporter
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
 
 
     // web server port

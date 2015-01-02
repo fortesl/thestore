@@ -2,8 +2,8 @@ src/vendor
 node_modules
 build
 build.log
-nbproject
 .idea
 npm-debug.log
 data
 gh-pages
+coverage

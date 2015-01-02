@@ -1,0 +1,16 @@
+<!-- Product list-group -->
+<div class="container list-group tmargin1" ng-show="productCtrl.products | filter:search">
+    <select ng-model="productCtrl.sortOrder" ng-options="so.value as so.label for so in productCtrl.productSort">
+        <option value="" ng-bind="productCtrl.labels.sortOrder()"></option>
+    </select>
+  <div class="list-group-item" ng-repeat="product in productCtrl.products | filter:search | orderBy:productCtrl.sortOrder" ng-hide="product.soldOut" ng-class="{odd: $odd}">
+      <h3> <a ng-href="#/products/{{product.id}}"><dfn>{{product.name}}</dfn></a> <em class="pull-right">{{product.price | currency:"USD$"}}</em></h3>
+      <em>{{product.description}}</em>
+      <p>{{product.id}}</p>
+  </div>
+</div>
+<!-- end listgroup -->
+
+<div class="container text-center  text-danger bg-warning text-capitalize tmargin4" ng-hide="productCtrl.products | filter:search">
+    <span>{{ productCtrl.labels.invalidSearch() }}</span>
+</div>

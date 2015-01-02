@@ -1,0 +1,55 @@
+<!-- Navigation bar -->
+<nav class="navbar navbar-default navbar-fixed-top bmargin1">
+  <div class="container-fluid" ng-controller="UserDropdownController as userDropdownCtrl">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand text-muted">
+            <a ng-href="#/"><img  width="32px" height="32px" ng-src="favicon.ico"></a>
+          </span>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <ng-form autocomplete="on">
+                      <input class="input-sm lfloat tmargin07" autofocus type="search" size="40" ng-model="search" placeholder="{{ storeCtrl.labels.search() }}">
+                      <a ng-href="#/" class="btn btn-info btn-sm tmargin07" ng-bind="storeCtrl.labels.go()"></a>
+                  </ng-form>
+              </li>
+
+              <li class="lmargin1 tmargin1" ng-show="userDropdownCtrl.userName">
+                  <span class="dropdown" dropdown>
+                      <a href class="dropdown-toggle" dropdown-toggle>
+                          {{userDropdownCtrl.userName}}  <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li ng-repeat="item in userDropdownCtrl.userDropdownItems" ng-class="{divider: item.divider}">
+                              <a href ng-if="item.name" ng-click="userDropdownCtrl.userDropdownItemHandlers(item.link)">{{item.name}}</a>
+                          </li>
+                      </ul>
+                  </span>
+              </li>
+
+              <li ng-show="!userDropdownCtrl.userName"><a ng-href="#/signin" ng-bind="userDropdownCtrl.labels.signIn()"></a></li>
+              <li class="tmargin1 lmargin1 rmargin1">
+                  <span class="dropdown" dropdown>
+                      <a href class="dropdown-toggle" dropdown-toggle>
+                          {{storeCtrl.currentLanguage.name}}  <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li ng-repeat="item in storeCtrl.supportedLanguages">
+                              <a href ng-if="item.name" ng-click="storeCtrl.switchLanguage(item)">{{item.name}}</a>
+                          </li>
+                      </ul>
+                  </span>
+              </li>
+          </ul>
+      </div>
+  </div>
+    <!-- End container -->
+</nav>
+<!-- End Navigation bar -->

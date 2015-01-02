@@ -1,0 +1,59 @@
+<!-- signup form -->
+<div class="container tmargin2">
+    <h1 ng-bind="userCtrl.labels.signUp()"></h1>
+    <form name="signupForm" ng-submit="signupForm.$valid && userCtrl.add()" novalidate>
+        <div class="row tmargin2">
+            <div class="col-md-6 col-lg-6">
+                <fieldset class="form-group">
+                    <label ng-bind="userCtrl.labels.firstName()"></label>
+                    <input type="text" class="form-control" placeholder="{{ userCtrl.labels.enterFirstName() }}" ng-model="userCtrl.user.firstName" required>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row tbmargin">
+            <div class="col-md-6 col-lg-6">
+                <fieldset class="form-group">
+                    <label ng-bind="userCtrl.labels.lastName()"></label>
+                    <input type="text" class="form-control" placeholder="{{ userCtrl.labels.enterLastName() }}" ng-model="userCtrl.user.lastName" required>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row tbmargin">
+            <div class="col-md-4 col-lg-4">
+                <fieldset class="form-group">
+                    <label ng-bind="userCtrl.labels.emailAddress()"></label>
+                    <input type="email" class="form-control" placeholder="{{ userCtrl.labels.enterEmailAddress()}}" ng-model="userCtrl.user.email" required>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row tbmargin">
+            <div class="col-md-3 col-lg-3">
+                <fieldset class="form-group">
+                    <label ng-bind="userCtrl.labels.password()"></label>
+                    <input name="password" type="password" class="form-control" ng-model="userCtrl.user.password" ng-minlength="8" required>
+                    <span ng-show="signupForm.password.$error.minlength">{{ userCtrl.labels.passwordMinLength() }}</span>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row tbmargin">
+            <div class="col-md-3 col-lg-3">
+                <fieldset class="form-group">
+                    <label  ng-bind="userCtrl.labels.repeatPassword()"></label>
+                    <input name="repeatPassword" type="password" class="form-control" data-match="userCtrl.user.password"
+                           ng-model="userCtrl.user.repeatPassword" required>
+                    <span ng-show="signupForm.repeatPassword.$error.match">{{ userCtrl.labels.passwordMismatch() }}</span>
+                    <div ng-show="userCtrl.userServiceError" class="has-error text-warning">{{ userCtrl.userServiceError.message}}</div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row tbmargin">
+            <div class="col-md-3 col-lg-3">
+                <fieldset class="form-group" id="buttonsGroup">
+                    <input ng-disabled="signupForm.$invalid" class="btn btn-primary" type="submit" value="{{ userCtrl.labels.submit() }}"/>
+                </fieldset>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- End signup form -->
+

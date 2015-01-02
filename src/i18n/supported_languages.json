@@ -1,4 +1,4 @@
 [
-    {"name": "English", "code": "en", "default": true},
-    {"name": "Portuguese", "code": "pt_BR"}
+    {"name": "English", "code": "en"},
+    {"name": "Portugues", "code": "pt_BR", "default": true}
 ]

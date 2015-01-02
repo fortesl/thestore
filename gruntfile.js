@@ -7,7 +7,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-jsonmin');
     grunt.loadNpmTasks('grunt-contrib-concat-sourcemaps');
@@ -17,23 +16,38 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-angular-templates');
+    grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-protractor-runner');
 
     //configure task
     grunt.initConfig({
 
-       srcjsFiles: ['src/js/**/*.js'],
-       testjsFiles: ['tests/**/*.js'],
+       srcjsFiles: [
+           'src/LFModules/**/*.js',
+           'src/store-app.js', 'src/scripts/**/*.js',
+           'src/product-module/product-app.js',
+           'src/product-module/scripts/**/*.js',
+           'src/user-module/user-app.js', 'src/user-module/scripts/**/*.js'
+       ],
+       vendorjsFiles: [
+           'src/vendor/angular-input-match/dist/angular-input-match.js',
+           'src/vendor/angular-translate/angular-translate.min.js',
+           'src/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
+           'src/vendor/spin.js/spin.js',
+           'src/vendor/angular-spinner/angular-spinner.min.js'
+       ],
+       testjsFiles: ['tests/unit/**/*.js'],
        srchtmlFiles: ['src/**/*.html'],
-       srccssFiles: ['src/css/**/*.css'],
+       srccssFiles: ['src/styles/**/*.css'],
 
        concat: {
            thestore: {
-               dest: 'build/js/thestore.min.js',
+               dest: 'src/thestore.js',
                src: '<%= srcjsFiles %>'
            },
-           vendor: {
-               dest: 'build/js/vendors.js',
-               src: ['src/vendor/angular-translate/angular-translate.min.js', 'src/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js']
+           vendors: {
+               dest: 'src/vendors.js',
+               src: ['<%= vendorjsFiles %>']
            }
        },
 
@@ -80,29 +94,18 @@ module.exports = function(grunt) {
            }
        },
 
-       imagemin: {
-           images: {
-               files: [
-                   {
-                    expand: true,
-                    cwd: 'src',
-                    src: ['**/*.{png,jpg,gif}'],
-                    dest: 'build/'
-                   }
-               ]
-           }
-       },
-
        copy: {
            favicon: {
                dest: 'build/favicon.ico',
                src: 'src/favicon.ico'
            },
+           vendors: {
+               dest: 'build/vendors.min.js',
+               src: 'src/vendors.js'
+           },
            ghpages: {
-               expand:true,
-               cwd: 'build',
-               dest: 'gh-pages/thestore/',
-               src: ['**/*']
+               dest: '../gh-pages/',
+               src: 'build/**/*'
            }
        },
 
@@ -121,13 +124,14 @@ module.exports = function(grunt) {
                compress: true
            },
            js: {
-               files: {'<%= concat.thestore.dest %>': ['<%= concat.thestore.dest %>']}
+               files: {'build/thestore.min.js': ['<%= concat.thestore.dest %>']}
            }
        },
 
        clean: {
            build: ['build'],
-           postbuild: ['<%= ngtemplates.storeApp.dest %>']
+           postbuild: ['<%= ngtemplates.storeApp.dest %>', 'src/thestore.js', 'src/vendors.js'],
+           js: ['src/thestore.js']
        },
 
        aws: (grunt.file.exists('../aws.json')) ? grunt.file.readJSON('../aws.json') : null,
@@ -170,15 +174,15 @@ module.exports = function(grunt) {
 
        watch: {
            js: {
-               files: ['Gruntfile.js', '<%= srcjsFiles %>', '<%= testjsFiles %>'],
-               tasks: ['lintjs']
+               files: ['<%= srcjsFiles %>', '<%= testjsFiles %>'],
+               tasks: ['lintjs', 'concat:thestore']
            },
            livereload: {
                options: {
                    livereload: '<%= connect.options.livereload %>'
                },
                files: [
-                   '<%= srcjsFiles %>',
+                   'src/thestore.js',
                    '<%= srchtmlFiles %>',
                    '<%= srccssFiles %>'
                ]
@@ -188,8 +192,8 @@ module.exports = function(grunt) {
         ngtemplates:  {
             storeApp:        {
                 cwd: 'src',
-                src:      'views/**/*.html',
-                dest:     'src/js/templates.js',
+                src:      '**/views/**/*.html',
+                dest:     'src/scripts/templates.js',
                 options: {
                     htmlmin: {
                         removeComments: true,
@@ -204,10 +208,44 @@ module.exports = function(grunt) {
                     }
                 }
             }
+        },
+
+        karma: {
+            test: {
+                configFile: 'karma.conf.js'
+            },
+            build: {
+                configFile: 'karma.conf.js',
+                singleRun: true
+            }
+        },
+
+        protractor: {
+            options: {
+                configFile: "node_modules/protractor/referenceConf.js", // Default config file
+                keepAlive: true, // If false, the grunt process stops when the test fails.
+                noColor: false, // If true, protractor will not use colors in its output.
+                args: {
+                    // Arguments passed to the command
+                }
+            },
+            test: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+                options: {
+                    configFile: "protractor.conf.js", // Target-specific config file
+                    args: {} // Target-specific arguments
+                }
+            },
+            build: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+                options: {
+                    configFile: "protractor.conf.js", // Target-specific config file
+                    args: {baseUrl: 'http://localhost:9001/'} // Target-specific arguments
+                }
+            }
         }
     });
     
     grunt.registerTask('log-build', function() {
+        this.requires('karma:build');
         this.requires('ngtemplates');
         this.requires('clean:build');
         this.requires('concat');
@@ -219,6 +257,7 @@ module.exports = function(grunt) {
         this.requires('lintjs');
         this.requires('uglify');
         grunt.task.run('clean:postbuild');
+
         var message = 'Built on ' + new Date();
         fs.appendFileSync('build.log', message + '\n');
         grunt.log.writeln(message);
@@ -242,12 +281,16 @@ module.exports = function(grunt) {
 
     grunt.registerTask('serve', 'start a connect web server', function () {
         grunt.task.run([
+            'lintjs',
+            'clean:js',
+            'concat',
             'connect:livereload',
             'watch'
         ]);
     });
 
-    grunt.registerTask('build', ['ngtemplates', 'clean:build', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'copy', 'lintjs', 'uglify', 'log-build', 'connect:build']);
+    grunt.registerTask('build', ['karma:build', 'ngtemplates', 'clean:build', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'lintjs', 'uglify', 'copy', 'clean:postbuild', 'log-build',
+        'connect:build']);
     grunt.registerTask('default', 'build');
     grunt.registerTask('deployAWS', ['s3', 'log-deployAWS']);
 

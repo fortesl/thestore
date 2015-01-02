@@ -12,51 +12,56 @@
         <title ng-bind="storeTitle">TheStore</title>
 
         <!-- load bootstrap CSS from cdn -->
-        <!-- build:[href] //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
+        <!-- build:[href] https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css -->
         <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
         <!-- /build -->
 
-        <!-- build:css css/thestore.min.css -->
-        <link rel="stylesheet" href="css/thestore.css" />
+        <!-- build:[href] css/thestore.min.css -->
+        <link rel="stylesheet" href="styles/thestore.css" />
         <!-- /build -->
 
     </head>
 
     <body ng-controller="StoreController as storeCtrl">
 
-        <site-header></site-header>
-          
+        <span us-spinner="{radius:30, width:8, length: 16, top: '25%'}" spinner-key="spinner-1" ></span>
+
+        <st-header></st-header>
+
         <div>
             <div ng-view></div>
         </div>
-        
-        <site-footer></site-footer>
+
+        <st-footer></st-footer>
 
         <!-- load vendor JS from cdn -->
         <!-- build:[src] //ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js -->
         <script src="vendor/jquery/dist/jquery.min.js" defer></script>
         <!-- /build -->
-        <!-- build:[src] //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js -->
+        <!-- build:[src] https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js -->
         <script src="vendor/bootstrap/dist/js/bootstrap.min.js" defer></script>
         <!-- /build -->
-        <!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js -->
+        <!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js -->
         <script src="vendor/angular/angular.min.js"></script>
         <!-- /build -->
-        <!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js -->
+        <!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js -->
             <script src="vendor/angular-route/angular-route.min.js"></script>
         <!-- /build -->
+        <!-- build:[src] https://cdn.firebase.com/js/client/2.0.4/firebase.js -->
+            <script src="vendor/firebase/firebase.js"></script>
+        <!-- /build -->
+       <!-- build:[src] //cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js -->
+            <script src="vendor/angular-bootstrap/ui-bootstrap-tpls.min.js" defer></script>
+       <!-- /build -->
+
+       <!-- load local JS -->
+       <!-- build:[src] vendors.min.js -->
+       <script src="vendors.js" defer></script>
+       <!-- /build -->
 
         <!-- load local JS -->
-        <!-- build:js js/vendors.js -->
-            <script src="vendor/angular-translate/angular-translate.min.js" defer></script>
-            <script src="vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js" defer></script>
-        <!-- /build -->
-        <!-- build:js js/thestore.min.js -->
-            <script src="js/app.js" defer></script>
-            <script src="js/product/product-service.js" defer></script>
-            <script src="js/product/product-controller.js" defer></script>
-            <script src="js/product/product-detail-controller.js" defer></script>
-            <script src="js/user/user-controller.js" defer></script>
+       <!-- build:[src] thestore.min.js -->
+            <script src="thestore.js" defer></script>
         <!-- /build -->
 
     </body>
