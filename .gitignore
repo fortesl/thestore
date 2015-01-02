@@ -1,4 +1,6 @@
 src/vendor
+src/vendors.js
+src/thestore.js
 node_modules
 build
 build.log

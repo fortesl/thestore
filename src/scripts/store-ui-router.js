@@ -25,15 +25,42 @@
                 }).
                 when('/signup', {
                     templateUrl: 'user-module/views/sign-up.html',
-                    controller: 'UserController as userCtrl'
+                    controller: 'UserController as userCtrl',
+                    resolve: {
+                        isLoggedIn: ['$q', 'STORE_DATA', function($q, STORE_DATA) {
+                            if (STORE_DATA.BACKEND.getAuth()) {
+                                return $q(function(resolve, reject) {
+                                    reject('user already in');
+                                });
+                            }
+                        }]
+                    }
                 }).
                 when('/signin', {
                     templateUrl: 'user-module/views/sign-in.html',
-                    controller: 'UserController as userCtrl'
+                    controller: 'UserController as userCtrl',
+                    resolve: {
+                        isLoggedIn: ['$q', 'STORE_DATA', function($q, STORE_DATA) {
+                            if (STORE_DATA.BACKEND.getAuth()) {
+                                return $q(function(resolve, reject) {
+                                    reject('user already in');
+                                });
+                            }
+                        }]
+                    }
                 }).
                 when('/changepassword', {
                     templateUrl: 'user-module/views/change-password.html',
-                    controller: 'UserController as userCtrl'
+                    controller: 'UserController as userCtrl',
+                    resolve: {
+                        isLoggedIn: ['$q', 'STORE_DATA', function($q, STORE_DATA) {
+                            if (!STORE_DATA.BACKEND.getAuth()) {
+                                return $q(function(resolve, reject) {
+                                    reject('user not logged in');
+                                });
+                            }
+                        }]
+                    }
                 }).
                 otherwise({
                     redirectTo: '/'
