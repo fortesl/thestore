@@ -1,7 +1,7 @@
 {
-  "name": "thestoreplus",
-  "version": "0.0.0",
-  "description": "An online store built on Angular, Bootstrap, and Firebase technologies.",
+  "name": "thestore",
+  "version": "0.0.13",
+  "description": "An online store built on Angular and Bootstrap technologies.",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -36,7 +36,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fortesl/thestoreplus.git"
+    "url": "https://github.com/fortesl/thestore.git"
   },
   "keywords": [
     "Angular",
@@ -53,17 +53,10 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fortesl/thestoreplus/issues",
+    "url": "https://github.com/fortesl/thestore/issues",
     "email": "lmlf100@gmail.com"
   },
   "homepage": "http://gostore.s3-website-us-east-1.amazonaws.com",
-  "_id": "thestoreplus@0.0.0",
-  "dist": {
-    "shasum": "25c71fbf1fea8c97f93d6fc4eea83330caa6c52f",
-    "tarball": "http://registry.npmjs.org/thestoreplus/-/thestoreplus-0.0.0.tgz"
-  },
-  "_from": "thestoreplus@",
-  "_npmVersion": "1.4.3",
   "_npmUser": {
     "name": "fortesl",
     "email": "fortesl@yahoo.com"
@@ -73,7 +66,5 @@
       "name": "fortesl",
       "email": "fortesl@yahoo.com"
     }
-  ],
-  "_shasum": "25c71fbf1fea8c97f93d6fc4eea83330caa6c52f",
-  "_resolved": "https://registry.npmjs.org/thestoreplus/-/thestoreplus-0.0.0.tgz"
+  ]
 }
