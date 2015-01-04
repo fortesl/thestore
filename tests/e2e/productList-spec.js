@@ -11,7 +11,6 @@
     describe('ProductList', function() {
 
         var productListPage;
-//        browser.debugger();
 
         beforeEach(function() {
             productListPage = new ProductsListPage();

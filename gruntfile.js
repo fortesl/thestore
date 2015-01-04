@@ -37,6 +37,7 @@ module.exports = function(grunt) {
            'src/vendor/angular-spinner/angular-spinner.min.js'
        ],
        testjsFiles: ['tests/unit/**/*.js'],
+       e2ejsFiles: ['tests/e2e/**/*.js'],
        srchtmlFiles: ['src/**/*.html'],
        srccssFiles: ['src/styles/**/*.css'],
 
@@ -114,7 +115,8 @@ module.exports = function(grunt) {
                 jshintrc: '.jshintrc'
             },
             src: ['Gruntfile.js','<%= srcjsFiles %>'],
-            tests:  ['<%= testjsFiles %>']
+            tests:  ['<%= testjsFiles %>'],
+            e2e:  ['<%= e2ejsFiles %>']
        },
 
        uglify: {

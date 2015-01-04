@@ -18,6 +18,7 @@
                 self.sortOrder = '';
                 self.labels = ProductLabels;
                 self.productSort = [];
+                self.setProductSortItems();
 
                 $rootScope.$on('$translateChangeSuccess', function() {
                     self.setProductSortItems();

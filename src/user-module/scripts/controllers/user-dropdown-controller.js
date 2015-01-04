@@ -73,10 +73,8 @@
         //user setup
         self.logoutUser = function() {
             UserService.logout();
-            $rootScope.$apply(function() {
-                self.userName = '';
-                $location.path('/#/');
-            });
+            self.userName = '';
+            $location.path('/#/');
         };
 
         self.init();
