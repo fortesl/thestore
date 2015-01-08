@@ -111,10 +111,10 @@
 
             user: function() { return user; },
 
-            resetPassword: function(emailAddress, callback) {
+            resetPassword: function(user, callback) {
                 usSpinnerService.spin('spinner-1');
                 STORE_DATA.BACKEND.resetPassword({
-                    email: emailAddress
+                    email: user.email
                 }, function(error) {
                     processServerResponse(error, callback);
                     usSpinnerService.stop('spinner-1');

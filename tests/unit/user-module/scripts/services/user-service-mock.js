@@ -53,7 +53,43 @@
             logout: function() {
                 thisUser = {};
             },
-            userServiceError: function() { return userServiceError; }
+            userServiceError: function() { return userServiceError; },
+            isTemporaryPassword: function() { return true; },
+
+            resetPassword: function(user, callback) {
+                if (Object.getOwnPropertyNames(user).length) {
+                    if (user.email === 'bademail') {
+                        thisUser = {};
+                        userServiceError = {error:'bad'};
+                        if (callback) { callback(false); }
+                    }
+                    else {
+                        thisUser = user;
+                        userServiceError = {};
+                        if (callback) {
+                            callback(true);
+                        }
+                    }
+                }
+                else {
+                    thisUser = {};
+                    userServiceError = {error:'bad'};
+                    if (callback) { callback(false); }
+                }
+            },
+
+            changePassword: function(user, callback) {
+                if (Object.getOwnPropertyNames(user).length) {
+                    thisUser = user;
+                    userServiceError = {};
+                    if (callback) { callback(true); }
+                }
+                else {
+                    thisUser = {};
+                    userServiceError = {error:'bad'};
+                    if (callback) { callback(false); }
+                }
+            }
         };
     });
 

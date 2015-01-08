@@ -23,7 +23,6 @@
         }));
 
         it('Dropdown should work properly', function() {
-            ctrl.init();
             expect(ctrl.status.isOpen).toBe(false);
 
             var event = {
@@ -39,8 +38,10 @@
 
             ctrl.userDropdownItemHandlers('logoutUser');
             expect(ctrl.userName).toEqual('');
-
             ctrl.init();
+
+            rootScope.$emit('$translateChangeSuccess');
+
         });
 
     });

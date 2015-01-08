@@ -35,13 +35,7 @@
                 if (userIn) {
                     self.userServiceError = {};
                     $rootScope.$emit('USER_LOGGED_IN_EVENT');
-                    var url;
-                    if (UserService.isTemporaryPassword()) {
-                        url = '/changepassword';
-                    }
-                    else {
-                        url = '/#/';
-                    }
+                    var url = (UserService.isTemporaryPassword()) ? '/changepassword' : '/#/';
                     $rootScope.$apply(function() {
                         $location.path(url);
                     });
@@ -58,7 +52,7 @@
                 self.userServiceError.message = self.labels.enterEmailAddress();
             }
             else {
-                UserService.resetPassword(self.user.email, function (sent) {
+                UserService.resetPassword(self.user, function (sent) {
                     if (sent) {
                         $rootScope.$apply( function() {
                             self.userServiceError.message = self.labels.resetPasswordEmail();
