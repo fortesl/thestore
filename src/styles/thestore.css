@@ -1,15 +1,27 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px; }
+  padding-left: 0.3em;
+  padding-right: 0.3em; }
 
-/* Customize container */
+.st-nav-header {
+  padding-top: 0.3em; }
+
+.st-body-container {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+
+.st-nav-footer {
+  padding-bottom: 0.3em; }
+
+/* Customize container
 @media (min-width: 768px) {
   .container {
-    max-width: 730px; } }
+    max-width: 730px;
+  }
+}
 .container-narrow > hr {
-  margin: 30px 0; }
-
+  margin: 30px 0;
+} */
 /* Main marketing message and sign up button */
 .jumbotron {
   margin-top: 2em;

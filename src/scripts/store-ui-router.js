@@ -27,8 +27,8 @@
                     templateUrl: 'user-module/views/sign-up.html',
                     controller: 'UserController as userCtrl',
                     resolve: {
-                        isLoggedIn: ['$q', 'STORE_DATA', function($q, STORE_DATA) {
-                            if (STORE_DATA.BACKEND.getAuth()) {
+                        isLoggedIn: ['$q', 'UserService', function($q, UserService) {
+                            if (UserService.isLoggedIn()) {
                                 return $q(function(resolve, reject) {
                                     reject('user already in');
                                 });
@@ -40,8 +40,8 @@
                     templateUrl: 'user-module/views/sign-in.html',
                     controller: 'UserController as userCtrl',
                     resolve: {
-                        isLoggedIn: ['$q', 'STORE_DATA', function($q, STORE_DATA) {
-                            if (STORE_DATA.BACKEND.getAuth()) {
+                        isLoggedIn: ['$q', 'UserService', function($q, UserService) {
+                            if (UserService.isLoggedIn()) {
                                 return $q(function(resolve, reject) {
                                     reject('user already in');
                                 });
@@ -53,8 +53,8 @@
                     templateUrl: 'user-module/views/change-password.html',
                     controller: 'UserController as userCtrl',
                     resolve: {
-                        isLoggedIn: ['$q', 'STORE_DATA', function($q, STORE_DATA) {
-                            if (!STORE_DATA.BACKEND.getAuth()) {
+                        isLoggedIn: ['$q', 'UserService', function($q, UserService) {
+                            if (!UserService.isLoggedIn()) {
                                 return $q(function(resolve, reject) {
                                     reject('user not logged in');
                                 });

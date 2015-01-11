@@ -30,7 +30,6 @@
                         self.selectRandomProduct();
                     },
                     function(errResponse) {
-                        ProductService.errorMessage = errResponse.data.msg;
                         self.errorMessage = errResponse.data.msg;
                     }
                 );

@@ -6,11 +6,11 @@
 (function () {
     'use strict';
 
-    angular.module('product').directive('stProductCarousel', function() {
+    angular.module('product').directive('stProductCarousel', [function() {
         return {
             restrict: 'E',
             templateUrl: 'product-module/views/product-carousel.html'
         };
-    });
+    }]);
 
 })();

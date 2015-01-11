@@ -19,7 +19,7 @@
                         self.product = response.data;
                     },
                     function(errResponse) {
-                        console.error(errResponse.data.msg);
+                        self.errorMessage = errResponse.data.msg;
                     });
             };
 

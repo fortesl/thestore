@@ -29,6 +29,7 @@
     "by": false,
     "browser": false,
     "element": false,
-    "spyOn": false
+    "spyOn": false,
+    "jasmine": false
   }
 }

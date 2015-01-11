@@ -1,5 +1,5 @@
 <!-- Carousel -->
-<div class="container bmargin2">
+<div class="bmargin2">
     <div id="myCarousel" class="carousel slide tmargin1" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" ng-repeat="product in productCtrl.products" ng-hide="product.soldout" data-slide-to="{{$index}}" ng-class="{active: $index===productCtrl.selectedProduct}"></li>

@@ -16,15 +16,15 @@
 
         var init = function() {
 
-            MetadataService.get().success(function (response) {
-                self.storeMetadata = response;
+            MetadataService.get().then(function (response) {
+                self.storeMetadata = response.data;
                 $rootScope.storeTitle = response.name;
             });
 
             //language setup
-            SupportedLanguagesService.get().success(
+            SupportedLanguagesService.get().then(
                 function(response) {
-                    self.supportedLanguages = response;
+                    self.supportedLanguages = response.data;
                     if(self.supportedLanguages.length) {
                         self.setCurrentLanguage();
                         $injector.invoke(['StoreLabels', function(StoreLabels){

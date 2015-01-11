@@ -6,21 +6,22 @@
 (function () {
     'use strict';
 
-    var HomePage = require('./pageObjects/home-page');
+    var homePage = require('./pageObjects/home-page');
 
     describe('Home', function () {
-        var homePage;
 
         beforeEach(function() {
-            homePage = new HomePage();
+            homePage.open();
         });
 
         it('should have a header navigation bar', function() {
-            expect(homePage.isHeaderNavVisible()).toEqual(true);
+            homePage.clickHeaderLinks();
+            expect(homePage.headerNavVisible()).toEqual(true);
         });
 
         it('should have a footer navigation bar', function() {
-            expect(homePage.isFooterLinksVisible()).toEqual(true);
+            homePage.clickFooterLinks();
+            expect(homePage.footerLinksVisible()).toEqual(true);
         });
 
     });

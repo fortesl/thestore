@@ -1,5 +1,5 @@
 <!-- Product list-group -->
-<div class="container list-group tmargin1" ng-show="productCtrl.products | filter:search">
+<div class="list-group tmargin1" ng-show="productCtrl.products | filter:search">
     <select ng-model="productCtrl.sortOrder" ng-options="so.value as so.label for so in productCtrl.productSort">
         <option value="" ng-bind="productCtrl.labels.sortOrder()"></option>
     </select>

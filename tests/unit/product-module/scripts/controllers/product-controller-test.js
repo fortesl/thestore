@@ -23,19 +23,19 @@
 
         beforeEach(module('product'));
 
-        var testCtrl, httpBackend, rootScope;
+        var testCtrl, httpBackend, rootScope, controller;
 
         beforeEach(inject(function($controller, $httpBackend, $rootScope) {
             httpBackend = $httpBackend;
-            httpBackend.expectGET('storeData/products.json')
-                .respond(404, {msg: 'Not Found'});
             rootScope = $rootScope;
-            testCtrl = $controller('ProductController');
-            rootScope.$emit('$translateChangeSuccess');
+            controller = $controller;
         }));
 
         it('should load products from $httpBackend', function() {
             //controller instantiated
+            httpBackend.expectGET('storeData/products.json')
+                .respond(404, {msg: 'Not Found'});
+            testCtrl = controller('ProductController');
             expect(testCtrl.products).toEqual([]);
 
             //simulate server response
@@ -43,6 +43,12 @@
 
             //and check the error message
             expect(testCtrl.errorMessage).toEqual('Not Found');
+
+            httpBackend.expectGET('storeData/products.json').respond([{name:'Azurite', description:'A world class diamond', id:'Azurite'}]);
+            testCtrl = controller('ProductController');
+            //simulate server response
+            httpBackend.flush();
+            expect(testCtrl.products.length).toEqual(1);
         });
 
 
