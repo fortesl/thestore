@@ -5,17 +5,17 @@
     'use strict';
 
     var selectors = {
-        headerNav: '.st-nav-header',
-        headerLogo: '.st-nav-header .st-brand-link',
-        searchBox: '.st-nav-header .st-search-box',
-        userChoices:  '.st-nav-header .st-user-choices',
-        loginLink: '.st-nav-header .st-login-link',
-        languageOptions: '.st-nav-header .st-language-options',
+        headerNav: '.st-header-nav',
+        headerLogo: '.st-header-nav .st-header-logo',
+        searchBox: '.st-header-nav .st-header-search-box',
+        userChoices:  '.st-header-nav .st-header-user-choices',
+        loginLink: '.st-header-nav .st-header-login-link',
+        languageOptions: '.st-header-nav .st-header-language-options',
         languageList: 'item in storeCtrl.supportedLanguages',
 
 
-        footerNav: '.st-nav-footer',
-        contactUsLink: '.st-nav-footer .st-contact-link'
+        footerNav: '.st-footer-nav',
+        contactUsLink: '.st-footer-nav .st-footer-contact-link'
     };
 
     var HomePage =  {

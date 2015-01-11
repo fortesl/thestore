@@ -24,10 +24,10 @@ body {
   margin-top: 0.5em;
   margin-bottom: 0.5em; }
 
-.st-nav-footer {
+.st-footer-nav {
   margin-bottom: 0.3em;
   padding: 0.9em; }
-  .st-nav-footer #myFooterNavbar {
+  .st-footer-nav #myFooterNavbar {
     margin: 0 auto;
     width: 50%; }
 

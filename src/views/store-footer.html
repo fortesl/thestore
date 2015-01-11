@@ -1,4 +1,4 @@
-<nav class="st-nav-footer navbar navbar-default text-center">
+<nav class="st-footer-nav navbar navbar-default text-center">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myFooterNavbar">
@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="myFooterNavbar">
             <ul class="nav navbar-nav">
                 <li>
-                    <a class="st-contact-link" href="mailto:{{ storeCtrl.storeMetadata.author.email }}?subject={{ storeCtrl.storeMetadata.name }}"><span class="glyphicon glyphicon-envelope" ng-bind="storeCtrl.labels.contactUs()"></span></a>
+                    <a class="st-footer-contact-link" href="mailto:{{ storeCtrl.storeMetadata.author.email }}?subject={{ storeCtrl.storeMetadata.name }}"><span class="glyphicon glyphicon-envelope" ng-bind="storeCtrl.labels.contactUs()"></span></a>
                 </li>
                 <li>
                     <a href="https://github.com/fortesl/thestore/blob/master/README.md" ng-bind="storeCtrl.labels.about()"></a>
