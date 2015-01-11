@@ -1,8 +1,8 @@
 <!-- signup form -->
-<div class="container tmargin2">
+<div class="st-sign-up-view">
     <h1 ng-bind="userCtrl.labels.signUp()"></h1>
     <form name="signupForm" ng-submit="signupForm.$valid && userCtrl.add()" novalidate>
-        <div class="row tmargin2">
+        <div class="row">
             <div class="col-md-6 col-lg-6">
                 <fieldset class="form-group">
                     <label ng-bind="userCtrl.labels.firstName()"></label>
@@ -10,7 +10,7 @@
                 </fieldset>
             </div>
         </div>
-        <div class="row tbmargin">
+        <div class="row">
             <div class="col-md-6 col-lg-6">
                 <fieldset class="form-group">
                     <label ng-bind="userCtrl.labels.lastName()"></label>
@@ -18,7 +18,7 @@
                 </fieldset>
             </div>
         </div>
-        <div class="row tbmargin">
+        <div class="row">
             <div class="col-md-4 col-lg-4">
                 <fieldset class="form-group">
                     <label ng-bind="userCtrl.labels.emailAddress()"></label>
@@ -26,7 +26,7 @@
                 </fieldset>
             </div>
         </div>
-        <div class="row tbmargin">
+        <div class="row">
             <div class="col-md-3 col-lg-3">
                 <fieldset class="form-group">
                     <label ng-bind="userCtrl.labels.password()"></label>
@@ -35,7 +35,7 @@
                 </fieldset>
             </div>
         </div>
-        <div class="row tbmargin">
+        <div class="row">
             <div class="col-md-3 col-lg-3">
                 <fieldset class="form-group">
                     <label  ng-bind="userCtrl.labels.repeatPassword()"></label>
@@ -46,7 +46,7 @@
                 </fieldset>
             </div>
         </div>
-        <div class="row tbmargin">
+        <div class="row">
             <div class="col-md-3 col-lg-3">
                 <fieldset class="form-group" id="buttonsGroup">
                     <input ng-disabled="signupForm.$invalid" class="btn btn-primary" type="submit" value="{{ userCtrl.labels.submit() }}"/>

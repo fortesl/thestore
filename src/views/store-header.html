@@ -1,5 +1,5 @@
 <!-- Navigation bar -->
-<nav class="st-nav-header navbar navbar-default navbar-fixed-top">
+<nav class="st-header-nav navbar navbar-default">
   <div class="container-fluid" ng-controller="UserDropdownController as userDropdownCtrl">
       <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -8,20 +8,20 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-          <span class="st-brand-link" class="navbar-brand text-muted">
-            <a ng-href="#/"><img  width="32px" height="32px" ng-src="favicon.ico"></a>
+          <span>
+            <a ng-href="#/"><img  class="st-header-logo" ng-src="favicon.ico"></a>
           </span>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-              <li class="st-search-box">
+              <li class="st-header-search-box">
                   <ng-form autocomplete="on">
-                      <input class="input-sm lfloat tmargin07" autofocus type="search" size="40" ng-model="search" placeholder="{{ storeCtrl.labels.search() }}">
-                      <a ng-href="#/" class="btn btn-info btn-sm tmargin07" ng-bind="storeCtrl.labels.go()"></a>
+                      <input class="st-header-search-input input-sm" autofocus type="search" size="70" ng-model="search" placeholder="{{ storeCtrl.labels.search() }}">
+                      <a ng-href="#/" class="btn btn-info btn-sm" ng-bind="storeCtrl.labels.go()"></a>
                   </ng-form>
               </li>
 
-              <li class="st-user-choices lmargin1 tmargin1" ng-show="userDropdownCtrl.userName">
+              <li class="st-header-user-choices" ng-show="userDropdownCtrl.userName">
                   <span class="dropdown" dropdown>
                       <a href id="userName" class="dropdown-toggle" dropdown-toggle>
                           {{userDropdownCtrl.userName}}  <span class="caret"></span>
@@ -34,8 +34,12 @@
                   </span>
               </li>
 
-              <li class="st-login-link" ng-hide="userDropdownCtrl.userName"><a ng-href="#/signin" ng-bind="userDropdownCtrl.labels.signIn()"></a></li>
-              <li class="st-language-options tmargin1 lmargin1 rmargin1">
+              <li class="st-header-login-link" ng-hide="userDropdownCtrl.userName">
+                  <span class="dropdown" dropdown>
+                    <a ng-href="#/signin" ng-bind="userDropdownCtrl.labels.signIn()"></a>
+                  </span>
+              </li>
+              <li class="st-header-language-options">
                   <span class="dropdown" dropdown>
                       <a href class="dropdown-toggle" dropdown-toggle>
                           {{storeCtrl.currentLanguage.name}}  <span class="caret"></span>

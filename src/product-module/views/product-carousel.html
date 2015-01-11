@@ -1,10 +1,10 @@
 <!-- Carousel -->
-<div class="bmargin2">
-    <div id="myCarousel" class="carousel slide tmargin1" data-ride="carousel">
+<div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" ng-repeat="product in productCtrl.products" ng-hide="product.soldout" data-slide-to="{{$index}}" ng-class="{active: $index===productCtrl.selectedProduct}"></li>
         </ol>
-        <div class="carousel-inner xymargin">
+        <div class="carousel-inner">
             <div class="item"  ng-repeat="product in productCtrl.products" ng-hide="product.soldout" ng-class="{active: $index===productCtrl.selectedProduct}">
                 <div class="carousel-image-slide" style="background: url('{{product.images[0]}}')"></div>
                 <a ng-href="#/products/{{product.id}}">

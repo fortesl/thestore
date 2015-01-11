@@ -1,4 +1,4 @@
-<nav class="st-nav-footer navbar navbar-default tmargin5 text-center">
+<nav class="st-nav-footer navbar navbar-default text-center">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myFooterNavbar">
@@ -8,29 +8,23 @@
             </button>
         </div>
         <div class="collapse navbar-collapse" id="myFooterNavbar">
-            <ul class="nav navbar-nav tmargin1">
-                <li class="rmargin2">
-                    <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=fortesl&amp;repo=thestore&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
-                </li>
-                <li class="rmargin2">
-                    <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=fortesl&amp;repo=thestore&amp;type=fork&amp;count=true" width="102" height="20" title="Fork on GitHub"></iframe>
-                </li>
-                <li class="follow-btn">
-                    <iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/follow_button.1409790579.html#_=1410438000839&amp;id=twitter-widget-1&amp;lang=en&amp;screen_name=the_onlinestore&amp;show_count=true&amp;show_screen_name=true&amp;size=m" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 236px; height: 20px;"></iframe>
-                </li>
-                <li class="tweet-btn">
-                    <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/tweet_button.1409790579.html#_=1410438000837&amp;count=horizontal&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Fgetbootstrap.com%2Fcomponents%2F&amp;related=mdo%3ACreator%20of%20the_onlinestore&amp;size=m&amp;via=the_onlinestore" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 108px; height: 20px;"></iframe>
-                </li>
+            <ul class="nav navbar-nav">
                 <li>
                     <a class="st-contact-link" href="mailto:{{ storeCtrl.storeMetadata.author.email }}?subject={{ storeCtrl.storeMetadata.name }}"><span class="glyphicon glyphicon-envelope" ng-bind="storeCtrl.labels.contactUs()"></span></a>
                 </li>
+                <li>
+                    <a href="https://github.com/fortesl/thestore/blob/master/README.md" ng-bind="storeCtrl.labels.about()"></a>
+                </li>
+                <li>
+                    <a href="https://github.com/fortesl/thestore/blob/master/LICENSE" ng-bind="storeCtrl.labels.license()"></a>
+                </li>
+                <li>
+                    <a  href="https://github.com/fortesl/thestore/issues" ng-bind="storeCtrl.labels.issues()"></a>
+                </li>
+                <li>
+                    <a href>{{storeCtrl.labels.version()}} {{storeCtrl.storeMetadata.version.full}}</a>
+                </li>
             </ul>
-        </div>
-        <div class="bs-docs-footer-links">
-            <span class="rmargin1" ng-bind="storeCtrl.labels.version()"></span>{{storeCtrl.storeMetadata.version.full}}
-            <a  class="lmargin1 rmargin2" href="https://github.com/fortesl/thestore/blob/master/README.md" ng-bind="storeCtrl.labels.about()"></a>
-            <a  class="rmargin2" href="https://github.com/fortesl/thestore/blob/master/LICENSE" ng-bind="storeCtrl.labels.license()"></a>
-            <a  href="https://github.com/fortesl/thestore/issues" ng-bind="storeCtrl.labels.issues()"></a>
         </div>
     </div>
 </nav>

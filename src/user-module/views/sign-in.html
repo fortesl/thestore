@@ -1,5 +1,5 @@
 <!-- sign-in form -->
-<div class="container tmargin2">
+<div class="st-sign-in-view">
     <h1 ng-bind="userCtrl.labels.signIn()"></h1>
     <div id="errorMessage" ng-show="userCtrl.userServiceError" class="has-error text-warning">{{ userCtrl.userServiceError.message}}</div>
     <form name="signinForm" ng-submit="signinForm.$valid && userCtrl.login()" novalidate>
