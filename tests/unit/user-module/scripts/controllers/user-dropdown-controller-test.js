@@ -8,7 +8,7 @@
 
     describe('Controller: UserDropdownController', function() {
         beforeEach(module('storeApp'));
-        beforeEach(module('UserServiceMock'));
+        beforeEach(module('lfFirebaseAuthMock'));
 
         var ctrl, rootScope;
 
@@ -34,7 +34,7 @@
 
             rootScope.$emit('USER_LOGGED_IN_EVENT');
 
-            expect(ctrl.userName).toEqual('Luis Fortes');
+            expect(ctrl.userName).toEqual('Luis');
 
             ctrl.userDropdownItemHandlers('logoutUser');
             expect(ctrl.userName).toEqual('');

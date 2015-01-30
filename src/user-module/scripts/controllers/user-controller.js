@@ -6,8 +6,21 @@
 (function () {
     'use strict';
 
-    angular.module('user').controller('UserController', ['UserService', '$location', '$rootScope', 'UserLabels', function(UserService, $location, $rootScope, UserLabels) {
+    angular.module('user').controller('UserController', ['lfFirebaseAuthService', '$location', '$rootScope', 'UserLabels', 'usSpinnerService',
+        function(lfFirebaseAuthService, $location, $rootScope, UserLabels, usSpinnerService) {
         var self = this;
+
+        var startSpinner = function() {
+            if (usSpinnerService) {
+                usSpinnerService.spin('spinner-1');
+            }
+        };
+
+        var stopSpinner = function() {
+            if (usSpinnerService) {
+                usSpinnerService.stop('spinner-1');
+            }
+        };
 
         self.init = function() {
             self.user = {};
@@ -16,33 +29,29 @@
         };
 
         self.add = function() {
-            UserService.add(self.user, function(userIn){
-                 if (userIn) {
-                     $rootScope.$emit('USER_LOGGED_IN_EVENT');
-                     $rootScope.$apply(function() {
-                         self.userServiceError = {};
-                         $location.path('/#/');
-                     });
-                 }
-                 else {
-                     $rootScope.$apply(self.userServiceError = UserService.userServiceError());
-                 }
-                });
+            startSpinner();
+            self.userServiceError.message = '...';
+            lfFirebaseAuthService.add(self.user, true).then(function(){
+                self.userServiceError = {};
+                stopSpinner();
+                $location.path('/#/');
+            }, function(error) {
+                stopSpinner();
+                self.userServiceError = error;
+            });
         };
 
         self.login = function() {
-            UserService.login(self.user, function(userIn) {
-                if (userIn) {
-                    self.userServiceError = {};
-                    $rootScope.$emit('USER_LOGGED_IN_EVENT');
-                    var url = (UserService.isTemporaryPassword()) ? '/changepassword' : '/#/';
-                    $rootScope.$apply(function() {
-                        $location.path(url);
-                    });
-                }
-                else {
-                    $rootScope.$apply(self.userServiceError = UserService.userServiceError());
-                }
+            startSpinner();
+            self.userServiceError.message = '...';
+            lfFirebaseAuthService.login(self.user).then(function() {
+                self.userServiceError = {};
+                var url = (lfFirebaseAuthService.isTemporaryPassword()) ? '/changepassword' : '/#/';
+                stopSpinner();
+                $location.path(url);
+            }, function(error) {
+                stopSpinner();
+                self.userServiceError = error;
             });
         };
 
@@ -52,43 +61,37 @@
                 self.userServiceError.message = self.labels.enterEmailAddress();
             }
             else {
-                UserService.resetPassword(self.user, function (sent) {
-                    if (sent) {
-                        $rootScope.$apply( function() {
-                            self.userServiceError.message = self.labels.resetPasswordEmail();
-                            self.resetPasswordRequested = true;
-                            self.user = {};
-                        });
-                    }
-                    else {
-                        $rootScope.$apply(function() {
-                            self.userServiceError = UserService.userServiceError();
-                            self.resetPasswordRequested = false;
-                        });
-                    }
+                startSpinner();
+                self.userServiceError.message = '...';
+                lfFirebaseAuthService.resetPassword(self.user).then(function () {
+                    self.userServiceError.message = self.labels.resetPasswordEmail();
+                    self.resetPasswordRequested = true;
+                    stopSpinner();
+                    self.user = {};
+                }, function (error) {
+                    self.userServiceError = error;
+                    stopSpinner();
+                    self.resetPasswordRequested = false;
                 });
             }
         };
 
         self.currentUser = function() {
-            self.user = UserService.user();
+            self.user = lfFirebaseAuthService.user();
             return self.user;
         };
 
         self.changePassword = function() {
-            UserService.changePassword(self.user, function(changedPassword) {
-                if (changedPassword) {
-                    $rootScope.$apply(function() {
-                        self.userServiceError.message = self.labels.passwordChanged();
-                        self.changedPassword = true;
-                    });
-                }
-                else {
-                    $rootScope.$apply(function() {
-                        self.userServiceError = UserService.userServiceError();
-                        self.changedPassword = false;
-                    });
-                }
+            startSpinner();
+            self.userServiceError.message = '...';
+            lfFirebaseAuthService.changePassword(self.user).then(function() {
+                self.userServiceError.message = self.labels.passwordChanged();
+                stopSpinner();
+                self.changedPassword = true;
+            }, function(error) {
+                self.userServiceError = error;
+                stopSpinner();
+                self.changedPassword = false;
             });
         };
 

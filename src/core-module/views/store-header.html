@@ -16,7 +16,7 @@
           <ul class="nav navbar-nav navbar-right">
               <li class="st-header-search-box">
                   <ng-form autocomplete="on">
-                      <input class="st-header-search-input input-sm" autofocus type="search" size="70" ng-model="search" placeholder="{{ storeCtrl.labels.search() }}">
+                      <input class="st-header-search-input input-sm" autofocus type="search" size="50" ng-model="search" placeholder="{{ storeCtrl.labels.search() }}">
                       <a ng-href="#/" class="btn btn-info btn-sm" ng-bind="storeCtrl.labels.go()"></a>
                   </ng-form>
               </li>
@@ -27,7 +27,7 @@
                           {{userDropdownCtrl.userName}}  <span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu">
-                          <li ng-repeat="item in userDropdownCtrl.userDropdownItems" ng-class="{divider: item.divider}">
+                          <li id="{{item.name}}" ng-repeat="item in userDropdownCtrl.userDropdownItems" ng-class="{divider: item.divider}">
                               <a href ng-if="item.name" ng-click="userDropdownCtrl.userDropdownItemHandlers(item.link)">{{item.name}}</a>
                           </li>
                       </ul>

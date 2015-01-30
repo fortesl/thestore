@@ -35,11 +35,13 @@
 "REPEAT_PASSWORD": "Repita a senha",
 "SUBMIT": "Envia",
 "ENTER_YOUR_EMAIL_ADDRESS": "Direçäo email",
+"REPEAT_YOUR_EMAIL_ADDRESS": "Repite a Direçäo email",
 "ENTER_YOUR_FIRST_NAME": "Escreva o primeiro nome",
 "ENTER_YOUR_LAST_NAME": "Escreva o apelido",
 "INVALID_SEARCH_TERM": "Nada foi encontrado! Por favor tenta outra vez",
   "PASSWORD_MIN_LENGTH": "Minimo 8 caracters",
   "PASSWORD_FIELDS_MISMATCH": "Senhas sao diferentes",
+  "EMAIL_FIELDS_MISMATCH": "Emails sao diferentes",
   "RESET_PASSWORD": "Reset Password",
   "NEW_USER?": "Novo usuario?",
   "ENTER_EMAIL": "Favor digite a seu email.",
@@ -52,5 +54,6 @@
   "PASSWORD_CHANGED": "O seu password foi trocado. Obrigado.",
   "LOGOUT": "Logout",
   "CHANGE_YOUR_PASSWORD": "Por favor mude o seu Password",
+  "USERNAME": "Nome do Usuario",
   "SELL_ITEMS": "Vende os seus produtos"
 }

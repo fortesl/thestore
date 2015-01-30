@@ -1,11 +1,10 @@
 src/vendor
-src/vendors.js
-src/thestore.js
+src/js
 node_modules
 build
 build.log
 .idea
 npm-debug.log
-data
 gh-pages
 coverage
+out

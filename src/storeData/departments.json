@@ -1,0 +1,15 @@
+{"departments":
+  {"Clothing, Shoes & Jewelry":
+    {"categories":
+      [
+        {"customer": ["Man", "Women", "Boys", "Girls", "Baby"], "level": 0},
+        {"type": ["Pants", "Shorts", "Shirts", "Jackets", "Skirts", "Blouses", "Shoes", "Underwear"], "level": 1},
+        {"Size": ["Large", "Medium", "Small", "Number", "Range"], "level": 2},
+        {"Color": ["Red", "White", "Blue"], "level": 2},
+        {"Season": ["Spring", "Summer", "Winter", "Fall", "Any"], "level": -1},
+        {"priceLevel": ["Very Expensive", "Expensive", "Average", "Below Average", "Cheap"], "level": -2}
+      ],
+      "name": "Clothing, Shoes & Jewelry"
+    }
+  }
+}

@@ -1,7 +1,18 @@
-/* Space out content a bit */
 $error-color: #FA787E;
 $success-color: #78FA89;
 
+.odd {
+  background-color:#f8f8f8
+}
+
+.ng-invalid.ng-dirty {
+  border-color: $error-color;
+}
+.ng-valid.ng-dirty {
+  border-color: $success-color;
+}
+
+/* Space out content a bit */
 body {
   padding-left: 0.3em;
   padding-right: 0.3em;
@@ -31,18 +42,6 @@ body {
   }
 }
 
-.st-sign-in-view {
-}
-
-.st-sign-up-view {
-}
-
-
-.st-body-container {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-
 .st-footer-nav {
   margin-bottom: 0.3em;
   padding: 0.9em;
@@ -51,15 +50,23 @@ body {
     width: 50%;
   }
 }
-/* Customize container
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
+
+.st-sign-in-view {
+}
+
+.st-sign-up-view {
+  .st-form {
+    margin: 2em 0 2em 2em;
+    .st-form-field {
+      margin-bottom: 0.5em;
+    }
   }
 }
-.container-narrow > hr {
-  margin: 30px 0;
-} */
+
+.st-body-container {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
 
 /* Main marketing message and sign up button */
 .jumbotron {
@@ -71,21 +78,10 @@ body {
   padding: 14px 24px;
 }
 
-.ng-invalid.ng-dirty {
-  border-color: $error-color;
-}
-.ng-valid.ng-dirty {
-  border-color: $success-color;
-}
-
 .carousel-image-slide {
   margin-bottom: 1em;
-  height:300px;
+  height:200px;
   background-repeat: no-repeat;
-}
-
-.odd {
-  background-color:#f8f8f8
 }
 
 .pdpImageClip{

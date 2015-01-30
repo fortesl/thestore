@@ -6,7 +6,7 @@
 (function () {
     'use strict';
 
-    angular.module('user').controller('UserDropdownController', ['$rootScope', 'UserService', '$location', 'UserLabels', function($rootScope, UserService, $location, UserLabels) {
+    angular.module('user').controller('UserDropdownController', ['$rootScope', 'lfFirebaseAuthService', '$location', 'UserLabels', function($rootScope, lfFirebaseAuthService, $location, UserLabels) {
 
         var self = this;
         var userLoggedInEventListener = null;
@@ -31,10 +31,10 @@
             };
            self.userDropdownItems = [];
 
-            if (UserService.isLoggedIn()) {
+            if (lfFirebaseAuthService.isLoggedIn()) {
                 setUserDropDownItems();
-                var user = UserService.user();
-                self.userName = user.firstName + ' ' + user.lastName;
+                var user = lfFirebaseAuthService.user();
+                self.userName = user.firstName;
             }
             else {
                 self.userName = '';
@@ -44,8 +44,8 @@
                 userLoggedInEventListener = $rootScope.$on('USER_LOGGED_IN_EVENT', function () {
                     $rootScope.$apply(function() {
                         setUserDropDownItems();
-                        var user = UserService.user();
-                        self.userName = user.firstName + ' ' + user.lastName;
+                        var user = lfFirebaseAuthService.user();
+                        self.userName = user.firstName;
                     });
                 });
             }
@@ -72,7 +72,7 @@
 
         //user setup
         self.logoutUser = function() {
-            UserService.logout();
+            lfFirebaseAuthService.logout();
             self.userName = '';
             $location.path('/#/');
         };

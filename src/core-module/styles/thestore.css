@@ -1,3 +1,12 @@
+.odd {
+  background-color: #f8f8f8; }
+
+.ng-invalid.ng-dirty {
+  border-color: #FA787E; }
+
+.ng-valid.ng-dirty {
+  border-color: #78FA89; }
+
 /* Space out content a bit */
 body {
   padding-left: 0.3em;
@@ -20,10 +29,6 @@ body {
   .st-header-nav .st-header-language-options {
     margin-right: 1em; }
 
-.st-body-container {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em; }
-
 .st-footer-nav {
   margin-bottom: 0.3em;
   padding: 0.9em; }
@@ -31,15 +36,15 @@ body {
     margin: 0 auto;
     width: 50%; }
 
-/* Customize container
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
-.container-narrow > hr {
-  margin: 30px 0;
-} */
+.st-sign-up-view .st-form {
+  margin: 2em 0 2em 2em; }
+  .st-sign-up-view .st-form .st-form-field {
+    margin-bottom: 0.5em; }
+
+.st-body-container {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
@@ -49,19 +54,10 @@ body {
   font-size: 21px;
   padding: 14px 24px; }
 
-.ng-invalid.ng-dirty {
-  border-color: #FA787E; }
-
-.ng-valid.ng-dirty {
-  border-color: #78FA89; }
-
 .carousel-image-slide {
   margin-bottom: 1em;
-  height: 300px;
+  height: 200px;
   background-repeat: no-repeat; }
-
-.odd {
-  background-color: #f8f8f8; }
 
 .pdpImageClip {
   width: 300px;

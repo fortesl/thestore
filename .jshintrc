@@ -30,6 +30,7 @@
     "browser": false,
     "element": false,
     "spyOn": false,
-    "jasmine": false
+    "jasmine": false,
+    "protractor": false
   }
 }

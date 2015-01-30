@@ -18,15 +18,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-angular-templates');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-protractor-runner');
+    grunt.loadNpmTasks('grunt-exec');
 
     //configure task
     grunt.initConfig({
 
        srcjsFiles: [
-           'src/LFModules/**/*.js',
-           'src/store-app.js', 'src/scripts/**/*.js',
-           'src/product-module/product-app.js',
-           'src/product-module/scripts/**/*.js',
+           'src/core-module/store-app.js', 'src/core-module/scripts/**/*.js',
+           'src/product-module/product-app.js', 'src/product-module/scripts/**/*.js',
            'src/user-module/user-app.js', 'src/user-module/scripts/**/*.js'
        ],
        vendorjsFiles: [
@@ -34,20 +33,22 @@ module.exports = function(grunt) {
            'src/vendor/angular-translate/angular-translate.min.js',
            'src/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
            'src/vendor/spin.js/spin.js',
-           'src/vendor/angular-spinner/angular-spinner.min.js'
+           'src/vendor/angular-spinner/angular-spinner.min.js',
+           'src/vendor/lf-cookies/lf-cookies.js',
+           'src/vendor/lf-firebase-auth/lf-firebase-auth-service.js'
        ],
        testjsFiles: ['tests/unit/**/*.js'],
        e2ejsFiles: ['tests/e2e/**/*.js'],
        srchtmlFiles: ['src/**/*.html'],
-       srccssFiles: ['src/styles/**/*.css'],
+       srccssFiles: ['src/core-module/styles/**/*.css'],
 
        concat: {
            thestore: {
-               dest: 'src/thestore.js',
+               dest: 'src/js/thestore.js',
                src: '<%= srcjsFiles %>'
            },
            vendors: {
-               dest: 'src/vendors.js',
+               dest: 'src/js/vendors.js',
                src: ['<%= vendorjsFiles %>']
            }
        },
@@ -102,7 +103,7 @@ module.exports = function(grunt) {
            },
            vendors: {
                dest: 'build/vendors.min.js',
-               src: 'src/vendors.js'
+               src: 'src/js/vendors.js'
            },
            ghpages: {
                dest: '../gh-pages/',
@@ -132,8 +133,9 @@ module.exports = function(grunt) {
 
        clean: {
            build: ['build'],
-           postbuild: ['<%= ngtemplates.storeApp.dest %>', 'src/thestore.js', 'src/vendors.js'],
-           js: ['src/thestore.js']
+           postbuild: ['<%= ngtemplates.storeApp.dest %>', 'src/js'],
+           js: ['src/js'],
+           coverage: ['coverage']
        },
 
        aws: (grunt.file.exists('../aws.json')) ? grunt.file.readJSON('../aws.json') : null,
@@ -184,7 +186,7 @@ module.exports = function(grunt) {
                    livereload: '<%= connect.options.livereload %>'
                },
                files: [
-                   'src/thestore.js',
+                   'src/js/thestore.js',
                    '<%= srchtmlFiles %>',
                    '<%= srccssFiles %>'
                ]
@@ -195,7 +197,7 @@ module.exports = function(grunt) {
             storeApp:        {
                 cwd: 'src',
                 src:      '**/views/**/*.html',
-                dest:     'src/scripts/templates.js',
+                dest:     'src/core-module/scripts/templates.js',
                 options: {
                     htmlmin: {
                         removeComments: true,
@@ -243,6 +245,10 @@ module.exports = function(grunt) {
                     args: {baseUrl: 'http://localhost:9001/'} // Target-specific arguments
                 }
             }
+        },
+
+        exec: {
+            selenium: 'webdriver-manager start'
         }
     });
     

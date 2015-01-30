@@ -8,7 +8,7 @@
     angular.module('storeApp').directive('stHeader', function() {
         return {
             restrict: 'E',
-            templateUrl: 'views/store-header.html'
+            templateUrl: 'core-module/views/store-header.html'
         };
     });
 

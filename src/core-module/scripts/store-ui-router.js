@@ -27,8 +27,8 @@
                     templateUrl: 'user-module/views/sign-up.html',
                     controller: 'UserController as userCtrl',
                     resolve: {
-                        isLoggedIn: ['$q', 'UserService', function($q, UserService) {
-                            if (UserService.isLoggedIn()) {
+                        isLoggedIn: ['$q', 'lfFirebaseAuthService', function($q, lfFirebaseAuthService) {
+                            if (lfFirebaseAuthService.isLoggedIn()) {
                                 return $q(function(resolve, reject) {
                                     reject('user already in');
                                 });
@@ -40,8 +40,8 @@
                     templateUrl: 'user-module/views/sign-in.html',
                     controller: 'UserController as userCtrl',
                     resolve: {
-                        isLoggedIn: ['$q', 'UserService', function($q, UserService) {
-                            if (UserService.isLoggedIn()) {
+                        isLoggedIn: ['$q', 'lfFirebaseAuthService', function($q, lfFirebaseAuthService) {
+                            if (lfFirebaseAuthService.isLoggedIn()) {
                                 return $q(function(resolve, reject) {
                                     reject('user already in');
                                 });
@@ -53,14 +53,23 @@
                     templateUrl: 'user-module/views/change-password.html',
                     controller: 'UserController as userCtrl',
                     resolve: {
-                        isLoggedIn: ['$q', 'UserService', function($q, UserService) {
-                            if (!UserService.isLoggedIn()) {
+                        isLoggedIn: ['$q', 'lfFirebaseAuthService', function($q, lfFirebaseAuthService) {
+                            if (!lfFirebaseAuthService.isLoggedIn()) {
                                 return $q(function(resolve, reject) {
                                     reject('user not logged in');
                                 });
                             }
                         }]
                     }
+                }).
+                when('/logout', {
+                    resolve: {
+                        logout: ['lfFirebaseAuthService', function(lfFirebaseAuthService) {
+                            lfFirebaseAuthService.logout();
+                            return 1;
+                        }]
+                    },
+                    redirectTo: '/'
                 }).
                 otherwise({
                     redirectTo: '/'

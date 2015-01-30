@@ -1,7 +1,6 @@
 <!-- sign-in form -->
 <div class="st-sign-in-view">
     <h1 ng-bind="userCtrl.labels.signIn()"></h1>
-    <div id="errorMessage" ng-show="userCtrl.userServiceError" class="has-error text-warning">{{ userCtrl.userServiceError.message}}</div>
     <form name="signinForm" ng-submit="signinForm.$valid && userCtrl.login()" novalidate>
         <div class="row">
             <div class="col-md-4 col-lg-4">
@@ -16,6 +15,7 @@
                 <fieldset class="form-group" id="inputPasswordFormGroup">
                     <label for="inputPassword" ng-bind=userCtrl.labels.password()></label>
                     <input name="password" type="password" class="form-control" id="inputPassword" ng-model="userCtrl.user.password" required>
+                    <div id="errorMessage" ng-show="userCtrl.userServiceError" class="has-error text-warning">{{ userCtrl.userServiceError.message}}</div>
                 </fieldset>
             </div>
         </div>
