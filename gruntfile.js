@@ -188,7 +188,8 @@ module.exports = function(grunt) {
                files: [
                    'src/js/thestore.js',
                    '<%= srchtmlFiles %>',
-                   '<%= srccssFiles %>'
+                   '<%= srccssFiles %>',
+                   'i18n/messages_en.json'
                ]
            }
        },
