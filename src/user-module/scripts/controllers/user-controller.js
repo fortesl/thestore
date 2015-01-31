@@ -31,7 +31,7 @@
         self.add = function() {
             startSpinner();
             self.userServiceError.message = '...';
-            lfFirebaseAuthService.add(self.user, true).then(function(){
+            return lfFirebaseAuthService.add(self.user, true).then(function(){
                 self.userServiceError = {};
                 stopSpinner();
                 $location.path('/#/');
@@ -44,7 +44,7 @@
         self.login = function() {
             startSpinner();
             self.userServiceError.message = '...';
-            lfFirebaseAuthService.login(self.user).then(function() {
+            return lfFirebaseAuthService.login(self.user).then(function() {
                 self.userServiceError = {};
                 var url = (lfFirebaseAuthService.isTemporaryPassword()) ? '/changepassword' : '/#/';
                 stopSpinner();
@@ -63,7 +63,7 @@
             else {
                 startSpinner();
                 self.userServiceError.message = '...';
-                lfFirebaseAuthService.resetPassword(self.user).then(function () {
+                return lfFirebaseAuthService.resetPassword(self.user).then(function () {
                     self.userServiceError.message = self.labels.resetPasswordEmail();
                     self.resetPasswordRequested = true;
                     stopSpinner();
@@ -84,7 +84,7 @@
         self.changePassword = function() {
             startSpinner();
             self.userServiceError.message = '...';
-            lfFirebaseAuthService.changePassword(self.user).then(function() {
+            return lfFirebaseAuthService.changePassword(self.user).then(function() {
                 self.userServiceError.message = self.labels.passwordChanged();
                 stopSpinner();
                 self.changedPassword = true;

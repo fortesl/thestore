@@ -49,6 +49,9 @@
             //simulate server response
             httpBackend.flush();
             expect(testCtrl.products.length).toEqual(1);
+
+            rootScope.$emit('$translateChangeSuccess');
+            expect(testCtrl.productSort.length).toBeGreaterThan(0);
         });
 
 
