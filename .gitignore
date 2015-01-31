@@ -1,7 +1,6 @@
 node_modules
 .idea
-build
-coverage
-src
 tests
-build.log
+Gruntfile.js
+package.json
+protractor.conf.js
