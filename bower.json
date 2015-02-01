@@ -19,8 +19,8 @@
   "dependencies": {
     "jquery": "latest",
     "bootstrap": "latest",
-    "angular": ">=1 <1.3.0",
-    "angular-route": ">=1 <1.3.0",
+    "angular": "latest",
+    "angular-route": "latest",
     "angular-translate": "latest",
     "angular-translate-loader-static-files": "latest",
     "angular-input-match": "~0.0.2",
@@ -32,6 +32,6 @@
     "lf-cookies": "*"
   },
   "devDependencies": {
-    "angular-mocks": ">=1 <1.3.0"
+    "angular-mocks": "latest"
   }
 }
