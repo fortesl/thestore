@@ -19,19 +19,19 @@
   "dependencies": {
     "jquery": "latest",
     "bootstrap": "latest",
-    "angular": "~1.3.6",
-    "angular-route": "~1.3.6",
+    "angular": ">=1 <1.3.0",
+    "angular-route": ">=1 <1.3.0",
     "angular-translate": "latest",
     "angular-translate-loader-static-files": "latest",
     "angular-input-match": "~0.0.2",
-    "firebase": "~2.0.5",
+    "firebase": "~2.1.2",
     "angularfire": "~0.9.0",
-    "angular-bootstrap": "~0.12.0",
-    "angular-spinner": "~0.6.0",
+    "angular-bootstrap": "latest",
+    "angular-spinner": "latest",
     "lf-firebase-auth": "*",
     "lf-cookies": "*"
   },
   "devDependencies": {
-    "angular-mocks": "~1.3.6"
+    "angular-mocks": ">=1 <1.3.0"
   }
 }
