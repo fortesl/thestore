@@ -2,7 +2,11 @@ TheStore
 ========
 An online store built on Bootstrap and Angular technologies. 
 
-The focus of this project is on developing modular, testable, maintainable, and high quality code intent on delivering fast performance and the best possible user experience. 
+
+[![Build Status](https://travis-ci.org/fortesl/thestore.svg?branch=withFbB)](https://travis-ci.org/fortesl/thestore)
+
+
+The focus of this project is on developing modular, testable, maintainable, and high quality code intent on delivering fast performance and the best possible user experience.
 
 Follow <a href="https://twitter.com/the_onlinestore">@the_onlinestore</a> on twitter to stay informed on all commits and other changes.
 
