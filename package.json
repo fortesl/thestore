@@ -67,5 +67,9 @@
       "name": "fortesl",
       "email": "fortesl@yahoo.com"
     }
-  ]
+  ],
+  "scripts": {
+    "test": "grunt test"
+  }
+
 }

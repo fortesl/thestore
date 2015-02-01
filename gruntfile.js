@@ -293,4 +293,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', 'build');
     grunt.registerTask('deployAWS', ['s3', 'log-deployAWS']);
 
+    grunt.registerTask('test', ['karma:build']);
+
 };
