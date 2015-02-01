@@ -104,10 +104,6 @@ module.exports = function(grunt) {
            vendors: {
                dest: 'build/vendors.min.js',
                src: 'src/js/vendors.js'
-           },
-           ghpages: {
-               dest: '../gh-pages/',
-               src: 'build/**/*'
            }
        },
 
@@ -238,12 +234,6 @@ module.exports = function(grunt) {
                 options: {
                     configFile: "protractor.conf.js", // Target-specific config file
                     args: {} // Target-specific arguments
-                }
-            },
-            build: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
-                options: {
-                    configFile: "protractor.conf.js", // Target-specific config file
-                    args: {baseUrl: 'http://localhost:9001/'} // Target-specific arguments
                 }
             }
         },

@@ -1,7 +1,7 @@
 {
   "name": "TheStore",
   "version": "0.0.0",
-  "description": "An angular jewlery store",
+  "description": "A store built on Angularjs, bootstrap and other cool technologies",
   "main": "?",
   "authors": [
     "Luis Fortes"
