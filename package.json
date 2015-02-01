@@ -30,8 +30,13 @@
     "karma": "^0.12.23",
     "karma-chrome-launcher": "^0.1.4",
     "karma-coverage": "^0.2.7",
+    "karma-detect-browsers": "^1.0.0",
     "karma-firefox-launcher": "^0.1.4",
+    "karma-ie-launcher": "^0.1.5",
     "karma-jasmine": "^0.1.5",
+    "karma-opera-launcher": "^0.1.0",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-safari-launcher": "^0.1.1",
     "protractor": "^1.5.0"
   },
   "scripts": {
