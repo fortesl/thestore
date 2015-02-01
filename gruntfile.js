@@ -169,6 +169,10 @@ module.exports = function(grunt) {
                     open: true,
                     base: 'build'
                 }
+            },
+            travis: {
+                hostname: 'localhost',
+                port: 9000
             }
         },
 
@@ -225,7 +229,7 @@ module.exports = function(grunt) {
         protractor: {
             options: {
                 configFile: "node_modules/protractor/referenceConf.js", // Default config file
-                keepAlive: true, // If false, the grunt process stops when the test fails.
+                keepAlive: false, // If false, the grunt process stops when the test fails.
                 noColor: false, // If true, protractor will not use colors in its output.
                 args: {
                     // Arguments passed to the command
@@ -234,7 +238,17 @@ module.exports = function(grunt) {
             test: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
                 options: {
                     configFile: "protractor.conf.js", // Target-specific config file
-                    args: {} // Target-specific arguments
+                    args: {
+                    } // Target-specific arguments
+                }
+            },
+            travis: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+                options: {
+                    configFile: "saucelabs.protractor.conf.js", // Target-specific config file
+                    args: {
+                        sauceUser: process.env.SAUCE_USERNAME,
+                        sauceKey: process.env.SAUCE_ACCESS_KEY
+                    } // Target-specific arguments
                 }
             }
         },
@@ -294,7 +308,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', 'build');
     grunt.registerTask('deployAWS', ['s3', 'log-deployAWS']);
 
-//    grunt.registerTask('CITest', ['connect:livereload', 'karma:build', 'protractor']);
-    grunt.registerTask('CITest', ['karma:build']);
+    grunt.registerTask('CITest', ['connect:travis', 'karma:build', 'protractor:travis']);
 
 };

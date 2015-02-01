@@ -1,6 +1,4 @@
 exports.config = {
-    // The address of a running selenium server.
-//    seleniumAddress: 'http://localhost:4444/wd/hub',
 
     // The address where our server under test is running
     baseUrl: 'http://localhost:9000/',
