@@ -20,6 +20,7 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-uglify": "~0.5.1",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-exec": "^0.4.6",
     "grunt-html-angular-validate": "^0.4.0",
     "grunt-jsonmin": "^0.2.4",
     "grunt-karma": "^0.9.0",
@@ -29,11 +30,12 @@
     "karma": "^0.12.23",
     "karma-chrome-launcher": "^0.1.4",
     "karma-coverage": "^0.2.7",
+    "karma-firefox-launcher": "^0.1.4",
     "karma-jasmine": "^0.1.5",
     "protractor": "^1.5.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -67,9 +69,5 @@
       "name": "fortesl",
       "email": "fortesl@yahoo.com"
     }
-  ],
-  "scripts": {
-    "test": "grunt test"
-  }
-
+  ]
 }
