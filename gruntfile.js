@@ -294,6 +294,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', 'build');
     grunt.registerTask('deployAWS', ['s3', 'log-deployAWS']);
 
-    grunt.registerTask('test', ['karma:build']);
+//    grunt.registerTask('CITest', ['connect:livereload', 'karma:build', 'protractor']);
+    grunt.registerTask('CITest', ['karma:build']);
 
 };

@@ -34,7 +34,7 @@
 
                 utils.waitForPromiseTest(signUpPage.errorOccurred, function(error) {
                     return error !== '...' && error.length;
-                }, 3000, "Timeout waiting on Fb service");
+                }, 4000, "Timeout waiting on Fb service");
 
                 expect(signUpPage.isSignUpPageOpen()).toBe(true);
             });
@@ -52,7 +52,7 @@
 
                 utils.waitForPromiseTest(browser.getCurrentUrl, function(url) {
                     return url.indexOf('signup') < 0;
-                }, 3000, "Timeout waiting on Fb service");
+                }, 4000, "Timeout waiting on Fb service");
 
                 expect(signUpPage.isSignUpPageOpen()).toBe(false);
             });
