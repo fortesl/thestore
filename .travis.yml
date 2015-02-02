@@ -1,9 +1,11 @@
 language: node_js
 node_js:
 - '0.10'
-before_install:
+before_script:
 - npm install -g bower grunt-cli
 - bower install
+- npm install -g protractor
+- webdriver-manager update
 env:
   global:
   - secure: Ynk+m2oYOKalMwZ1O9pPWMIw/b2yz5czGycBW3iw94HyWTn6lTlmCU45wCLCiZvDvudKQOpxW1dM13QGBbxOkb5QV9ECpF25VHWU6c+mKyL6FVWI2zeckLr+EsF8l3JeIFDIKFIuauUZ07W8VkR7f5BT+E680VONtIkvLqkTq+E=
