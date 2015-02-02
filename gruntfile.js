@@ -171,6 +171,7 @@ module.exports = function(grunt) {
                 }
             },
             travis: {
+                base: 'src',
                 hostname: 'localhost',
                 port: 9000
             }
