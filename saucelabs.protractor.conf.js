@@ -8,9 +8,7 @@ exports.config = {
 //    seleniumAddress: 'http://localhost:4444/wd/hub',
 
     // The address where our server under test is running
-
-    baseUrl: 'http://localhost:8000/',
-
+    baseUrl: 'http://localhost:9000/',
 
     sauceUser: process.env.SAUCE_USERNAME,
     sauceKey: process.env.SAUCE_ACCESS_KEY,
