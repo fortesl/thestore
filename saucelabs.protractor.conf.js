@@ -11,6 +11,7 @@ exports.config = {
 
     baseUrl: 'http://localhost:8000/',
 
+
     sauceUser: process.env.SAUCE_USERNAME,
     sauceKey: process.env.SAUCE_ACCESS_KEY,
 
