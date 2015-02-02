@@ -28,7 +28,7 @@
 
                 utils.waitForPromiseTest(loginPage.errorOccurred, function(error) {
                     return error !== '...' && error.length;
-                }, 4000, "Timeout waiting on Fb service");
+                }, "Timeout waiting on Fb service");
 
                 expect(loginPage.isLoginPageOpen()).toBe(true);
             });
@@ -41,7 +41,7 @@
 
                 utils.waitForPromiseTest(browser.getCurrentUrl, function(url) {
                     return url.indexOf('signin') < 0;
-                }, 4000, "Timeout waiting on Fb service");
+                }, "Timeout waiting on Fb service");
 
                 expect(loginPage.isLoginPageOpen()).toBe(false);
             });

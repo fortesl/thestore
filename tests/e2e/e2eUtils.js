@@ -11,7 +11,7 @@
             browser.get('/');
         },
 
-        waitForPromiseTest: function(promiseFn, testFn, timeOut, errMsg) {
+        waitForPromiseTest: function(promiseFn, testFn, errMsg, timeOut) {
         browser.wait(function () {
             var deferred = protractor.promise.defer();
             promiseFn().then(function (data) {

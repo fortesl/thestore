@@ -243,18 +243,23 @@ module.exports = function(grunt) {
                     } // Target-specific arguments
                 }
             },
+            cmd_server: {   // A running standalone selenium server is required.
+                options: {
+                    configFile: "cmd.protractor.conf.js", // Target-specific config file
+                    args: {
+                    } // Target-specific arguments
+                }
+            },
             travis: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
                 options: {
                     configFile: "saucelabs.protractor.conf.js", // Target-specific config file
                     args: {
-                        sauceUser: process.env.SAUCE_USERNAME,
-                        sauceKey: process.env.SAUCE_ACCESS_KEY
                     } // Target-specific arguments
                 }
             }
         },
 
-        exec: {
+        exec: {//globally available selenium server.
             selenium: 'webdriver-manager start'
         }
     });

@@ -1,4 +1,11 @@
+/**
+ * Name: cmd.protractor.conf.js
+ * Created by lfortes on 2/2/2015.
+ */
+
 exports.config = {
+    // The address of a running selenium server.
+    seleniumAddress: 'http://localhost:4444/wd/hub',
 
     // The address where our server under test is running
     baseUrl: 'http://localhost:9000/',
@@ -10,9 +17,6 @@ exports.config = {
     },
 
     framework: 'jasmine',
-
-    seleniumServerJar: './utils/selenium/selenium-server-standalone-2.44.0.jar',
-    chromeDriver: './utils/selenium/chromedriver.exe',
 
     // Spec patterns are relative to the location of the
     // spec file. They may include glob patterns.
