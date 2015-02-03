@@ -11,6 +11,10 @@
             browser.get('#/');
         },
 
+        openPage: function(page) {
+            browser.get('#' + page);
+        },
+
         waitForPromiseTest: function(promiseFn, testFn, errMsg, timeOut) {
         browser.wait(function () {
             var deferred = protractor.promise.defer();
