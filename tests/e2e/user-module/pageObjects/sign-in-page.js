@@ -27,7 +27,7 @@
             element(selectors.logoutLink).click();
             }
             else {
-                browser.get('/');
+                browser.get('#/');
             }
         });
     };

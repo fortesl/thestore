@@ -8,7 +8,7 @@
 
     var e2eUtils = {
         openHomePage: function() {
-            browser.get('/');
+            browser.get('#/');
         },
 
         waitForPromiseTest: function(promiseFn, testFn, errMsg, timeOut) {
