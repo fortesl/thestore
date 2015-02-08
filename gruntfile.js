@@ -236,21 +236,21 @@ module.exports = function(grunt) {
                     // Arguments passed to the command
                 }
             },
-            test: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+            test: {
                 options: {
                     configFile: "protractor.conf.js", // Target-specific config file
                     args: {
                     } // Target-specific arguments
                 }
             },
-            cmd_server: {   // A running standalone selenium server is required.
+            cmdServer: {   // A running standalone selenium server.
                 options: {
                     configFile: "cmd.protractor.conf.js", // Target-specific config file
                     args: {
                     } // Target-specific arguments
                 }
             },
-            travis: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+            travis: {
                 options: {
                     configFile: "saucelabs.protractor.conf.js", // Target-specific config file
                     args: {
@@ -309,6 +309,8 @@ module.exports = function(grunt) {
         ]);
     });
 
+    grunt.registerTask('unitTest', ['karma:test']);
+    grunt.registerTask('e2eTest', ['protractor:test']);
     grunt.registerTask('build', ['karma:build', 'ngtemplates', 'clean:build', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'lintjs', 'uglify', 'copy', 'clean:postbuild', 'log-build',
         'connect:build']);
     grunt.registerTask('default', 'build');

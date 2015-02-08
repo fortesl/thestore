@@ -54,14 +54,9 @@ Contributing
 Contribute to this project by implementing the features listed above or <a href="https://github.com/fortesl/thestore/issues">by adding</a> other features you want to work on.
 Please follow the development guidelines established for this project.
 
-Create unit tests for all your Javascript code in the folder 'thestore/tests/unit'. From the 'thestore' folder run your unit tests with the command <b>karma start</b>
+Create unit tests for all your Javascript code in the folder 'thestore/tests/unit'. From the 'thestore' folder, run your unit tests with the command <b>grunt unitTest</b>
 
-If you add new UI or modify the existing UI, create e2e tests in the folder 'thestore/tests/e2e'. From the 'thestore' folder, use the following commands to run your e2e tests:
-<ol>
-    <li><b>webdriver-manager start</b> (starts Selenium locally)</li>
-    <li><b>grunt serve</b> (starts the webserver for source code, if not already running)</li>
-    <li><b>protractor</b> (runs the tests)</li>
-</ol>
+If you add new UI or modify the existing UI, create user acceptance tests in the folder 'thestore/tests/e2e'. From the 'thestore' folder, run your e2e tests with the command <b>grunt e2eTest</b>
 
 Make sure your code builds by running the command: <b>grunt</b>
 
