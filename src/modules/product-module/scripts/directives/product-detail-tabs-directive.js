@@ -9,7 +9,7 @@
     angular.module('product').directive('stProductDetailTabs', function() {
         return {
             restrict: 'E',
-            templateUrl: 'product-module/views/product-detail-tabs.html',
+            templateUrl: 'modules/product-module/views/product-detail-tabs.html',
             controller: [function() {
                 var self = this;
                 self.isSelected = 1;

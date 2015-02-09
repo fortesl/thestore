@@ -8,7 +8,7 @@
     angular.module('storeApp').directive('stFooter', function() {
         return {
             restrict: 'E',
-            templateUrl: 'core-module/views/store-footer.html'
+            templateUrl: 'modules/core-module/views/store-footer.html'
         };
     });
 })();

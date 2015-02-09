@@ -9,7 +9,7 @@
     angular.module('product').directive('stProductDetailImageGallery', function() {
         return {
             restrict: 'E',
-            templateUrl: 'product-module/views/product-detail-image-gallery.html',
+            templateUrl: 'modules/product-module/views/product-detail-image-gallery.html',
             controller: [function() {
                 var self = this;
                 self.current = 0;

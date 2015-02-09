@@ -9,7 +9,7 @@
     angular.module('product').directive('stProductDetailReviews', function() {
         return {
             restrict: 'A',
-            templateUrl: 'product-module/views/product-detail-reviews.html',
+            templateUrl: 'modules/product-module/views/product-detail-reviews.html',
             controller: [function() {
                 var self = this;
                 self.review = {};

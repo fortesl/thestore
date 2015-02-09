@@ -9,7 +9,7 @@
     angular.module('product').directive('stProductDetailSpecs', function() {
         return {
             restrict: 'A',
-            templateUrl: 'product-module/views/product-detail-specs.html'
+            templateUrl: 'modules/product-module/views/product-detail-specs.html'
         };
     });
 

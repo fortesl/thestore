@@ -24,23 +24,23 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
        srcjsFiles: [
-           'src/core-module/store-app.js', 'src/core-module/scripts/**/*.js',
-           'src/product-module/product-app.js', 'src/product-module/scripts/**/*.js',
-           'src/user-module/user-app.js', 'src/user-module/scripts/**/*.js'
+           'src/modules/core-module/core-app.js', 'src/modules/core-module/scripts/**/*.js',
+           'src/modules/product-module/product-app.js', 'src/modules/product-module/scripts/**/*.js',
+           'src/modules/user-module/user-app.js', 'src/modules/user-module/scripts/**/*.js'
        ],
        vendorjsFiles: [
-           'src/vendor/angular-input-match/dist/angular-input-match.js',
-           'src/vendor/angular-translate/angular-translate.min.js',
-           'src/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
-           'src/vendor/spin.js/spin.js',
-           'src/vendor/angular-spinner/angular-spinner.min.js',
-           'src/vendor/lf-cookies/lf-cookies.js',
-           'src/vendor/lf-firebase-auth/lf-firebase-auth-service.js'
+           'src/bower_components/angular-input-match/dist/angular-input-match.js',
+           'src/bower_components/angular-translate/angular-translate.min.js',
+           'src/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
+           'src/bower_components/spin.js/spin.js',
+           'src/bower_components/angular-spinner/angular-spinner.min.js',
+           'src/bower_components/lf-cookies/lf-cookies.js',
+           'src/bower_components/lf-firebase-auth/lf-firebase-auth-service.js'
        ],
        testjsFiles: ['tests/unit/**/*.js'],
        e2ejsFiles: ['tests/e2e/**/*.js'],
        srchtmlFiles: ['src/**/*.html'],
-       srccssFiles: ['src/core-module/styles/**/*.css'],
+       srccssFiles: ['src/modules/core-module/styles/**/*.css'],
 
        concat: {
            thestore: {
@@ -199,7 +199,7 @@ module.exports = function(grunt) {
             storeApp:        {
                 cwd: 'src',
                 src:      '**/views/**/*.html',
-                dest:     'src/core-module/scripts/templates.js',
+                dest:     'src/modules/core-module/scripts/templates.js',
                 options: {
                     htmlmin: {
                         removeComments: true,

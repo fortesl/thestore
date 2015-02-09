@@ -9,7 +9,7 @@
     angular.module('product').directive('stProductDetailSubmitReview', function() {
         return {
             restrict: 'E',
-            templateUrl: 'product-module/views/product-detail-submit-review.html'
+            templateUrl: 'modules/product-module/views/product-detail-submit-review.html'
         };
     });
 

@@ -15,24 +15,21 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/vendor/angular/angular.js',
-      'src/vendor/angular-route/angular-route.js',
-      'src/vendor/angular-mocks/angular-mocks.js',
-      'src/vendor/angular-input-match/dist/angular-input-match.js',
-      'src/vendor/angular-translate/angular-translate.js',
-      'src/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
-      'src/vendor/firebase/firebase.js',
-      'src/vendor/angular-bootstrap/ui-bootstrap-tpls.js',
-      'src/vendor/spin.js/spin.js',
-      'src/vendor/angular-spinner/angular-spinner.js',
-      'src/vendor/lf-firebase-auth/lf-firebase-auth-service.js',
-        'src/vendor/lf-cookies/lf-cookies.js',
-        'src/core-module/store-app.js',
-        'src/core-module/scripts/**/*.js',
-        'src/product-module/product-app.js',
-        'src/product-module/scripts/**/*.js',
-        'src/user-module/user-app.js',
-        'src/user-module/scripts/**/*.js',
+      'src/bower_components/angular/angular.js',
+      'src/bower_components/angular-route/angular-route.js',
+      'src/bower_components/angular-mocks/angular-mocks.js',
+      'src/bower_components/angular-input-match/dist/angular-input-match.js',
+      'src/bower_components/angular-translate/angular-translate.js',
+      'src/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+      'src/bower_components/firebase/firebase.js',
+      'src/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'src/bower_components/spin.js/spin.js',
+      'src/bower_components/angular-spinner/angular-spinner.js',
+      'src/bower_components/lf-firebase-auth/lf-firebase-auth-service.js',
+      'src/bower_components/lf-cookies/lf-cookies.js',
+    'src/modules/core-module/core-app.js', 'src/modules/core-module/scripts/**/*.js',
+    'src/modules/product-module/product-app.js', 'src/modules/product-module/scripts/**/*.js',
+    'src/modules/user-module/user-app.js', 'src/modules/user-module/scripts/**/*.js',
       'tests/unit/**/*mock.js',
       'tests/unit/**/*test.js'
     ],
@@ -45,12 +42,12 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/store-app.js' : ['coverage'],
-      'src/scripts/**/*.js' : ['coverage'],
-      'src/product-module/product-app.js' : ['coverage'],
-      'src/product-module/scripts/**/*.js' : ['coverage'],
-      'src/user-module/user-app.js' : ['coverage'],
-      'src/user-module/scripts/**/*.js' : ['coverage']
+      'src/modules/core-module/store-app.js' : ['coverage'],
+      'src/modules/core-module/scripts/**/*.js' : ['coverage'],
+      'src/modules/product-module/product-app.js' : ['coverage'],
+      'src/modules/product-module/scripts/**/*.js' : ['coverage'],
+      'src/modules/user-module/user-app.js' : ['coverage'],
+      'src/modules/user-module/scripts/**/*.js' : ['coverage']
     },
 
 
