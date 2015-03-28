@@ -7,6 +7,49 @@
 .ng-valid.ng-dirty {
   border-color: #78FA89; }
 
+.error-message {
+  background-color: #FA787E;
+  color: white;
+  padding: 4px 10px 1px 5px;
+  border-radius: 4px;
+  font-family: courier; }
+
+/* breadcrumbs */
+.st-breadcrumbs .st-crumbs-list {
+  display: block; }
+  .st-breadcrumbs .st-crumbs-list .st-crumbs-item {
+    display: inline; }
+    .st-breadcrumbs .st-crumbs-list .st-crumbs-item.st-crumbs-first-item {
+      padding-left: 8px; }
+      .st-breadcrumbs .st-crumbs-list .st-crumbs-item.st-crumbs-first-item a span {
+        height: 29px;
+        width: 3px;
+        border-left: 1px solid #d9d9d9;
+        position: absolute;
+        top: 0px;
+        left: 0px; }
+    .st-breadcrumbs .st-crumbs-list .st-crumbs-item a {
+      background-image: url("../images/bg-st-crumbs-list.png");
+      background-repeat: no-repeat;
+      background-position: 100% 0;
+      position: relative; }
+      .st-breadcrumbs .st-crumbs-list .st-crumbs-item a:link, .st-breadcrumbs .st-crumbs-list .st-crumbs-item a:visited {
+        color: #666;
+        display: block;
+        float: left;
+        font-size: 12px;
+        margin-left: -13px;
+        padding: 7px 17px 11px 25px;
+        position: relative;
+        text-decoration: none; }
+      .st-breadcrumbs .st-crumbs-list .st-crumbs-item a:hover {
+        color: #333;
+        background-position: 100% -48px;
+        cursor: pointer; }
+      .st-breadcrumbs .st-crumbs-list .st-crumbs-item a:active {
+        color: #333;
+        background-position: 100% -96px; }
+
 /* Space out content a bit */
 body {
   padding-left: 0.3em;

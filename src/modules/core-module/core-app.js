@@ -9,7 +9,7 @@
     'use strict';
 
     angular
-        .module('storeApp', ['ngRoute', 'product', 'user', 'lfCookies', 'pascalprecht.translate', 'ui.bootstrap.dropdown', 'angularSpinner', 'lfFirebaseAuth'])
+        .module('storeApp', ['ngRoute', 'product', 'user', 'lfCookies', 'pascalprecht.translate', 'ui.bootstrap.dropdown', 'angularSpinner'])
 
         .constant('FIREBASE_URL',  'https://thestore.firebaseio.com')
 

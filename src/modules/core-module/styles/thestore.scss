@@ -12,6 +12,69 @@ $success-color: #78FA89;
   border-color: $success-color;
 }
 
+.error-message {
+  background-color: $error-color;
+  color: white;
+  padding: 4px 10px 1px 5px;
+  border-radius: 4px;
+  font-family: courier;
+}
+
+
+/* breadcrumbs */
+.st-breadcrumbs {
+
+  .st-crumbs-list {
+    display: block;
+
+    .st-crumbs-item {
+      display: inline;
+
+      &.st-crumbs-first-item {
+        padding-left: 8px;
+        a {
+          span {
+            height: 29px;
+            width: 3px;
+            border-left: 1px solid #d9d9d9;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+          }
+        }
+      }
+
+      a {
+        background-image: url('../images/bg-st-crumbs-list.png');
+        background-repeat: no-repeat;
+        background-position: 100% 0;
+        position: relative;
+        &:link, &:visited {
+          color: #666;
+          display: block;
+          float: left;
+          font-size: 12px;
+          margin-left: -13px;
+          padding: 7px 17px 11px 25px;
+          position: relative;
+          text-decoration: none;
+        }
+        &:hover {
+          color: #333;
+          background-position: 100% -48px;
+          cursor: pointer;
+        }
+        &:active {
+          color: #333;
+          background-position: 100% -96px;
+        }
+      }
+    }
+  }
+}
+
+
+
 /* Space out content a bit */
 body {
   padding-left: 0.3em;

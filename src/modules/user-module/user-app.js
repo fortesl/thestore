@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('user', ['ngRoute', 'directives.inputMatch'])
+        .module('user', ['ngRoute', 'directives.inputMatch', 'pascalprecht.translate', 'lfFirebaseAuth'])
 
         .config(['$routeProvider', function($routeProvider) {
             $routeProvider.
