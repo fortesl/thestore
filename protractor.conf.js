@@ -17,11 +17,6 @@ exports.config = {
     // Spec patterns are relative to the location of the
     // spec file. They may include glob patterns.
     specs: [
-        //'tests/e2e/core-module/*spec.js',
-        //'tests/e2e/product-module/*spec.js',
-        //'tests/e2e/product-module/*specs.js',
-//        'tests/e2e/user-module/sign-up-spec.js',
-//        'tests/e2e/user-module/sign-in-spec.js'
         'tests/e2e/**/*spec.js'
     ],
 

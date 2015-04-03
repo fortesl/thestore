@@ -9,34 +9,44 @@ Follow <a href="https://twitter.com/the_onlinestore">@the_onlinestore</a> on twi
 View the <a href="http://fortesl.github.io/thestore/#/">demo website</a>
 
 
-Install
-=======
+A development machine should have installed the following dependencies
+======================================================================
+- Java
+- nodejs
+- git
+- ruby
+- gulp (npm install -g gulp)
+- bower (npm install -g bower)
+- compass (gem install compass)
+
+Install the project for development on your local dev machine
+=========================================================
 Either with <a href="https://github.com/fortesl/thestore">github</a> 
 <ol>
-    <li>Fork and clone the project to a "thestore" local folder</li>
-    <li>From the "thestore" folder, install build task dependencies with the command: <b>npm install</b></li>
-    <li>From the "thestore" folder, install other dependencies with the command: <b>bower install</b></li>
+    <li>Fork and clone the project to a local folder</li>
+    <li>From the "thestore" folder, install build dependencies with the command: <b>npm install</b></li>
+    <li>From the "thestore" folder, install run dependencies with the command: <b>bower install</b></li>
 </ol>
 
 Or with <a href="https://www.npmjs.org/package/thestore">npm</a> -
 <ol>
     <li>Get the project to your local machine with the command: <b>npm install thestore</b></li>
-    <li>From the "thestore" folder, install build task dependencies with the command: <b>npm install</b></li>
-    <li>From the "thestore" folder, install dependencies with the command: <b>bower install</b></li>
+    <li>From the "thestore" folder, install build dependencies with the command: <b>npm install</b></li>
+    <li>From the "thestore" folder, install run dependencies with the command: <b>bower install</b></li>
 </ol>
 
 
 The source code can be found in the 'thestore/src' folder. Start a web server in development mode with the command:
-<b>grunt serve</b>
+<b>gulp dev</b>
 
 Any changes made to source code will immediately reload on the web browser. JavaScript changes are automatically validated with jshint.
 
-To create a 'build' folder and run the app with optimized resources ready for publishing, run the following command from the 'thestore' folder:
-<b>grunt</b>
+To create a 'build' folder to run the app with optimized resources ready for publishing, run the following command from the 'thestore' folder:
+<b>gulp build</b>
 
 
-Next
-====
+upcoming features
+=================
 features in the dev queue for future releases
 
 1. <a href="https://github.com/fortesl/thestore/issues/1"><strike>Move search box to navigation bar</strike></a><br>
@@ -54,9 +64,9 @@ Contributing
 Contribute to this project by implementing the features listed above or <a href="https://github.com/fortesl/thestore/issues">by adding</a> other features you want to work on.
 Please follow the development guidelines established for this project.
 
-Create unit tests for all your Javascript code in the folder 'thestore/tests/unit'. From the 'thestore' folder, run your unit tests with the command <b>grunt unitTest</b>
+Create unit tests for all your Javascript code in the folder 'thestore/tests/unit'. From the 'thestore' folder, run your unit tests with the command <b>gulp unitTesting</b>
 
-If you add new UI or modify the existing UI, create user acceptance tests in the folder 'thestore/tests/e2e'. From the 'thestore' folder, run your e2e tests with the command <b>grunt e2eTest</b>
+If you add new UI or modify the existing UI, create user acceptance tests in the folder 'thestore/tests/e2e'. From the 'thestore' folder, run your e2e tests with the command <b>gulp acceptanceTesting</b>
 
 Make sure your code builds by running the command: <b>grunt</b>
 
