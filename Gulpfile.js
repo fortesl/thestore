@@ -93,7 +93,7 @@
     });
 
     gulp.task('lint', function() {
-        return gulp.src(srcJsFiles.concat(testJsFiles).concat(e2eJsFiles))
+        return gulp.src(srcJsFiles.concat(testJsFiles).concat(e2eJsFiles).concat('Gulpfile.js'))
             .pipe(jshint())
             .pipe(jshint.reporter('default'));
     });
@@ -112,13 +112,13 @@
             configFile: path.resolve('karma.conf.js'),
             singleRun: true,
             browsers: ['PhantomJS']
-        }, done)
+        }, done);
     });
 
     gulp.task('tdd', function(done) {
         karma.start({
             configFile: path.resolve('karma.conf.js')
-        }, done)
+        }, done);
     });
 
 
@@ -136,7 +136,7 @@
             .pipe(protractor({
                 configFile: path.resolve('protractor.conf.js')
             }))
-            .on('error', function(e) { console.log(e); throw e; })
+            .on('error', function(e) { console.log(e); throw e; });
     });
 
     gulp.task('ngtemplates', function() {
@@ -202,7 +202,7 @@
             .pipe(protractor({
                 configFile: path.resolve('saucelabs.protractor.conf.js')
             }))
-            .on('error', function(e) { console.log(e); throw e; })
+            .on('error', function(e) { console.log(e); throw e; });
     });
 
     gulp.task('CITest', ['unitTesting', 'saucelabsE2eTesting']); //runs automatically after push to repository.
