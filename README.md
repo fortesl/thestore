@@ -1,4 +1,4 @@
-TheStore  [![Build Status](https://travis-ci.org/fortesl/thestore.svg?branch=withFbB)](https://travis-ci.org/fortesl/thestore)[![devDependency Status](https://david-dm.org/luisfortes/thestore/dev-status.svg)](https://david-dm.org/luisfortes/thestore#info=devDependencies)
+TheStore  [![Build Status](https://travis-ci.org/fortesl/thestore.svg?branch=withFbB)](https://travis-ci.org/fortesl/thestore) [![devDependency Status](https://david-dm.org/luisfortes/thestore/dev-status.svg)](https://david-dm.org/luisfortes/thestore#info=devDependencies)
 ========
 An online store built on Bootstrap and Angular technologies. 
 
