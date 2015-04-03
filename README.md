@@ -19,7 +19,7 @@ A development machine should have installed the following dependencies
 - bower (npm install -g bower)
 - compass (gem install compass)
 
-Install the project for development on your local dev machine
+To install the project for development on your local dev machine
 =========================================================
 Either with <a href="https://github.com/fortesl/thestore">github</a> 
 <ol>
