@@ -58,7 +58,7 @@
 
     gulp.task('test', ['unitTesting', 'acceptanceTesting']);
 
-    gulp.task('build', ['buildScript', 'buildVendorScript', 'buildHtml', 'buildCopy', 'buildData', 'buildI18n'], function() {
+    gulp.task('build', ['buildScript', 'buildVendorScript', 'buildHtml', 'buildCopy', 'buildData'], function() {
         browserSync({
             server: {
                 baseDir: buildDir
@@ -186,12 +186,10 @@
     });
 
     gulp.task('buildData', function() {
-        return gulp.src([srcDir + 'storeData/*'])
+        gulp.src([srcDir + 'storeData/*'])
             .pipe(jsonminify())
             .pipe(gulp.dest(buildDir + 'storeData/'));
-    });
 
-    gulp.task('buildI18n', function() {
         return gulp.src([srcDir + 'i18n/*'])
             .pipe(jsonminify())
             .pipe(gulp.dest(buildDir + 'i18n/'));
