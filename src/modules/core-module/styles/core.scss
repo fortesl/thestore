@@ -1,0 +1,29 @@
+$error-color: #FA787E;
+$success-color: #78FA89;
+
+.odd {
+  background-color:#f8f8f8
+}
+
+.ng-invalid.ng-dirty {
+  border-color: $error-color;
+}
+.ng-valid.ng-dirty {
+  border-color: $success-color;
+}
+
+.error-message {
+  background-color: $error-color;
+  color: white;
+  padding: 4px 10px 1px 5px;
+  border-radius: 4px;
+  font-family: courier;
+}
+
+/* Space out content a bit */
+body {
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+}
+
+@import "./header-footer";

@@ -25,7 +25,7 @@
                 element(selectors.languageOptions).isDisplayed();
         },
         clickHeaderLinks: function() {
-            element(selectors.headerLogo).click();
+//            element(selectors.headerLogo).click();
             element(selectors.languageOptions).click();
         }
     };

@@ -1,0 +1,32 @@
+.st-header-nav {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  padding: 0.9em;
+  .st-header-logo {
+    width: 40px;
+  }
+  .st-header-search-box {
+    margin-right: 4em;
+  }
+  .st-header-search-input {
+    float: left;
+  }
+  .st-header-login-link {
+    margin-right: 2em;
+  }
+  .st-header-user-choices {
+    margin-right: 2em;
+  }
+  .st-header-language-options {
+    margin-right: 1em;
+  }
+}
+
+.st-footer-nav {
+  margin-bottom: 0.3em;
+  padding: 0.9em;
+  #myFooterNavbar {
+    margin: 0 auto;
+    width: 50%;
+  }
+}

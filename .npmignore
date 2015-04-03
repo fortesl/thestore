@@ -1,5 +1,5 @@
 src/bower_components
-src/js
+src/dev/js
 node_modules
 build
 build.log

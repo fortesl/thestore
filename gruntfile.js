@@ -30,25 +30,25 @@ module.exports = function(grunt) {
        ],
        vendorjsFiles: [
            'src/bower_components/angular-input-match/dist/angular-input-match.js',
-           'src/bower_components/angular-translate/angular-translate.min.js',
-           'src/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
+           'src/bower_components/angular-translate/angular-translate.js',
+           'src/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
            'src/bower_components/spin.js/spin.js',
-           'src/bower_components/angular-spinner/angular-spinner.min.js',
+           'src/bower_components/angular-spinner/angular-spinner.js',
            'src/bower_components/lf-cookies/lf-cookies.js',
            'src/bower_components/lf-firebase-auth/lf-firebase-auth-service.js'
        ],
        testjsFiles: ['tests/unit/**/*.js'],
        e2ejsFiles: ['tests/e2e/**/*.js'],
        srchtmlFiles: ['src/**/*.html'],
-       srccssFiles: ['src/modules/core-module/styles/**/*.css'],
+       srccssFiles: ['src/dev/css/**/*.css'],
 
        concat: {
            thestore: {
-               dest: 'src/js/thestore.js',
+               dest: 'src/dev/js/thestore.js',
                src: '<%= srcjsFiles %>'
            },
            vendors: {
-               dest: 'src/js/vendors.js',
+               dest: 'src/dev/js/vendors.js',
                src: ['<%= vendorjsFiles %>']
            }
        },
@@ -65,14 +65,6 @@ module.exports = function(grunt) {
            },
            i18n: {
                files: [ {expand: true, cwd: 'src/i18n', src: ['**/*.json'], dest: 'build/i18n/'} ]
-           }
-       },
-
-       cssmin: {
-           thestore: {
-               files: {
-                   'build/css/thestore.min.css': ['<%= srccssFiles %>']
-               }
            }
        },
 
@@ -101,9 +93,9 @@ module.exports = function(grunt) {
                dest: 'build/favicon.ico',
                src: 'src/favicon.ico'
            },
-           vendors: {
-               dest: 'build/vendors.min.js',
-               src: 'src/js/vendors.js'
+           css: {
+               dest: 'build/css',
+               src: 'src/dev/css/thestore.min.css'
            }
        },
 
@@ -123,14 +115,17 @@ module.exports = function(grunt) {
                compress: true
            },
            js: {
-               files: {'build/thestore.min.js': ['<%= concat.thestore.dest %>']}
+               files: {'build/js/thestore.min.js': ['<%= concat.thestore.dest %>']}
+           },
+           vendors: {
+               files: {'build/js/vendors.min.js': ['<%= concat.vendors.dest %>']}
            }
        },
 
        clean: {
            build: ['build'],
            postbuild: ['<%= ngtemplates.storeApp.dest %>', 'src/js'],
-           js: ['src/js'],
+           js: ['src/dev/js'],
            coverage: ['coverage']
        },
 
@@ -187,7 +182,7 @@ module.exports = function(grunt) {
                    livereload: '<%= connect.options.livereload %>'
                },
                files: [
-                   'src/js/thestore.js',
+                   'src/dev/js/thestore.js',
                    '<%= srchtmlFiles %>',
                    '<%= srccssFiles %>',
                    'i18n/messages_en.json'
@@ -271,7 +266,6 @@ module.exports = function(grunt) {
         this.requires('concat');
         this.requires('processhtml');
         this.requires('jsonmin');
-        this.requires('cssmin');
         this.requires('htmlmin');
         this.requires('copy');
         this.requires('lintjs');
@@ -311,7 +305,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('unitTest', ['karma:test']);
     grunt.registerTask('e2eTest', ['protractor:test']);
-    grunt.registerTask('build', ['karma:build', 'ngtemplates', 'clean:build', 'concat', 'processhtml', 'jsonmin', 'cssmin', 'htmlmin', 'lintjs', 'uglify', 'copy', 'clean:postbuild', 'log-build',
+    grunt.registerTask('build', ['karma:build', 'ngtemplates', 'clean:build', 'concat', 'processhtml', 'jsonmin', 'htmlmin', 'lintjs', 'uglify', 'copy', 'clean:postbuild', 'log-build',
         'connect:build']);
     grunt.registerTask('default', 'build');
     grunt.registerTask('deployAWS', ['s3', 'log-deployAWS']);
