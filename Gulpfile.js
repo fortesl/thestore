@@ -124,7 +124,28 @@ gulp.task('connect', function() {
         port: 9000,
         hostname: '0.0.0.0',
         keepalive: false,
-        base: srcDir
+        base: srcDir,
+        middleware: function (connect, options) {
+            return [
+
+                function (req, resp, next) {
+                    // handle the browsers request for favicon
+                    if (req.url === '/favicon.ico') {
+                        resp.writeHead(200,
+                            {
+                                'Content-Type': 'image/x-icon'
+                            });
+                        return;
+                    }
+                    // cache get requests to speed up tests
+                    if (req.method === 'GET') {
+                        resp.setHeader('Cache-control', 'public, max-age=3600');
+                    }
+                    next();
+                },
+                connect.static(options.base)
+            ];
+        }
     });
 });
 
