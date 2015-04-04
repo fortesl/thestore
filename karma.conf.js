@@ -2,6 +2,8 @@
 // Generated on Fri Aug 29 2014 13:29:26 GMT-0500 (Central Daylight Time)
 
 module.exports = function(config) {
+  'use strict';
+
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
