@@ -3,9 +3,6 @@
  * Created by lfortes on 2/1/2015.
  */
 
-(function () {
-    'use strict';
-
     exports.config = {
         // The address of a running selenium server.
     //    seleniumAddress: 'http://localhost:4444/wd/hub',
@@ -47,5 +44,3 @@
             })); //add jasmine spec reporter
         }
     };
-
-})();
