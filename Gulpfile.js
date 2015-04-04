@@ -93,7 +93,7 @@
     });
 
     gulp.task('lint', function() {
-        return gulp.src(srcJsFiles.concat(testJsFiles).concat(e2eJsFiles).concat('Gulpfile.js'))
+        return gulp.src(srcJsFiles.concat(testJsFiles).concat(e2eJsFiles).concat('*.js'))
             .pipe(jshint())
             .pipe(jshint.reporter('default'));
     });
