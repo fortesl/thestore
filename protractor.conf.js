@@ -1,38 +1,43 @@
-exports.config = {
+(function () {
+    'use strict';
 
-    // The address where our server under test is running
-    baseUrl: 'http://localhost:9000/',
+    exports.config = {
 
-    // Capabilities to be passed to the webdriver instance.
-    capabilities: {
-        'browserName': 'chrome',
-        'name': 'thestore'
-    },
+        // The address where our server under test is running
+        baseUrl: 'http://localhost:9000/',
 
-    framework: 'jasmine',
+        // Capabilities to be passed to the webdriver instance.
+        capabilities: {
+            'browserName': 'chrome',
+            'name': 'thestore'
+        },
 
-    seleniumServerJar: './utils/selenium/selenium-server-standalone-2.44.0.jar',
-    chromeDriver: './utils/selenium/chromedriver.exe',
+        framework: 'jasmine',
 
-    // Spec patterns are relative to the location of the
-    // spec file. They may include glob patterns.
-    specs: [
-        'tests/e2e/**/*spec.js'
-    ],
+        seleniumServerJar: './utils/selenium/selenium-server-standalone-2.44.0.jar',
+        chromeDriver: './utils/selenium/chromedriver.exe',
 
-    // Options to be passed to Jasmine-node.
-    jasmineNodeOpts: {
-        showColors: true, // Use colors in the command line report.
-        defaultTimeoutInterval: 30000,
-        silent: true    //remove protractor dot reporter
-    },
+        // Spec patterns are relative to the location of the
+        // spec file. They may include glob patterns.
+        specs: [
+            'tests/e2e/**/*spec.js'
+        ],
 
-    onPrepare: function() {
-        var SpecReporter = require('jasmine-spec-reporter');
-        jasmine.getEnv().addReporter(new SpecReporter({
-            displayStacktrace: true,
-            displaySpecDuration: true
-        })); //add jasmine spec reporter
-        browser.driver.manage().window().maximize();
-    }
-};
+        // Options to be passed to Jasmine-node.
+        jasmineNodeOpts: {
+            showColors: true, // Use colors in the command line report.
+            defaultTimeoutInterval: 30000,
+            silent: true    //remove protractor dot reporter
+        },
+
+        onPrepare: function() {
+            var SpecReporter = require('jasmine-spec-reporter');
+            jasmine.getEnv().addReporter(new SpecReporter({
+                displayStacktrace: true,
+                displaySpecDuration: true
+            })); //add jasmine spec reporter
+            browser.driver.manage().window().maximize();
+        }
+    };
+
+})();
