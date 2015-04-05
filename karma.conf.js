@@ -1,6 +1,8 @@
 // Karma configuration
 // Generated on Fri Aug 29 2014 13:29:26 GMT-0500 (Central Daylight Time)
 
+'use strict';
+
 module.exports = function(config) {
   config.set({
 

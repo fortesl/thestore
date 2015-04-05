@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     path = require('path'),
     sass = require('gulp-ruby-sass'),
@@ -9,18 +11,18 @@ var gulp = require('gulp'),
     templateCache = require('gulp-angular-templatecache'),
     karma = require('karma').server,
     jshint = require('gulp-jshint'),
-    protractor = require('gulp-protractor').protractor,
+    e2e = require('gulp-protractor').protractor,
     processhtml = require('gulp-processhtml'),
     copy = require('gulp-copy'),
     connect = require('gulp-connect'),
-    htmlmin = require('gulp-htmlmin');
-    jsonminify = require('gulp-jsonminify');
+    htmlmin = require('gulp-htmlmin'),
+    jsonminify = require('gulp-jsonminify'),
 
-var srcJsFiles = [
+    srcJsFiles = [
     'src/modules/core-module/core-app.js', 'src/modules/core-module/scripts/**/*.js',
     'src/modules/product-module/product-app.js', 'src/modules/product-module/scripts/**/*.js',
     'src/modules/user-module/user-app.js', 'src/modules/user-module/scripts/**/*.js'
-],
+    ],
     vendorJsFiles = [
     'src/bower_components/angular-input-match/dist/angular-input-match.js',
     'src/bower_components/angular-translate/angular-translate.js',
@@ -29,7 +31,7 @@ var srcJsFiles = [
     'src/bower_components/angular-spinner/angular-spinner.js',
     'src/bower_components/lf-cookies/lf-cookies.js',
     'src/bower_components/lf-firebase-auth/lf-firebase-auth-service.js'
-],
+    ],
     testJsFiles = ['./tests/unit/**/*.js'],
     e2eJsFiles = ['./tests/e2e/**/*.js'],
     srcHtmlFiles = ['./src/**/*.html'],
@@ -55,7 +57,7 @@ gulp.task('dev', ['concatScripts','concatVendorScripts', 'concatStyles', 'lint',
 
 gulp.task('test', ['unitTesting', 'acceptanceTesting']);
 
-gulp.task('build', ['buildScript', 'buildVendorScript', 'buildHtml', 'buildCopy', 'buildData', 'buildI18n'], function() {
+gulp.task('build', ['buildScript', 'buildVendorScript', 'buildHtml', 'buildCopy', 'buildData'], function() {
     browserSync({
         server: {
             baseDir: buildDir
@@ -90,7 +92,7 @@ gulp.task('cleanBuild', function(cb) {
 });
 
 gulp.task('lint', function() {
-    return gulp.src(srcJsFiles.concat(testJsFiles).concat(e2eJsFiles))
+    return gulp.src(srcJsFiles.concat(testJsFiles).concat(e2eJsFiles).concat('*.js'))
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
@@ -109,13 +111,13 @@ gulp.task('unitTesting', function(done) {
         configFile: path.resolve('karma.conf.js'),
         singleRun: true,
         browsers: ['PhantomJS']
-    }, done)
+    }, done);
 });
 
 gulp.task('tdd', function(done) {
     karma.start({
         configFile: path.resolve('karma.conf.js')
-    }, done)
+    }, done);
 });
 
 
@@ -151,10 +153,10 @@ gulp.task('connect', function() {
 
 gulp.task('acceptanceTesting', ['connect'], function() {
     gulp.src(e2eJsFiles)
-        .pipe(protractor({
+        .pipe(e2e({
             configFile: path.resolve('protractor.conf.js')
         }))
-        .on('error', function(e) { console.log(e); throw e; })
+        .on('error', function(e) { console.log(e); throw e; });
 });
 
 gulp.task('ngtemplates', function() {
@@ -204,12 +206,9 @@ gulp.task('buildCopy', function () {
 });
 
 gulp.task('buildData', function() {
-    return gulp.src([srcDir + 'storeData/*'])
+    gulp.src([srcDir + 'storeData/*'])
         .pipe(jsonminify())
         .pipe(gulp.dest(buildDir + 'storeData/'));
-});
-
-gulp.task('buildI18n', function() {
     return gulp.src([srcDir + 'i18n/*'])
         .pipe(jsonminify())
         .pipe(gulp.dest(buildDir + 'i18n/'));
@@ -217,10 +216,10 @@ gulp.task('buildI18n', function() {
 
 gulp.task('saucelabsE2eTesting', function() {
     gulp.src(e2eJsFiles)
-        .pipe(protractor({
+        .pipe(e2e({
             configFile: path.resolve('saucelabs.protractor.conf.js')
         }))
-        .on('error', function(e) { console.log(e); throw e; })
+        .on('error', function(e) { console.log(e); throw e; });
 });
 
 gulp.task('CITest', ['unitTesting', 'saucelabsE2eTesting']); //runs automatically after push to repository.

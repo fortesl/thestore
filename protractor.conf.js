@@ -1,3 +1,5 @@
+'use strict';
+
 exports.config = {
 
     // The address where our server under test is running

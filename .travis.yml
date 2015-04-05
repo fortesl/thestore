@@ -14,4 +14,4 @@ addons:
     repo_token: 117838f870c44b977b2148611d62e9599573b1d18a38056792e4bec886692605
 
 after_script:
-  codeclimate < coverage/Pha*/lcov.info
+  codeclimate < lcov.info
