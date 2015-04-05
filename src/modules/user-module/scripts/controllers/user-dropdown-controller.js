@@ -6,7 +6,9 @@
 (function () {
     'use strict';
 
-    angular.module('user').controller('UserDropdownController', ['$rootScope', 'lfFirebaseAuthService', '$location', 'UserLabels', function($rootScope, lfFirebaseAuthService, $location, UserLabels) {
+    angular.module('user').controller('UserDropdownController',
+        ['$rootScope', 'lfFirebaseAuthService', 'UserLabels', '$window',
+        function($rootScope, lfFirebaseAuthService, UserLabels, $window) {
 
         var self = this;
         var userLoggedInEventListener = null;
@@ -17,7 +19,7 @@
             self.userDropdownItems = [
                 {name: self.labels.logout(), link: 'logoutUser'},
                 {divider: 'divider'},
-                {name: self.labels.sellItems(), link: 'nada'}
+                {name: self.labels.sellItems(), link: 'productManagement'}
             ];
 
         };
@@ -68,13 +70,16 @@
             if (handler === 'logoutUser') {
                 self.logoutUser();
             }
+            else if (handler === 'productManagement') {
+                $window.location.assign('/#/add-product');
+            }
         };
 
         //user setup
         self.logoutUser = function() {
             lfFirebaseAuthService.logout();
             self.userName = '';
-            $location.path('/#/');
+            $window.location.assign('/#/');
         };
 
         self.init();

@@ -1,0 +1,12 @@
+<div class="st-modal" ng-controller="AddProductController as ctrl">
+    <div class="modal-header">
+        <h3 class="modal-title">{{ctrl.labels.addDepartment()}}</h3>
+    </div>
+    <div class="modal-body">
+        <span> {{ctrl.labels.confirmNewDepartment()}}</span>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ctrl.confirmedNewDepartment()">{{ctrl.labels.yes()}}</button>
+        <button class="btn btn-warning" ng-click="ctrl.canceledNewDepartment()">{{ctrl.labels.no()}}</button>
+    </div>
+</div>

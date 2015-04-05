@@ -14,28 +14,8 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
-
     // list of files / patterns to load in the browser
-    files: [
-      'src/bower_components/angular/angular.js',
-      'src/bower_components/angular-route/angular-route.js',
-      'src/bower_components/angular-mocks/angular-mocks.js',
-      'src/bower_components/angular-input-match/dist/angular-input-match.js',
-      'src/bower_components/angular-translate/angular-translate.js',
-      'src/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
-      'src/bower_components/firebase/firebase.js',
-      'src/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-      'src/bower_components/spin.js/spin.js',
-      'src/bower_components/angular-spinner/angular-spinner.js',
-      'src/bower_components/lf-firebase-auth/lf-firebase-auth-service.js',
-      'src/bower_components/lf-cookies/lf-cookies.js',
-    'src/modules/core-module/core-app.js', 'src/modules/core-module/scripts/**/*.js',
-    'src/modules/product-module/product-app.js', 'src/modules/product-module/scripts/**/*.js',
-    'src/modules/user-module/user-app.js', 'src/modules/user-module/scripts/**/*.js',
-      'tests/unit/**/*mock.js',
-      'tests/unit/**/*test.js'
-    ],
-
+    files: [],
 
     // list of files to exclude
     exclude: [

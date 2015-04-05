@@ -3,7 +3,7 @@
 exports.config = {
 
     // The address where our server under test is running
-    baseUrl: 'http://localhost:9000/',
+    baseUrl: 'http://localhost:9000',
 
     // Capabilities to be passed to the webdriver instance.
     capabilities: {

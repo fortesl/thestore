@@ -17,23 +17,11 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     htmlmin = require('gulp-htmlmin'),
     jsonminify = require('gulp-jsonminify'),
+    
+    sources = require('./sourceFiles'),
 
-    srcJsFiles = [
-    'src/modules/core-module/core-app.js', 'src/modules/core-module/scripts/**/*.js',
-    'src/modules/product-module/product-app.js', 'src/modules/product-module/scripts/**/*.js',
-    'src/modules/user-module/user-app.js', 'src/modules/user-module/scripts/**/*.js'
-    ],
-    vendorJsFiles = [
-    'src/bower_components/angular-input-match/dist/angular-input-match.js',
-    'src/bower_components/angular-translate/angular-translate.js',
-    'src/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
-    'src/bower_components/spin.js/spin.js',
-    'src/bower_components/angular-spinner/angular-spinner.js',
-    'src/bower_components/lf-cookies/lf-cookies.js',
-    'src/bower_components/lf-firebase-auth/lf-firebase-auth-service.js'
-    ],
-    testJsFiles = ['./tests/unit/**/*.js'],
-    e2eJsFiles = ['./tests/e2e/**/*.js'],
+    e2eJsFiles = ['tests/e2e/**/*spec.js'],
+    testJsFiles = ['./tests/**/*.js'],
     srcHtmlFiles = ['./src/**/*.html'],
     srcScssFiles = ['./src/modules/*/styles/**/*.scss'],
     srcSassMainFile = './src/theStore.scss',
@@ -51,7 +39,7 @@ var gulp = require('gulp'),
 
 
 gulp.task('dev', ['concatScripts','concatVendorScripts', 'concatStyles', 'lint', 'tdd', 'serve'], function() {
-    gulp.watch(srcJsFiles.concat(testJsFiles).concat(e2eJsFiles), ['lint', 'concatScripts']);
+    gulp.watch(sources.srcJsFiles.concat(testJsFiles), ['lint', 'concatScripts']);
     gulp.watch(srcScssFiles, ['buildDevStyle']);
 });
 
@@ -66,13 +54,13 @@ gulp.task('build', ['buildScript', 'buildVendorScript', 'buildHtml', 'buildCopy'
 });
 
 gulp.task('concatScripts', function() {
-    return gulp.src(srcJsFiles)
+    return gulp.src(sources.srcJsFiles)
         .pipe(concat(devJsFile))
         .pipe(gulp.dest(devJsDir));
 });
 
 gulp.task('concatVendorScripts', function() {
-    return gulp.src(vendorJsFiles)
+    return gulp.src(sources.vendorJsFiles)
         .pipe(concat(devVendorFile))
         .pipe(gulp.dest(devJsDir));
 });
@@ -92,7 +80,7 @@ gulp.task('cleanBuild', function(cb) {
 });
 
 gulp.task('lint', function() {
-    return gulp.src(srcJsFiles.concat(testJsFiles).concat(e2eJsFiles).concat('*.js'))
+    return gulp.src(sources.srcJsFiles.concat(testJsFiles).concat('*.js'))
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
@@ -110,18 +98,29 @@ gulp.task('unitTesting', function(done) {
     karma.start({
         configFile: path.resolve('karma.conf.js'),
         singleRun: true,
+        files: sources.vendorJsFiles.concat(sources.srcJsFiles).concat(sources.unitTestFiles),
         browsers: ['PhantomJS']
     }, done);
 });
 
 gulp.task('tdd', function(done) {
     karma.start({
-        configFile: path.resolve('karma.conf.js')
+        configFile: path.resolve('karma.conf.js'),
+        files: sources.vendorJsFiles.concat(sources.srcJsFiles).concat(sources.unitTestFiles)
     }, done);
 });
 
-
 gulp.task('connect', function() {
+    browserSync({
+        server: {
+            baseDir: srcDir,
+            index: 'index.html'
+        },
+        port: 9000
+    });
+});
+
+gulp.task('connect2', function() {
     connect.server({
         port: 9000,
         hostname: '0.0.0.0',
@@ -151,7 +150,7 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('acceptanceTesting', ['connect'], function() {
+gulp.task('acceptanceTesting', ['connect2'], function() {
     gulp.src(e2eJsFiles)
         .pipe(e2e({
             configFile: path.resolve('protractor.conf.js')
@@ -175,7 +174,7 @@ gulp.task('buildScript', ['ngtemplates'], function() {
 
 gulp.task('buildVendorScript', function() {
     return gulp.src([devJsDir + devVendorFile])
-        .pipe(uglify(devVendorFile))
+//        .pipe(uglify(devVendorFile))
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(buildDir));
 });

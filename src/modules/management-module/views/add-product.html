@@ -1,0 +1,25 @@
+<div class="add-product-view">
+    <h1 class="st-header">{{ addProductCtrl.labels.addProduct() }}</h1>
+    <form name="addProductCtrl.form" class="st-form" ng-submit="addProductCtrl.add()">
+
+        <div ng-if="!addProductCtrl.selectedCategory || addProductCtrl.selectedCategory.id">
+            <st-select-department></st-select-department>
+
+            <st-select-category ng-if="addProductCtrl.selectedDepartment && !addProductCtrl.selectedDepartment.id"></st-select-category>
+        </div>
+
+        <div ng-if="addProductCtrl.selectedCategory && !addProductCtrl.selectedCategory.id">
+            <st-breadcrumbs></st-breadcrumbs>
+        </div>
+
+        <fieldset class="form-group st-form-buttons">
+            <div class="row st-form-field">
+                <div class="col-md-3 col-lg-3">
+                    <input ng-disabled="addProductCtrl.form.$invalid" class="btn btn-primary" type="submit" value="{{ addProductCtrl.submitFormLabel }}"/>
+                </div>
+            </div>
+        </fieldset>
+
+    </form>
+</div>
+

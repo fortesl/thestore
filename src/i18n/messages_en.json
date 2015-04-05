@@ -55,5 +55,35 @@
   "PASSWORD_CHANGED": "Your password has been changed. Thank you.",
   "LOGOUT": "Logout",
   "CHANGE_YOUR_PASSWORD": "Please change Password",
-  "SELL_ITEMS": "Sell your items"
+  "SELL_ITEMS": "Sell your items",
+
+"=========================================================": "STORE MANAGEMENT",
+
+"YES": "Yes",
+"NO": "No",
+"ADD": "Add",
+"OTHER": "Other",
+"ADD_PRODUCT": "Add Product",
+
+"SELECT_DEPARTMENT": "Select a store department",
+"ADD_DEPARTMENT": "Add Department",
+"ENTER_NEW_DEPARTMENT": "Enter new department name",
+"REPEAT_NEW_DEPARTMENT": "Repeat new department name",
+"DEPARTMENT_MISMATCH": "Department names do not match",
+"NEW_DEPARTMENT": "New Department",
+"CONFIRM_NEW_DEPARTMENT": "Are you sure you want to add a new department?",
+"DEPARTMENT_TOOLTIP": "A department is a grouping of similar products. Examples: 'Sports & Outdoors', 'Home & Garden', 'Software', 'Business Equipment'",
+
+  "SELECT_CATEGORY": "Select a product category",
+  "ADD_CATEGORY": "Add Category",
+  "ENTER_NEW_CATEGORY": "Enter new category name",
+  "REPEAT_NEW_CATEGORY": "Repeat new category name",
+  "CATEGORY_MISMATCH": "Category names do not match",
+  "NEW_CATEGORY": "New Category",
+  "CONFIRM_NEW_CATEGORY": "Are you sure you want to add a new category?",
+  "CATEGORY_TOOLTIP": "A category is a grouping of similar products in a department. Examples of categories in Clothing: 'T-Shirts', 'Pants', 'Jackets'",
+  "CATEGORY": "Category",
+  "DEPARTMENT": "Department"
+
+
 }

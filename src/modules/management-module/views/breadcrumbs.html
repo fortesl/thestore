@@ -1,0 +1,10 @@
+<div id="breadcrumb">
+    <ul class="crumbs">
+        <li class="first"><a ng-href="#/add-product/" style="z-index:9;"><span></span>
+            {{addProductCtrl.labels.department() + ' (' + addProductCtrl.selectedDepartment.label + ')'}}
+        </a></li>
+        <li><a ng-href="#/add-product?departmentId={{addProductCtrl.selectedDepartment.$id}}" style="z-index:8;">
+            {{addProductCtrl.labels.category() + ' (' + addProductCtrl.selectedCategory.label + ')'}}
+        </a></li>
+    </ul>
+</div>

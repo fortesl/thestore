@@ -1,0 +1,34 @@
+<fieldset class="st-select-department form-group">
+    <legend>{{addProductCtrl.labels.selectDepartment()}}</legend>
+    <ng-form name="selectDepartmentForm">
+        <div class="st-form-field row">
+            <div class="col-md-4 col-lg-4">
+                <select class="form-control st-form-field st-form-select" ng-model="addProductCtrl.selectedDepartment" ng-options="department.label for department in addProductCtrl.departments" required></select>
+            </div>
+        </div>
+    </ng-form>
+</fieldset>
+
+<fieldset class="st-new-department form-group" ng-if="addProductCtrl.selectedDepartment.id">
+    <legend>{{addProductCtrl.labels.newDepartment()}}</legend>
+    <ng-form name="newDepartmentForm">
+        <div class="st-form-field row">
+            <div class="col-md-4 col-lg-4">
+                <input name="department" class="form-control st-form-field st-form-input" ng-model="addProductCtrl.newDepartmentName"
+                   placeholder="{{addProductCtrl.labels.enterNewDepartment()}}" ng-required="addProductCtrl.selectedDepartment.id">
+            </div>
+        </div>
+    </ng-form>
+</fieldset>
+
+<fieldset class="st-repeat-department form-group" ng-if="addProductCtrl.selectedDepartment.id">
+    <ng-form name="repeatDepartmentForm">
+        <div class="st-form-field row">
+            <div class="col-md-4 col-lg-4">
+                <input name="repeatDepartment" data-match="addProductCtrl.newDepartmentName" class="form-control st-form-field st-form-input" ng-model="addProductCtrl.repeatNewDepartmentName"
+                   placeholder="{{addProductCtrl.labels.repeatNewDepartment()}}" ng-required="addProductCtrl.selectedDepartment.id">
+                <span ng-show="repeatDepartmentForm.repeatDepartment.$error.match">{{ addProductCtrl.labels.departmentMismatch() }}</span>
+            </div>
+        </div>
+    </ng-form>
+</fieldset>
