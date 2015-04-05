@@ -10,3 +10,8 @@ env:
   - secure: J0ggU6aIq/mWCOa8Xiq22AA6Tzv6GGNpwe/kKVN5BCTnU+XEOouYHI+P/32aYBMHZ2OjTLS/b8fLH3P15bHWzDNRbToC48N0MDGnB+LhsLDtJRb3MLKnvw/hrGecw5/tzVc8otU1uQWJmaJ871kS6m5CB/0aV4jY0vWlIStMS/c=
 addons:
   sauce_connect: true
+  code_climate:
+    repo_token: 117838f870c44b977b2148611d62e9599573b1d18a38056792e4bec886692605
+
+after_script:
+  codeclimate < coverage/Pha*/lcov.info
