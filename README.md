@@ -1,4 +1,4 @@
-TheStore  TheStore  [![Build Status](https://travis-ci.org/fortesl/thestore.svg?branch=withFbB)](https://travis-ci.org/fortesl/thestore) [![devDependency Status](https://david-dm.org/luisfortes/thestore/dev-status.svg)](https://david-dm.org/luisfortes/thestore#info=devDependencies) [![Code Climate](https://codeclimate.com/github/luisfortes/thestore/badges/gpa.svg)](https://codeclimate.com/github/luisfortes/thestore)
+TheStore [![Build Status](https://travis-ci.org/fortesl/thestore.svg?branch=withFbB)](https://travis-ci.org/fortesl/thestore) [![devDependency Status](https://david-dm.org/luisfortes/thestore/dev-status.svg)](https://david-dm.org/luisfortes/thestore#info=devDependencies) [![Code Climate](https://codeclimate.com/github/luisfortes/thestore/badges/gpa.svg)](https://codeclimate.com/github/luisfortes/thestore)
 ========
 An online store built on Bootstrap and Angular technologies. 
 
