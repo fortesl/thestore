@@ -14,7 +14,7 @@ exports.config = {
     framework: 'jasmine',
 
     seleniumServerJar: './utils/selenium/selenium-server-standalone-2.44.0.jar',
-    chromeDriver: './utils/selenium/chromedriver.exe',
+    chromeDriver: './utils/selenium/chromedriver',
 
     // Spec patterns are relative to the location of the
     // spec file. They may include glob patterns.
