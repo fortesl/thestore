@@ -46,7 +46,7 @@
   "RESET_PASSWORD": "Reset Password",
   "NEW_USER?": "New user?",
   "ENTER_EMAIL": "Please enter your email address",
-  "RESET_PASSWORD_EMAIL": "A Temporary password has been emailed to you.",
+  "RESET_PASSWORD_EMAIL": "A Temporary password has been emailed to you. Enter it above to login.",
   "CURRENT_PASSWORD": "Temporary password",
   "NEW_PASSWORD": "New password",
   "REPEAT_NEW_PASSWORD": "Repeat new password",
@@ -54,8 +54,15 @@
   "CHANGE_PASSWORD": "Change Password",
   "PASSWORD_CHANGED": "Your password has been changed. Thank you.",
   "LOGOUT": "Logout",
-  "CHANGE_YOUR_PASSWORD": "Please change Password",
+  "CHANGE_YOUR_PASSWORD": "Please change your password now.",
   "SELL_ITEMS": "Sell your items",
+
+  "ERROR_REQUIRED_MESSAGE": "Cannot be blank!",
+  "ERROR_MINLENGTH_MESSAGE": "Too few characters!",
+  "ERROR_MAXLENGTH_MESSAGE": "Too many characters!",
+  "ERROR_MISMATCH_MESSAGE": "Does not match!",
+  "ERROR_EMAIL_MESSAGE": "Invalid email address!",
+  "ERROR_INLIST_MESSAGE": "Already exists!",
 
 "=========================================================": "STORE MANAGEMENT",
 

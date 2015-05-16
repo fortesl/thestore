@@ -6,8 +6,8 @@
 (function () {
     'use strict';
 
-    angular.module('user').controller('UserController', ['lfFirebaseAuthService', '$location', '$rootScope', 'UserLabels', 'usSpinnerService',
-        function(lfFirebaseAuthService, $location, $rootScope, UserLabels, usSpinnerService) {
+    angular.module('user').controller('UserController', ['lfFirebaseAuthService', '$location', '$rootScope', 'UserLabels', 'usSpinnerService', 'lfToastrService', '$routeParams',
+        function(lfFirebaseAuthService, $location, $rootScope, UserLabels, usSpinnerService, lfToastrService, $routeParams) {
         var self = this;
 
         var startSpinner = function() {
@@ -26,6 +26,10 @@
             self.user = {};
             self.userServiceError = {};
             self.labels = UserLabels;
+
+            if ($routeParams.emailAddress) {
+                self.user.email = $routeParams.emailAddress;
+            }
         };
 
         self.add = function() {
@@ -38,6 +42,7 @@
             }, function(error) {
                 stopSpinner();
                 self.userServiceError = error;
+                lfToastrService.openToast(error.message, self.labels.signUp(), {timeOut: 5000, positionClass: 'toast-top-right'});
             });
         };
 
@@ -52,6 +57,7 @@
             }, function(error) {
                 stopSpinner();
                 self.userServiceError = error;
+                lfToastrService.openToast(error.message, self.labels.signIn(), {timeOut: 5000, positionClass: 'toast-top-right'});
             });
         };
 
@@ -59,6 +65,9 @@
             self.userServiceError = {};
             if (!self.user.email) {
                 self.userServiceError.message = self.labels.enterEmailAddress();
+                if (self.signinForm) {
+                    self.signinForm.$setUntouched();
+                }
             }
             else {
                 startSpinner();
@@ -67,11 +76,15 @@
                     self.userServiceError.message = self.labels.resetPasswordEmail();
                     self.resetPasswordRequested = true;
                     stopSpinner();
-                    self.user = {};
+                    lfToastrService.openToast(self.labels.resetPasswordEmail(), self.labels.resetPassword(), {timeOut: 6000, positionClass: 'toast-top-right', type:'info'});
+                    if (self.signinForm) {
+                        self.signinForm.$setUntouched();
+                    }
                 }, function (error) {
                     self.userServiceError = error;
                     stopSpinner();
                     self.resetPasswordRequested = false;
+                    lfToastrService.openToast(error.message, self.labels.resetPassword(), {timeOut: 5000, positionClass: 'toast-top-right'});
                 });
             }
         };
@@ -88,10 +101,12 @@
                 self.userServiceError.message = self.labels.passwordChanged();
                 stopSpinner();
                 self.changedPassword = true;
+                lfToastrService.openToast(self.labels.passwordChanged(), self.labels.changePassword(), {timeOut: 6000, positionClass: 'toast-top-right', type:'success'});
             }, function(error) {
                 self.userServiceError = error;
                 stopSpinner();
                 self.changedPassword = false;
+                lfToastrService.openToast(error.message, self.labels.changePassword(), {timeOut: 5000, positionClass: 'toast-top-right'});
             });
         };
 

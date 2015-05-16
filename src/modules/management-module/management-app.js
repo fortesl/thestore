@@ -14,6 +14,8 @@
         .config(['$routeProvider', '$httpProvider', '$translateProvider',
             function($routeProvider, $httpProvider, $translateProvider) {
 
+                $routeProvider.caseInsensitiveMatch = true;
+
                 $routeProvider.
                     when('/add-product', {
                         resolve:  {
@@ -27,9 +29,6 @@
                         },
                         templateUrl: 'modules/management-module/views/add-product.html',
                         controller: 'AddProductController as addProductCtrl'
-                    }).
-                    otherwise({
-                        redirectTo: '/add-product'
                     });
 
                 // enable http caching

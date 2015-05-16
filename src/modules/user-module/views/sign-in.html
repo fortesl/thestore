@@ -1,28 +1,30 @@
 <!-- sign-in form -->
 <div class="st-sign-in-view">
     <h1 ng-bind="userCtrl.labels.signIn()"></h1>
-    <form name="signinForm" ng-submit="signinForm.$valid && userCtrl.login()" novalidate>
+    <form class="st-form" name="userCtrl.signinForm" ng-submit="userCtrl.signinForm.$valid && userCtrl.login()" novalidate>
         <div class="row">
             <div class="col-md-4 col-lg-4">
-                <fieldset class="form-group" id="inputEmailFormGroup">
-                    <label for="inputEmail" ng-bind="userCtrl.labels.emailAddress()"></label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="{{ userCtrl.labels.enterEmailAddress() }}" ng-model="userCtrl.user.email" required>
+                <fieldset class="st-form-field form-group">
+                    <legend>{{userCtrl.labels.emailAddress()}}</legend>
+                    <input name="email" type="email" class="form-control" id="inputEmail" placeholder="{{ userCtrl.labels.enterEmailAddress() }}" ng-model="userCtrl.user.email" required>
                 </fieldset>
             </div>
         </div>
+        <span ng-if="userCtrl.signinForm.email.$touched" ng-messages="userCtrl.signinForm.email.$error" ng-messages-include="modules/core-module/views/error-messages.html" ng-messages-multiple=""></span>
         <div class="row">
             <div class="col-md-3 col-lg-3">
-                <fieldset class="form-group" id="inputPasswordFormGroup">
-                    <label for="inputPassword" ng-bind=userCtrl.labels.password()></label>
-                    <input name="password" type="password" class="form-control" id="inputPassword" ng-model="userCtrl.user.password" required>
-                    <div id="errorMessage" ng-show="userCtrl.userServiceError" class="has-error text-warning">{{ userCtrl.userServiceError.message}}</div>
+                <fieldset class="form-group">
+                    <legend>{{userCtrl.labels.password()}}</legend>
+                    <input name="password" type="password" class="form-control" id="inputPassword" ng-model="userCtrl.user.password" placeholder="{{ userCtrl.labels.password()}}" required>
                 </fieldset>
             </div>
         </div>
+        <span ng-if="userCtrl.signinForm.password.$touched" ng-messages="userCtrl.signinForm.password.$error" ng-messages-include="modules/core-module/views/error-messages.html" ng-messages-multiple=""></span>
+        <div ng-show="userCtrl.userServiceError.message" class="has-error text-warning">{{ userCtrl.userServiceError.message}}</div>
         <div class="row">
             <div class="col-md-3 col-lg-3">
-                <fieldset class="form-group" id="buttonsGroup">
-                    <input ng-disabled="signinForm.$invalid" class="btn btn-primary" type="submit" value="{{ userCtrl.labels.signIn() }}"/>
+                <fieldset class="st-form-field form-group">
+                    <input ng-disabled="userCtrl.signinForm.$invalid" class="btn btn-primary" type="submit" value="{{ userCtrl.labels.signIn() }}"/>
                     <p><a href ng-click="userCtrl.resetPassword();" ng-bind="userCtrl.labels.resetPassword()"></a></p>
                 </fieldset>
             </div>

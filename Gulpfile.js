@@ -38,9 +38,11 @@ var gulp = require('gulp'),
     devCssDir = devDir + 'css/';
 
 
-gulp.task('dev', ['concatScripts','concatVendorScripts', 'concatStyles', 'lint', 'tdd', 'serve'], function() {
-    gulp.watch(sources.srcJsFiles.concat(testJsFiles), ['lint', 'concatScripts']);
-    gulp.watch(srcScssFiles, ['buildDevStyle']);
+gulp.task('dev', ['concatScripts','concatVendorScripts', 'concatStyles', 'lint', 'tdd', 'serve', 'watch']);
+
+gulp.task('watch', function() {
+    gulp.watch(sources.srcJsFiles.concat(testJsFiles).concat('sourceFiles.js'), ['lint', 'concatScripts']);
+    gulp.watch(srcScssFiles, ['concatStyles']);
 });
 
 gulp.task('test', ['unitTesting', 'acceptanceTesting']);
@@ -90,7 +92,7 @@ gulp.task('serve', function() {
         server: {
             baseDir: srcDir
         },
-        files: [devCssDir + '*.css', srcHtmlFiles, devJsDir + '*.js']
+        files: [devCssDir + '*.css', srcHtmlFiles, devJsDir + '*.js', srcDir + 'index.html']
     });
 });
 

@@ -1,29 +1,30 @@
 <div class="st-select-department">
-    <ng-form name="selectDepartment">
+    <div class="form-group st-form-field row">
+        <div class="col-md-6 col-lg-6">
+            <div class="st-form-label">{{addProductCtrl.labels.selectDepartment()}}
+                <span title="{{addProductCtrl.labels.departmentTooltip()}}" class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+            </div>
+            <select class="st-form-field st-form-select form-control" ng-model="addProductCtrl.selectedDepartment" ng-options="department.label for department in addProductCtrl.departments" required></select>
+        </div>
+    </div>
+    <div ng-if="addProductCtrl.selectedDepartment.id">
         <div class="form-group st-form-field row">
-            <div class="col-md-6 col-lg-6">
-                <div class="st-form-label">{{addProductCtrl.labels.selectDepartment()}}
-                    <span title="{{addProductCtrl.labels.departmentTooltip()}}" class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                </div>
-                <select class="st-form-field st-form-select form-control" ng-model="addProductCtrl.selectedDepartment" ng-options="department.label for department in addProductCtrl.departments" required></select>
+            <div class="col-md-4 col-lg-4">
+                <div class="st-form-label">{{addProductCtrl.labels.enterNewDepartment()}}</div>
+                <input name="department" class="st-form-field st-form-input form-control" ng-model="addProductCtrl.newDepartmentName"
+                       st-already-in-list-validator list="addProductCtrl.departments" property="label"
+                   placeholder="{{addProductCtrl.labels.enterNewDepartment()}}" ng-required="addProductCtrl.selectedDepartment.id" ng-minlength="2" ng-maxlength="100">
             </div>
         </div>
-        <div ng-if="addProductCtrl.selectedDepartment.id">
-            <div class="form-group st-form-field row">
-                <div class="col-md-4 col-lg-4">
-                    <div class="st-form-label">{{addProductCtrl.labels.enterNewDepartment()}}</div>
-                    <input name="department" class="st-form-field st-form-input form-control" ng-model="addProductCtrl.newDepartmentName"
-                       placeholder="{{addProductCtrl.labels.enterNewDepartment()}}" ng-required="addProductCtrl.selectedDepartment.id">
-                </div>
-            </div>
-            <div class="form-group st-form-field row">
-                <div class="col-md-4 col-lg-4">
-                    <div class="st-form-label">{{addProductCtrl.labels.repeatNewDepartment()}}</div>
-                    <input name="repeatDepartment" data-match="addProductCtrl.newDepartmentName" class="st-form-field st-form-input form-control" ng-model="addProductCtrl.repeatNewDepartmentName"
-                           placeholder="{{addProductCtrl.labels.repeatNewDepartment()}}" ng-required="addProductCtrl.selectedDepartment.id">
-                    <span class="error-message" ng-show="addProductCtrl.form.selectDepartment.repeatDepartment.$error.match">{{ addProductCtrl.labels.departmentMismatch() }}</span>
-                </div>
+        <span ng-if="addProductCtrl.form.department.$touched" ng-messages="addProductCtrl.form.department.$error" ng-messages-multiples ng-messages-include="modules/core-module/views/error-messages.html"></span>
+        <div class="form-group st-form-field row">
+            <div class="col-md-4 col-lg-4">
+                <div class="st-form-label">{{addProductCtrl.labels.repeatNewDepartment()}}</div>
+                <input name="repeatDepartment" data-match="addProductCtrl.newDepartmentName" class="st-form-field st-form-input form-control" ng-model="addProductCtrl.repeatNewDepartmentName"
+                       placeholder="{{addProductCtrl.labels.repeatNewDepartment()}}" ng-required="addProductCtrl.selectedDepartment.id">
+                <span class="error-message" ng-show="addProductCtrl.form.selectDepartment.repeatDepartment.$error.match">{{ addProductCtrl.labels.departmentMismatch() }}</span>
             </div>
         </div>
-    </ng-form>
+        <span ng-if="addProductCtrl.form.repeatDepartment.$touched" ng-messages="addProductCtrl.form.repeatDepartment.$error" ng-messages-multiples ng-messages-include="modules/core-module/views/error-messages.html"></span>
+    </div>
 </div>

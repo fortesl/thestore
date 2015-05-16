@@ -7,9 +7,12 @@
     'use strict';
 
     angular
-        .module('user', ['ngRoute', 'directives.inputMatch', 'pascalprecht.translate', 'lfFirebaseAuth'])
+        .module('user', ['ngRoute', 'directives.inputMatch', 'pascalprecht.translate', 'lfFirebaseAuth', 'ngMessages', 'lf-toastr'])
 
         .config(['$routeProvider', function($routeProvider) {
+
+            $routeProvider.caseInsensitiveMatch = true;
+
             $routeProvider.
                 when('/signup', {
                     templateUrl: 'modules/user-module/views/sign-up.html',
@@ -25,6 +28,19 @@
                     }
                 }).
                 when('/signin', {
+                    templateUrl: 'modules/user-module/views/sign-in.html',
+                    controller: 'UserController as userCtrl',
+                    resolve: {
+                        isLoggedIn: ['$q', 'lfFirebaseAuthService', function($q, lfFirebaseAuthService) {
+                            if (lfFirebaseAuthService.isLoggedIn()) {
+                                return $q(function(resolve, reject) {
+                                    reject('user already in');
+                                });
+                            }
+                        }]
+                    }
+                }).
+                when('/signin/:emailAddress', {
                     templateUrl: 'modules/user-module/views/sign-in.html',
                     controller: 'UserController as userCtrl',
                     resolve: {

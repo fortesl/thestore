@@ -14,7 +14,14 @@
             issues: function() { return $translate.instant('ISSUES'); },
             about: function() { return $translate.instant('ABOUT'); },
             license: function() { return $translate.instant('LICENSE'); },
-            contactUs: function() {return $translate.instant('CONTACTUS');}
+            contactUs: function() {return $translate.instant('CONTACTUS');},
+
+            errorRequiredMsg: function() { return $translate.instant('ERROR_REQUIRED_MESSAGE');},
+            errorMinLengthMsg: function() { return $translate.instant('ERROR_MINLENGTH_MESSAGE');},
+            errorMaxLengthMsg: function() { return $translate.instant('ERROR_MAXLENGTH_MESSAGE');},
+            errorEmailMsg: function() { return $translate.instant('ERROR_EMAIL_MESSAGE');},
+            errorMismatchMsg: function() { return $translate.instant('ERROR_MISMATCH_MESSAGE');},
+            errorInListMsg: function() { return $translate.instant('ERROR_INLIST_MESSAGE');}
         };
     }]);
 

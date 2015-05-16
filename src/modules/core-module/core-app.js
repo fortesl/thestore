@@ -9,21 +9,20 @@
     'use strict';
 
     angular
-        .module('storeApp', ['ngRoute', 'product', 'user', 'management', 'lfCookies', 'pascalprecht.translate', 'ui.bootstrap', 'angularSpinner'])
+        .module('storeApp', ['ngRoute', 'product', 'user', 'management', 'lfCookies', 'pascalprecht.translate', 'ui.bootstrap', 'angularSpinner', 'commons'])
 
         .constant('FIREBASE_URL',  'https://thestore.firebaseio.com')
 
         .config(['$routeProvider', '$httpProvider', '$translateProvider',
             function($routeProvider, $httpProvider, $translateProvider) {
 
+                $routeProvider.caseInsensitiveMatch = true;
                 $routeProvider.
                     when('/', {
                         templateUrl: 'modules/product-module/views/products.html',
                         controller: 'ProductController as productCtrl'
                     }).
-                    otherwise({
-                        redirectTo: '/'
-                    });
+                    otherwise('/');
 
                 // enable http caching
                 $httpProvider.defaults.cache = true;

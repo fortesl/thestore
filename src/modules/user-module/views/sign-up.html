@@ -2,58 +2,72 @@
 <div class="st-sign-up-view">
     <h1 ng-bind="userCtrl.labels.signUp()"></h1>
     <form class="st-form" name="signupForm" ng-submit="signupForm.$valid && userCtrl.add()" novalidate>
-        <fieldset class="form-group">
-            <legend>{{userCtrl.labels.username()}}</legend>
-            <div class="st-form-field row">
+        <div>
+            <div class="row">
                 <div class="col-md-6 col-lg-6">
-                    <input type="text" class="form-control" placeholder="{{ userCtrl.labels.enterFirstName() }}" ng-model="userCtrl.user.firstName" required>
+                    <fieldset class="form-group">
+                        <legend>{{userCtrl.labels.username()}}</legend>
+                        <input name="firstName" type="text" class="form-control" placeholder="{{ userCtrl.labels.enterFirstName() }}" ng-model="userCtrl.user.firstName" required>
+                    </fieldset>
                 </div>
             </div>
-            <div class="row st-form-field">
+            <span ng-if="signupForm.firstName.$touched" ng-messages="signupForm.firstName.$error" ng-messages-include="modules/core-module/views/error-messages.html" ng-messages-multiple=""></span>
+            <div class="row">
                 <div class="col-md-6 col-lg-6">
-                    <input type="text" class="form-control" placeholder="{{ userCtrl.labels.enterLastName() }}" ng-model="userCtrl.user.lastName" required>
+                    <fieldset class="form-group">
+                        <input name="lastName" type="text" class="form-control" placeholder="{{ userCtrl.labels.enterLastName() }}" ng-model="userCtrl.user.lastName" required>
+                    </fieldset>
                 </div>
             </div>
-        </fieldset>
-        <fieldset class="form-group odd">
-            <legend>{{userCtrl.labels.emailAddress()}}</legend>
-            <div class="row st-form-field">
+            <span ng-if="signupForm.lastName.$touched" ng-messages="signupForm.lastName.$error" ng-messages-include="modules/core-module/views/error-messages.html" ng-messages-multiple></span>
+        </div>
+        <div class="odd">
+            <div class="row">
                 <div class="col-md-4 col-lg-4">
-                    <input name="email" type="email" class="form-control" placeholder="{{ userCtrl.labels.enterEmailAddress()}}" ng-model="userCtrl.user.email" required>
+                    <fieldset class="form-group">
+                        <legend>{{userCtrl.labels.emailAddress()}}</legend>
+                        <input name="email" type="email" class="form-control" placeholder="{{ userCtrl.labels.enterEmailAddress()}}"
+                           ng-model="userCtrl.user.email" required>
+                    </fieldset>
                 </div>
             </div>
-            <div class="row st-form-field">
+            <span ng-if="signupForm.email.$touched" ng-messages="signupForm.email.$error" ng-messages-include="modules/core-module/views/error-messages.html" ng-messages-multiple></span>
+            <div class="row">
                 <div class="col-md-4 col-lg-4">
-                    <input name="repeatEmail" type="email" class="form-control" data-match="userCtrl.user.email" placeholder="{{ userCtrl.labels.repeatEmailAddress()}}" ng-model="userCtrl.user.repeatEmail" required>
-                    <span ng-show="signupForm.repeatEmail.$error.match">{{ userCtrl.labels.emailMismatch() }}</span>
+                    <fieldset class="form-group odd">
+                    <input name="repeatEmail" type="email" class="form-control" data-match="userCtrl.user.email" placeholder="{{ userCtrl.labels.repeatEmailAddress()}}"
+                           ng-model="userCtrl.user.repeatEmail" required>
+                    </fieldset>
                 </div>
             </div>
-        </fieldset>
-        <fieldset class="form-group">
-            <legend>{{userCtrl.labels.password()}}</legend>
-            <div class="row st-form-field">
+            <span ng-if="signupForm.repeatEmail.$touched" ng-messages="signupForm.repeatEmail.$error" ng-messages-include="modules/core-module/views/error-messages.html" ng-messages-multiple></span>
+        </div>
+        <div>
+            <div class="row">
                 <div class="col-md-3 col-lg-3">
-                    <label ng-bind=userCtrl.labels.password()></label>
-                    <input name="password" type="password" class="form-control" ng-model="userCtrl.user.password" ng-minlength="8" required>
-                    <span ng-show="signupForm.password.$error.minlength">{{ userCtrl.labels.passwordMinLength() }}</span>
+                    <fieldset class="form-group">
+                        <legend>{{userCtrl.labels.password()}}</legend>
+                        <input name="password" type="password" class="form-control" ng-model="userCtrl.user.password" ng-minlength="8" placeholder="{{ userCtrl.labels.password()}}" required>
+                    </fieldset>
                 </div>
             </div>
-            <div class="row st-form-field">
+            <span ng-if="signupForm.password.$touched" ng-messages="signupForm.password.$error" ng-messages-include="modules/core-module/views/error-messages.html" ng-messages-multiple></span>
+            <div class="row">
                 <div class="col-md-3 col-lg-3">
-                    <label ng-bind=userCtrl.labels.repeatPassword()></label>
-                    <input name="repeatPassword" type="password" class="form-control" data-match="userCtrl.user.password" ng-model="userCtrl.user.repeatPassword" required>
-                    <span ng-show="signupForm.repeatPassword.$error.match">{{ userCtrl.labels.passwordMismatch() }}</span>
-                    <div ng-show="userCtrl.userServiceError" class="has-error text-warning">{{ userCtrl.userServiceError.message}}</div>
+                    <fieldset class="form-group">
+                        <input name="repeatPassword" type="password" class="form-control" data-match="userCtrl.user.password" ng-model="userCtrl.user.repeatPassword" placeholder="{{ userCtrl.labels.repeatPassword()}}" required>
+                    </fieldset>
                 </div>
             </div>
-        </fieldset>
-        <fieldset class="form-group row" id="buttonsGroup">
-            <div class="row st-form-field">
+            <span ng-if="signupForm.repeatPassword.$touched" ng-messages="signupForm.repeatPassword.$error" ng-messages-include="modules/core-module/views/error-messages.html" ng-messages-multiple></span>
+        </div>
+            <div class="row">
                 <div class="col-md-3 col-lg-3">
+                    <fieldset class="st-form-field form-group">
                         <input ng-disabled="signupForm.$invalid" class="btn btn-primary" type="submit" value="{{ userCtrl.labels.signUp() }}"/>
+                    </fieldset>
                 </div>
             </div>
-        </fieldset>
     </form>
 </div>
 <!-- End signup form -->

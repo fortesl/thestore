@@ -1,29 +1,29 @@
 <div class="st-category">
-    <ng-form name="selectCategory">
+    <div class="form-group st-form-field row">
+        <div class="col-md-6 col-lg-6">
+            <div class="st-form-label">{{addProductCtrl.labels.selectCategory()}}
+                <span title="{{addProductCtrl.labels.categoryTooltip()}}" class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+            </div>
+            <select class="st-form-field st-form-select form-control" ng-model="addProductCtrl.selectedCategory" ng-options="category.label for category in addProductCtrl.categories | filter:addProductCtrl.departmentCategories" required></select>
+        </div>
+    </div>
+    <div ng-if="addProductCtrl.selectedCategory.id">
         <div class="form-group st-form-field row">
-            <div class="col-md-6 col-lg-6">
-                <div class="st-form-label">{{addProductCtrl.labels.selectCategory()}}
-                    <span title="{{addProductCtrl.labels.categoryTooltip()}}" class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                </div>
-                <select class="st-form-field st-form-select form-control" ng-model="addProductCtrl.selectedCategory" ng-options="category.label for category in addProductCtrl.categories | filter:addProductCtrl.departmentCategories" required></select>
+            <div class="col-md-4 col-lg-4">
+                <div class="st-form-label">{{addProductCtrl.labels.enterNewCategory()}}</div>
+                <input name="category" class="st-form-field st-form-input form-control" ng-model="addProductCtrl.newCategoryName"
+                       st-already-in-list-validator list="addProductCtrl.categories" property="label"
+                       placeholder="{{addProductCtrl.labels.enterNewCategory()}}" ng-required="addProductCtrl.selectedCategory.id" ng-minlength="2" ng-maxlength="100">
             </div>
         </div>
-        <div ng-if="addProductCtrl.selectedCategory.id">
-            <div class="form-group st-form-field row">
-                <div class="col-md-4 col-lg-4">
-                    <div class="st-form-label">{{addProductCtrl.labels.enterNewCategory()}}</div>
-                    <input name="category" class="st-form-field st-form-input form-control" ng-model="addProductCtrl.newCategoryName"
-                           placeholder="{{addProductCtrl.labels.enterNewCategory()}}" ng-required="addProductCtrl.selectedCategory.id">
-                </div>
-            </div>
-            <div class="form-group st-form-field row">
-                <div class="col-md-4 col-lg-4">
-                    <div class="st-form-label">{{addProductCtrl.labels.repeatNewCategory()}}</div>
-                    <input name="repeatCategory" data-match="addProductCtrl.newCategoryName" class="st-form-field st-form-input form-control" ng-model="addProductCtrl.repeatNewCategoryName"
-                           placeholder="{{addProductCtrl.labels.repeatNewCategory()}}" ng-required="addProductCtrl.selectedCategory.id">
-                    <span class="error-message" ng-show="addProductCtrl.form.selectCategory.repeatCategory.$error.match">{{ addProductCtrl.labels.categoryMismatch() }}</span>
-                </div>
+        <span ng-if="addProductCtrl.form.category.$touched" ng-messages="addProductCtrl.form.category.$error" ng-messages-multiples ng-messages-include="modules/core-module/views/error-messages.html"></span>
+        <div class="form-group st-form-field row">
+            <div class="col-md-4 col-lg-4">
+                <div class="st-form-label">{{addProductCtrl.labels.repeatNewCategory()}}</div>
+                <input name="repeatCategory" data-match="addProductCtrl.newCategoryName" class="st-form-field st-form-input form-control" ng-model="addProductCtrl.repeatNewCategoryName"
+                       placeholder="{{addProductCtrl.labels.repeatNewCategory()}}" ng-required="addProductCtrl.selectedCategory.id">
             </div>
         </div>
-    </ng-form>
+        <span ng-if="addProductCtrl.form.repeatCategory.$touched" ng-messages="addProductCtrl.form.repeatCategory.$error" ng-messages-multiples ng-messages-include="modules/core-module/views/error-messages.html"></span>
+    </div>
 </div>
